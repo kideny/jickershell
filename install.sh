@@ -23,7 +23,7 @@ cd tengine-2.1.2
 make & make install
 
 #下载Tengine的控制脚本到初始化配置文件的目录
-wget https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx
+wget http://www.jicker.cn/down/source/nginx -O /etc/init.d/nginx
 
 #给Tengine控制脚本添加执行权限
 chmod +x /etc/init.d/nginx
