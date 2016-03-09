@@ -14,7 +14,7 @@ tar zxvf tengine-2.1.2.tar.gz
 cd tengine-2.1.2
 
 #配置并检查依赖
-./configure
+./configure --prefix=/usr/local/nginx
 
 #编译并且执行安装
 make & make install
