@@ -1,3 +1,6 @@
+#对Debian系统Update
+apt-get update
+
 #安装Tengine的依赖库
 apt-get install pcre-devel openssl openssl-devel
 
@@ -19,3 +22,14 @@ cd tengine-2.1.2
 #编译并且执行安装
 make & make install
 
+#下载Tengine的控制脚本到初始化配置文件的目录
+wget https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx
+
+#给Tengine控制脚本添加执行权限
+chmod +x /etc/init.d/nginx
+
+#重新启动Tengine
+service nginx restart
+
+#安装成功的欢迎致辞！
+echo "Tengine install chenggong!";
