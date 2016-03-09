@@ -17,7 +17,7 @@ tar zxvf tengine-2.1.2.tar.gz
 cd tengine-2.1.2
 
 #配置并检查依赖
-./configure --prefix=/usr/local/nginx --group=www-data --user=www-data
+./configure --prefix=/usr/local/nginx --group=www-data --user=www-data  --with-http_stub_status_module --with-http_ssl_module
 
 #编译并且执行安装
 make & make install
