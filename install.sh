@@ -1,6 +1,9 @@
 #对Debian系统Update
 apt-get update
 
+#对Debian系统Update
+apt-get upgrade
+
 #安装Tengine的依赖库
 apt-get install pcre-devel openssl openssl-devel
 
