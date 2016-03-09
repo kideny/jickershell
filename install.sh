@@ -40,6 +40,9 @@ chmod +x /etc/init.d/nginx
 #将Tengine控制脚本添加到自启动的列表
 update-rc.d -f nginx defaults
 
+#创建站点配置文件的目录
+mkdir -p /usr/local/nginx/conf/vhost
+
 #重新启动Tengine
 service nginx restart
 
