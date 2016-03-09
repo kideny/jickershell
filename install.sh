@@ -1,8 +1,8 @@
 #删除系统自带的时区文件
 rm -rf /etc/localtime
 
-#设置时区
-cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+#设置时区为上海
+ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 #对Debian系统Update
 apt-get update
