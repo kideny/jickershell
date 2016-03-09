@@ -1,11 +1,17 @@
+#删除系统自带的时区文件
+rm -rf /etc/localtime
+
+#设置时区
+cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
 #对Debian系统Update
 apt-get update
 
-#对Debian系统Update
+#对Debian系统Upgrade
 apt-get upgrade
 
 #安装Tengine的依赖库
-apt-get install pcre-devel openssl openssl-devel libtool gcc-c++
+apt-get install pcre-devel openssl openssl-devel gcc-c++ libtool libssl-dev libperl-dev
 
 #进入Debian的源文件目录
 cd /usr/local/src
@@ -20,7 +26,7 @@ tar zxvf tengine-2.1.2.tar.gz
 cd tengine-2.1.2
 
 #配置并检查依赖
-./configure --prefix=/usr/local/nginx --group=www-data --user=www-data  --with-http_stub_status_module --with-http_ssl_module
+./configure --prefix=/usr/local/nginx --group=www-data --user=www-data  --with-http_stub_status_module --with-http_ssl_module --without-http-cache
 
 #编译并且执行安装
 make & make install
@@ -30,6 +36,9 @@ wget http://www.jicker.cn/down/source/nginx -O /etc/init.d/nginx
 
 #给Tengine控制脚本添加执行权限
 chmod +x /etc/init.d/nginx
+
+#将Tengine控制脚本添加到自启动的列表
+update-rc.d -f nginx defaults
 
 #重新启动Tengine
 service nginx restart
