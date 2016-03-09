@@ -5,7 +5,7 @@ apt-get update
 apt-get upgrade
 
 #安装Tengine的依赖库
-apt-get install pcre-devel openssl openssl-devel
+apt-get install pcre-devel openssl openssl-devel libtool gcc-c++
 
 #进入Debian的源文件目录
 cd /usr/local/src
