@@ -38,7 +38,7 @@ cd tengine-2.1.2
 time make
 
 #执行make
-sudo make install
+make install
 
 #下载Tengine的控制脚本到初始化配置文件的目录
 wget http://www.jicker.cn/down/source/nginx -O /etc/init.d/nginx
