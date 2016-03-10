@@ -31,6 +31,9 @@ tar zxvf tengine-2.1.2.tar.gz
 #进入Tengine的目录
 cd tengine-2.1.2
 
+#注释掉nginx主文件的debug
+find -name '/usr/local/src/tengine-2.1.2/auto/cc/gcc' | xargs perl -pi -e 's|CFLAGS="$CFLAGS -g"|# CFLAGS="$CFLAGS -g"|g'
+
 #配置并检查依赖
 ./configure --prefix=/usr/local/nginx --group=www-data --user=www-data  --with-http_stub_status_module=shared --with-http_ssl_module=shared --without-http-cache --without-mail_pop3_module --without-mail_imap_module  --without-mail_smtp_module
 
