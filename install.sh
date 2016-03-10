@@ -10,7 +10,7 @@ apt-get update
 #对Debian系统Upgrade
 apt-get upgrade
 
-#安装Tengine的依赖库libpcre3 libpcre3-dev
+#安装Tengine的依赖库
 apt-get install openssl libtool libssl-dev libperl-dev libpcre3 libpcre3-dev
 
 #移出debian自带的apache2
