@@ -35,7 +35,10 @@ cd tengine-2.1.2
 ./configure --prefix=/usr/local/nginx --group=www-data --user=www-data  --with-http_stub_status_module=shared --with-http_ssl_module=shared --without-http-cache
 
 #编译并且执行安装
-make & make install
+time make
+
+#执行make
+sudo make install
 
 #下载Tengine的控制脚本到初始化配置文件的目录
 wget http://www.jicker.cn/down/source/nginx -O /etc/init.d/nginx
