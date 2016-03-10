@@ -11,7 +11,7 @@ apt-get update
 apt-get upgrade
 
 #安装Tengine的依赖库libpcre3 libpcre3-dev
-apt-get install pcre-devel openssl openssl-devel gcc-c++ libtool libssl-dev libperl-dev libpcre3 libpcre3-dev
+apt-get install openssl libtool libssl-dev libperl-dev libpcre3 libpcre3-dev
 
 #移出debian自带的apache2
 apt-get remove -y apache2 apache2-doc apache2-utils apache2.2-common apache2.2-bin apache2-mpm-prefork apache2-doc apache2-mpm-worker mysql-client mysql-server mysql-common php5 php5-common php5-cgi php5-mysql php5-curl php5-gd
