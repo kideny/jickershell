@@ -28,8 +28,11 @@ wget http://tengine.taobao.org/download/tengine-2.1.2.tar.gz
 #解压缩
 tar zxvf tengine-2.1.2.tar.gz
 
+#进入gcc文件的目录
+cd /usr/local/src/tengine-2.1.2/auto/cc
+
 #注释掉nginx主文件的debug
-find -name '/usr/local/src/tengine-2.1.2/auto/cc/gcc' | xargs perl -pi -e 's|CFLAGS="$CFLAGS -g"|# CFLAGS="$CFLAGS -g"|g'
+find -name 'gcc' | xargs perl -pi -e 's|CFLAGS="$CFLAGS -g"|# CFLAGS="$CFLAGS -g"|g'
 
 #进入Tengine的目录
 cd /usr/local/src/tengine-2.1.2
