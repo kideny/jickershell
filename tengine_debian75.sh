@@ -5,10 +5,10 @@ rm -rf /etc/localtime
 ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 #对Debian系统Update
-apt-get update
+apt-get update -y
 
 #对Debian系统Upgrade
-apt-get upgrade
+apt-get upgrade -y
 
 #安装Tengine的依赖库
 apt-get install openssl libtool libssl-dev libperl-dev libpcre3 libpcre3-dev
