@@ -9,5 +9,6 @@
 
 备用下载地址：
 wget http://www.jicker.cn/down/source/tengine_debian75.sh
+
 执行安装命令：
 sh tengine_debian75.sh
