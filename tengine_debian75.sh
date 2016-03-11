@@ -1,3 +1,9 @@
+# 检测是否是root账户权限
+if [ $(id -u) != "0" ]; then
+    echo "Error: You must be root to run this script, please use root to install ltnmp"
+    exit 1
+fi
+
 #删除系统自带的时区文件
 rm -rf /etc/localtime
 
