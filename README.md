@@ -7,5 +7,7 @@
 更多Tengine的使用方法，请参考Tengine的官网http://tengine.taobao.org/。
 本脚本的诞生，多谢师父046569的指点。
 
-备用下载：
+备用下载地址：
 wget http://www.jicker.cn/down/source/tengine_debian75.sh
+执行安装命令：
+sh tengine_debian75.sh
