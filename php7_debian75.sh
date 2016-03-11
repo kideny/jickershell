@@ -31,11 +31,11 @@ wget http://cn2.php.net/distributions/php-7.0.4.tar.gz
 #解压缩
 tar zxvf php-7.0.4.tar.gz
 
-#进入Tengine的目录
+#进入PHP7源码的目录
 cd /usr/local/src/php-7.0.4
 
 #配置并检查依赖
-./configure --prefix=/usr/local/php7 --with-fpm-user=www-data --with-fpm-group=www-data --with-gd --with-mcrypt --with-openssl --with-pdo-mysql=mysqlnd --with-mysqli=mysqlnd --with-curl --with-iconv --with-zlib --enable-inline-optimization --enable-mbstring --enable-fpm --enable-opcache --disable-debug --disable-ipv6
+./configure --prefix=/usr/local/php7  --with-config-file-path=/usr/local/php7/etc --with-fpm-user=www-data --with-fpm-group=www-data --with-gd --with-freetype --with-jpeg --with-mcrypt --with-openssl --with-pdo-mysql=mysqlnd --with-mysqli=mysqlnd --with-curl --with-iconv --with-zlib  --with-gettext --enable-inline-optimization --enable-mbstring --enable-fpm --enable-opcache --disable-debug --disable-ipv6
 
 #编译并且执行安装
 time make
@@ -43,20 +43,26 @@ time make
 #执行make
 make install
 
-#下载PHP7的控制脚本到初始化配置文件的目录
-wget http://www.jicker.cn/down/source/nginx -O /etc/init.d/nginx
+#复制PHP7的配置文件到配置文件目录
+cp php.ini-production /usr/local/php7/lib/php.ini
 
-#给PHP7控制脚本添加执行权限
-chmod +x /etc/init.d/nginx
+#进入PHP7源码的目录
+cd /usr/local/src/php-7.0.4/sapi/fpm
 
-#将PHP7控制脚本添加到自启动的列表
-update-rc.d -f nginx defaults
+#复制php7-fpm管理脚本到初始化启动目录
+cp /usr/local/php/etc/php-fpm.conf.default /etc/init.d/php7-fpm
 
-#创建站点配置文件的目录
-mkdir -p /usr/local/nginx/conf/vhost
+#复制站点的PHP7-fpm配置文件
+cp /usr/local/php/etc/php-fpm.d/www.conf.default /usr/local/php/etc/php-fpm.d/www.conf
 
-#重新启动php-fpm
+#给php7-fpm增加执行权限
+chmod +x /etc/init.d/php7-fpm
+
+#测试php7-fpm
 service php7-fpm configtest
+
+#如果测试没问题，启动php7-fpm
+service php7-fpm start
 
 #安装成功的欢迎致辞！
 echo "PHP7 install chenggong!";
