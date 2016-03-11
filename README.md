@@ -12,3 +12,6 @@ wget http://www.jicker.cn/down/source/tengine_debian75.sh
 
 执行安装命令：
 sh tengine_debian75.sh
+
+常用debian命令：
+检查编译后nginx文件的大小：ls -lh /usr/local/nginx/sbin/nginx
