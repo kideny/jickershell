@@ -53,6 +53,9 @@ time make
 #执行make
 make install
 
+#开启Opcache
+sed -i '/$/a zend_extension=opcache.so'  /usr/local/php7/lib/php.ini
+
 #复制PHP7的配置文件到配置文件目录
 cp /usr/local/src/php-7.0.4/php.ini-production /usr/local/php7/lib/php.ini
 
