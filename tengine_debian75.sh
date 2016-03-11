@@ -31,8 +31,8 @@ tar zxvf tengine-2.1.2.tar.gz
 #进入gcc文件的目录
 cd /usr/local/src/tengine-2.1.2/auto/cc
 
-#注释掉nginx主文件的debug
-find -name 'gcc' | xargs perl -pi -e 's|CFLAGS="$CFLAGS -g"|# CFLAGS="$CFLAGS -g"|g'
+#使用sed命令注释掉nginx编译文件中的debug
+sed -i '/CFLAGS="$CFLAGS -g"/s/CFLAGS="$CFLAGS -g"/# CFLAGS="$CFLAGS -g"/g' gcc
 
 #进入Tengine的目录
 cd /usr/local/src/tengine-2.1.2
