@@ -21,7 +21,7 @@ apt-get update -y
 apt-get upgrade -y
 
 #安装PHP7的依赖库
-apt-get install php7 php7-gd
+apt-get install php5-fpm php5-curl php5-gd php5-mcrypt php5-common php-pear php5-imagick
 
 #移出debian自带的apache2及PHP5
 apt-get remove -y apache2 apache2-doc apache2-utils apache2.2-common apache2.2-bin apache2-mpm-prefork apache2-doc apache2-mpm-worker mysql-client mysql-server mysql-common
@@ -54,22 +54,22 @@ time make
 make install
 
 #开启Opcache
-sed -i '/$/a zend_extension=opcache.so'  /usr/local/php7/lib/php.ini
+sed -i '/$/a zend_extension=opcache.so'  /usr/local/php56/lib/php.ini
 
 #复制PHP7的配置文件到配置文件目录
-cp /usr/local/src/php-7.0.4/php.ini-production /usr/local/php7/lib/php.ini
+cp /usr/local/src/php-5.6.19/php.ini-production /usr/local/php7/lib/php.ini
 
 #进入PHP7源码的目录
-cd /usr/local/src/php-7.0.4/sapi/fpm
+cd /usr/local/src/php-5.6.19/sapi/fpm
 
 #复制php7-fpm管理脚本到初始化启动目录
-cp /usr/local/php/etc/php-fpm.conf.default /etc/init.d/php7-fpm
+cp /usr/local/php/etc/php-fpm.conf.default /etc/init.d/php5-fpm
 
 #复制站点的PHP7-fpm配置文件
 cp /usr/local/php/etc/php-fpm.d/www.conf.default /usr/local/php/etc/php-fpm.d/www.conf
 
 #给php7-fpm增加执行权限
-chmod +x /etc/init.d/php7-fpm
+chmod +x /etc/init.d/php5-fpm
 
 #测试php7-fpm
 service php7-fpm configtest
