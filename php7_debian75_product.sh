@@ -23,7 +23,7 @@ apt-get upgrade -y
 #安装PHP7的依赖库
 apt-get install php7 php7-gd
 
-#移出debian自带的apache2及PHP5
+#移出Debian自带的apache2及PHP5
 apt-get remove -y apache2 apache2-doc apache2-utils apache2.2-common apache2.2-bin apache2-mpm-prefork apache2-doc apache2-mpm-worker mysql-client mysql-server mysql-common
 
 #删除安装软件的备份，释放硬盘空间
@@ -31,6 +31,9 @@ apt-get clean
 
 #杀死所有apache2的进程
 killall apache2
+
+#停止nginx进程
+service nginx stop
 
 #进入Debian的源文件目录
 cd /usr/local/src
@@ -76,6 +79,9 @@ service php7-fpm configtest
 
 #如果测试没问题，启动php7-fpm
 service php7-fpm start
+
+#启动Nginx
+service  nginx start
 
 #安装成功的欢迎致辞！
 echo "PHP7 install chenggong!";

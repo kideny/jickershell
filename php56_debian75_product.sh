@@ -20,6 +20,9 @@ apt-get install php5-fpm php5-curl freetype* php5-gd php5-mcrypt php5-common php
 #删除安装软件的备份，释放硬盘空间
 apt-get clean
 
+#停止nginx进程
+service nginx stop
+
 #进入Debian的源文件目录
 cd /usr/local/src
 
@@ -64,6 +67,9 @@ service php7-fpm configtest
 
 #如果测试没问题，启动php7-fpm
 service php7-fpm start
+
+#启动Nginx
+service  nginx start
 
 #安装成功的欢迎致辞！
 echo "PHP7 install chenggong!";
