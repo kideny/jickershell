@@ -47,29 +47,29 @@ make install
 #开启Opcache
 sed -i '/$/a zend_extension=opcache.so'  /usr/local/php56/lib/php.ini
 
-#复制PHP7的配置文件到配置文件目录
-cp /usr/local/src/php-5.6.19/php.ini-production /usr/local/php7/lib/php.ini
+#复制PHP5的配置文件到配置文件目录
+cp /usr/local/src/php-5.6.19/php.ini-production /usr/local/php56/lib/php.ini
 
 #进入PHP7源码的目录
 cd /usr/local/src/php-5.6.19/sapi/fpm
 
-#复制php7-fpm管理脚本到初始化启动目录
+#复制php5-fpm管理脚本到初始化启动目录
 cp /usr/local/php/etc/php-fpm.conf.default /etc/init.d/php5-fpm
 
-#复制站点的PHP7-fpm配置文件
+#复制站点的PHP5-fpm配置文件
 cp /usr/local/php/etc/php-fpm.d/www.conf.default /usr/local/php/etc/php-fpm.d/www.conf
 
-#给php7-fpm增加执行权限
+#给php5-fpm增加执行权限
 chmod +x /etc/init.d/php5-fpm
 
-#测试php7-fpm
-service php7-fpm configtest
+#测试php5-fpm
+service php5-fpm configtest
 
-#如果测试没问题，启动php7-fpm
-service php7-fpm start
+#如果测试没问题，启动php5-fpm
+service php5-fpm start
 
 #启动Nginx
 service  nginx start
 
 #安装成功的欢迎致辞！
-echo "PHP7 install chenggong!";
+echo "PHP5.6 install chenggong!";
