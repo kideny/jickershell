@@ -50,13 +50,13 @@ sed -i '/$/a zend_extension=opcache.so'  /usr/local/php56/lib/php.ini
 #复制PHP5的配置文件到配置文件目录
 cp /usr/local/src/php-5.6.19/php.ini-production /usr/local/php56/lib/php.ini
 
-#进入PHP7源码的目录
+#进入PHP5源码的目录
 cd /usr/local/src/php-5.6.19/sapi/fpm
 
 #复制php5-fpm管理脚本到初始化启动目录
 cp /usr/local/php/etc/php-fpm.conf.default /etc/init.d/php5-fpm
 
-#复制站点的PHP5-fpm配置文件
+#复制站点的php5-fpm配置文件
 cp /usr/local/php/etc/php-fpm.d/www.conf.default /usr/local/php/etc/php-fpm.d/www.conf
 
 #给php5-fpm增加执行权限
