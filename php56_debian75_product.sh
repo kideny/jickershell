@@ -8,29 +8,17 @@ if [ $(id -u) != "0" ]; then
     exit 1
 fi
 
-#删除系统自带的时区文件
-rm -rf /etc/localtime
-
-#设置时区为上海
-ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-
 #对Debian系统Update
 apt-get update -y
 
 #对Debian系统Upgrade
 apt-get upgrade -y
 
-#安装PHP7的依赖库
-apt-get install php5-fpm php5-curl php5-gd php5-mcrypt php5-common php-pear php5-imagick
-
-#移出debian自带的apache2及PHP5
-apt-get remove -y apache2 apache2-doc apache2-utils apache2.2-common apache2.2-bin apache2-mpm-prefork apache2-doc apache2-mpm-worker mysql-client mysql-server mysql-common
+#安装PHP5.6的依赖库
+apt-get install php5-fpm php5-curl freetype* php5-gd php5-mcrypt php5-common php-pear php5-imagick libpcre3 libpcre3-dev libtool openssl libxml2 libxml2-dev libmhash-dev libmcrypt-dev mcrypt curl libbz2-dev libssl-dev libsslcommon2-dev
 
 #删除安装软件的备份，释放硬盘空间
 apt-get clean
-
-#杀死所有apache2的进程
-killall apache2
 
 #进入Debian的源文件目录
 cd /usr/local/src
