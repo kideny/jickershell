@@ -12,7 +12,7 @@ fi
 apt-get update -y
 
 #对Debian系统Upgrade
-apt-get upgrade -y
+apt-get -u upgrade -y
 
 #安装PHP5.6的依赖库
 apt-get install php5-fpm php5-curl freetype* php5-gd php5-mcrypt php5-common php-pear php5-imagick libpcre3 libpcre3-dev libtool openssl libxml2 libxml2-dev libmhash-dev libmcrypt-dev mcrypt curl libbz2-dev libssl-dev libsslcommon2-dev

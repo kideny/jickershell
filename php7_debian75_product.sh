@@ -18,7 +18,7 @@ ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 apt-get update -y
 
 #对Debian系统Upgrade
-apt-get upgrade -y
+apt-get -u upgrade -y
 
 #安装PHP7的依赖库
 apt-get install php7 php7-gd
