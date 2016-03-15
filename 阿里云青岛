@@ -1,20 +1,5 @@
-应用程序安装目录
-/usr/local/
-应用程序下载地址
-/user/local/src
-
-tenginx 命令：
-service nginx reload 重启tenginx；
-
-php7-fpm 命令
-service php7-fpm configtest 测试命令；
-service php7-fpm start
-
 vsftpd 命令
 service vsftpd restart
-
-tenginx配置文件：
-cd /usr/local/nginx/conf/
 
 php7-fpm配置文件
 cd /usr/local/php7/etc/php-fpm.d/
@@ -25,37 +10,9 @@ vim /usr/local/php7/lib/php.ini
 vsftpd配置文件
 /etc/vsftpd.conf
 
-PHP安装
-
-安装php依赖
-apt-get install make libxml2-dev libcurl4-openssl-dev libjpeg-dev libpng-dev libxpm-dev libmysqlclient-dev libicu-dev libfreetype6-dev libxslt-dev libssl-dev libbz2-dev libgmp-dev libmcrypt-dev libpspell-dev librecode-dev
-
-检查php依赖
-./configure --prefix=/usr/local/php7 --with-fpm-user=www --with-fpm-group=www --with-mcrypt --with-mysqli --with-mysql-sock --with-gd --with-iconv --with-pdo-mysql --with-gettext --with-curl --with-pdo-mysql --with-jpeg-dir=/usr/lib --with-freetype-dir=/usr/lib  --enable-xml --enable-fpm --enable-gd-native-ttf --enable-pdo --enable-sockets --enable-opcache --enable-bcmath --enable-xml --enable-zip --enable-mbstring --enable-session --with-zlib-dir=/usr/local/zlib
-
-复制php.ini-production到/usr/local/php7/lib/php.ini
-
-cp php.ini-production /usr/local/php7/lib/php.ini
-
-进入到sapi目录下，复制fpm管理脚本到/etc/init.d/
-
-cp init.d.php-fpm /etc/init.d/php7-fpm
-
-修改权限：chmod +x /etc/init.d/php7-fpm
-
-php7的fpm的配置文件现在和nginx一样，可以在目录下加载不同文件，在/usr/local/php7/etc/php-fpm.d/下，
-
-需要重命名www.conf.default为www.conf，php-fpm会自动加载目录下所有*.conf文件。
-
-现在尝试启动php7的配置测试看看是否有误：
-
-service php7-fpm configtest
-
-进入php7源码目录
-cd /usr/local/src/php-7.0.3
-
 ab压测工具目录
 cd /www/wdlinux/apache/bin
+
 ab测试命令
 ab -c 100 -n 1000 -H'Accept-Encoding:gzip'  http://www.qm2014.cn/admin/login/index.html
 ab -c 100 -n 1000 -H'Accept-Encoding:gzip'  http://www.jicker.cn/samplepage
