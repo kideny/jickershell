@@ -14,7 +14,7 @@ apt-get update -y
 #对Debian系统Upgrade，-u参数可以罗列出需要升级的软件
 apt-get -u upgrade -y
 
-#安装PHP5.6的依赖库
+#安装PHP的依赖库
 apt-get install php5-fpm php5-curl freetype* php5-gd php5-mcrypt php5-common php-pear php5-imagick libpcre3 libpcre3-dev libtool openssl libxml2 libxml2-dev libmhash-dev libmcrypt-dev mcrypt curl libbz2-dev libssl-dev libsslcommon2-dev
 
 #删除安装软件的备份，释放硬盘空间
@@ -26,13 +26,13 @@ service nginx stop
 #进入Debian的源文件目录
 cd /usr/local/src
 
-#下载指定版本的PHP7
+#下载指定版本的PHP
 wget http://cn2.php.net/distributions/php-5.6.19.tar.gz
 
 #解压缩
 tar zxvf php-5.6.19.tar.gz
 
-#进入PHP7源码的目录
+#进入PHP源码的目录
 cd /usr/local/src/php-5.6.19
 
 #配置并检查依赖
@@ -47,10 +47,10 @@ make install
 #开启Opcache
 sed -i '/$/a zend_extension=opcache.so'  /usr/local/php56/lib/php.ini
 
-#复制PHP5的配置文件到配置文件目录
+#复制PHP的配置文件到配置文件目录
 cp /usr/local/src/php-5.6.19/php.ini-production /usr/local/php56/lib/php.ini
 
-#进入PHP5源码的目录
+#进入PHP源码的目录
 cd /usr/local/src/php-5.6.19/sapi/fpm
 
 #复制php5-fpm管理脚本到初始化启动目录
