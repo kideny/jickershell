@@ -81,7 +81,7 @@ service php7-fpm configtest
 service php7-fpm start
 
 #启动Nginx
-service  nginx start
+service nginx start
 
 #安装成功的欢迎致辞！
 echo "PHP7 install chenggong!";
