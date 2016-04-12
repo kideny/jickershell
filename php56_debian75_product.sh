@@ -15,7 +15,7 @@ apt-get update -y
 apt-get -u upgrade -y
 
 #安装PHP的依赖库
-apt-get install php5-fpm php5-curl freetype* php5-gd php5-mcrypt php5-common php-pear php5-imagick libpcre3 libpcre3-dev libtool openssl libxml2 libxml2-dev libmhash-dev libmcrypt-dev mcrypt curl libcurl3 libcurl4-gnutls-dev libbz2-dev libssl-dev libsslcommon2-dev pkg-config
+apt-get install php5-fpm php5-curl freetype* php5-gd php5-mcrypt php5-common php-pear php5-imagick libpcre3 libpcre3-dev libtool openssl libxml2 libxml2-dev libmhash-dev libmcrypt-dev mcrypt curl libcurl3 libcurl4-gnutls-dev libjpeg8-dev libpng12-dev libbz2-dev libssl-dev libsslcommon2-dev pkg-config
 
 #删除安装软件的备份，释放硬盘空间
 apt-get clean
