@@ -14,16 +14,16 @@
 #备用下载地址：
 
 wget http://www.jicker.cn/down/source/php56_debian75_product.sh
-执行安装命令：sh php56_debian75_product.sh
+sh php56_debian75_product.sh
 
 wget http://www.jicker.cn/down/source/php7_debian75_product.sh
-执行安装命令：sh php7_debian75_product.sh
+sh php7_debian75_product.sh
 
 wget http://www.jicker.cn/down/source/tengine_debian75_product.sh
-执行安装命令：sh tengine_debian75_product.sh
+sh tengine_debian75_product.sh
 
 wget http://www.jicker.cn/down/source/tengine_debian75_proxy.sh
-执行安装命令：sh tengine_debian75_proxy.sh
+sh tengine_debian75_proxy.sh
 
 常用debian命令：
 检查编译后nginx文件的大小：ls -lh /usr/local/nginx/sbin/nginx
