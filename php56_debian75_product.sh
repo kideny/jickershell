@@ -44,11 +44,11 @@ time make
 #执行make
 make install
 
-#开启Opcache
-sed -i '/$/a zend_extension=opcache.so'  /usr/local/php56/lib/php.ini
-
 #复制PHP的配置文件到配置文件目录
 cp /usr/local/src/php-5.6.20/php.ini-production /usr/local/php56/lib/php.ini
+
+#开启Opcache
+sed -i '/$/a zend_extension=opcache.so'  /usr/local/php56/lib/php.ini
 
 #进入PHP源码的目录
 cd /usr/local/src/php-5.6.20/sapi/fpm
@@ -57,7 +57,7 @@ cd /usr/local/src/php-5.6.20/sapi/fpm
 cp init.d.php-fpm /etc/init.d/php5-fpm
 
 #复制站点的php5-fpm配置文件
-cp /usr/local/php56/etc/php-fpm.d/www.conf.default /usr/local/php56/etc/php-fpm.d/www.conf
+cp /usr/local/php56/etc/php-fpm.conf.default /usr/local/php56/etc/php-fpm.conf
 
 #给php5-fpm增加执行权限
 chmod +x /etc/init.d/php5-fpm
