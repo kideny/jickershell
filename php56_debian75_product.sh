@@ -54,10 +54,10 @@ cp /usr/local/src/php-5.6.20/php.ini-production /usr/local/php56/lib/php.ini
 cd /usr/local/src/php-5.6.20/sapi/fpm
 
 #复制php5-fpm管理脚本到初始化启动目录
-cp /usr/local/php/etc/php-fpm.conf.default /etc/init.d/php5-fpm
+cp init.d.php-fpm /etc/init.d/php5-fpm
 
 #复制站点的php5-fpm配置文件
-cp /usr/local/php/etc/php-fpm.d/www.conf.default /usr/local/php/etc/php-fpm.d/www.conf
+cp /usr/local/php56/etc/php-fpm.d/www.conf.default /usr/local/php56/etc/php-fpm.d/www.conf
 
 #给php5-fpm增加执行权限
 chmod +x /etc/init.d/php5-fpm
