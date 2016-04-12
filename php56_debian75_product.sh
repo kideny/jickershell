@@ -15,7 +15,7 @@ apt-get update -y
 apt-get -u upgrade -y
 
 #安装PHP的依赖库
-apt-get install php5-fpm php5-curl freetype* php5-gd php5-mcrypt php5-common php-pear php5-imagick libpcre3 libpcre3-dev libtool openssl libxml2 libxml2-dev libmhash-dev libmcrypt-dev mcrypt curl libbz2-dev libssl-dev libsslcommon2-dev
+apt-get install php5-fpm php5-curl freetype* php5-gd php5-mcrypt php5-common php-pear php5-imagick libpcre3 libpcre3-dev libtool openssl libxml2 libxml2-dev libmhash-dev libmcrypt-dev mcrypt curl libbz2-dev libssl-dev libsslcommon2-dev pkg-config
 
 #删除安装软件的备份，释放硬盘空间
 apt-get clean
@@ -36,7 +36,7 @@ tar zxvf php-5.6.20.tar.gz
 cd /usr/local/src/php-5.6.20
 
 #配置并检查依赖
-./configure --prefix=/usr/local/php56  --with-config-file-path=/usr/local/php56/etc --with-fpm-user=www-data --with-fpm-group=www-data --with-gd --with-freetype --with-jpeg  --with-mcrypt --with-mhash --with-openssl --with-pdo-mysql=mysqlnd --with-mysqli=mysqlnd --with-mysql=mysqlnd --with-curl --with-iconv --with-zlib  --with-gettext --enable-inline-optimization --enable-ftp --enable-mbstring --enable-sockets --enable-xml --enable-fpm --enable-opcache  --enable-bcmath --enable-gd-native-ttf --enable-soap --enable-zip --disable-debug --disable-ipv6 --disable-rpath --disable-fileinfo --with-libdir=lib64
+./configure --prefix=/usr/local/php56  --with-config-file-path=/usr/local/php56/etc --with-fpm-user=www-data --with-fpm-group=www-data --with-gd --with-freetype --with-jpeg  --with-mcrypt --with-mhash --with-openssl --with-pdo-mysql=mysqlnd --with-mysqli=mysqlnd --with-mysql=mysqlnd --with-curl --with-iconv --with-zlib  --with-gettext --enable-inline-optimization --enable-ftp --enable-mbstring --enable-sockets --enable-xml --enable-fpm --enable-opcache  --enable-bcmath --enable-gd-native-ttf --enable-soap --enable-zip --disable-debug --disable-ipv6 --disable-rpath --disable-fileinfo
 
 #编译并且执行安装
 time make
