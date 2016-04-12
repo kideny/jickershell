@@ -14,6 +14,10 @@ rm -rf /etc/localtime
 #设置时区为上海
 ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
+#卸载exim4邮件发送程序
+apt-get --purge remove exim4
+apt-get --purge remove exim4-base
+
 #对Debian系统Update
 apt-get update -y
 
