@@ -17,3 +17,7 @@ ab测试命令
 ab -c 100 -n 1000 -H'Accept-Encoding:gzip'  http://www.qm2014.cn/admin/login/index.html
 ab -c 100 -n 1000 -H'Accept-Encoding:gzip'  http://www.jicker.cn/samplepage
 
+脚本下载地址：
+
+wget http://www.jicker.cn/down/source/tengine_debian75_product.sh
+wget http://www.jicker.cn/down/source/php56_debian75_product.sh
