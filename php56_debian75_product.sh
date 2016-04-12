@@ -26,6 +26,9 @@ service nginx stop
 #进入Debian的源文件目录
 cd /usr/local/src
 
+#删除安装文件并且重新下载
+
+
 #下载指定版本的PHP
 wget http://cn2.php.net/distributions/php-5.6.20.tar.gz
 
