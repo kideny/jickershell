@@ -27,4 +27,3 @@ sh tengine_debian75_proxy_install.sh
 
 常用debian命令：
 检查编译后nginx文件的大小：ls -lh /usr/local/nginx/sbin/nginx
-
