@@ -14,15 +14,19 @@
 #备用下载地址：
 
 wget http://www.jicker.cn/down/source/php56_debian75_product_install.sh
+
 sh php56_debian75_product_install.sh
 
 wget http://www.jicker.cn/down/source/php7_debian75_product_install.sh
+
 sh php7_debian75_product_install.sh
 
 wget http://www.jicker.cn/down/source/tengine_debian75_product_install.sh
+
 sh tengine_debian75_product_install.sh
 
 wget http://www.jicker.cn/down/source/tengine_debian75_proxy_install.sh
+
 sh tengine_debian75_proxy_install.sh
 
 常用debian命令：
