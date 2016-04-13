@@ -15,8 +15,7 @@ rm -rf /etc/localtime
 ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 #卸载exim4邮件发送程序
-apt-get --purge remove exim4
-apt-get --purge remove exim4-base
+apt-get install exim4
 
 #对Debian系统Update
 apt-get update -y
