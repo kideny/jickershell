@@ -11,7 +11,7 @@
 更多Tengine的使用方法，请参考Tengine的官网http://tengine.taobao.org/。
 本脚本的诞生，多谢师父046569的指点。
 
-#备用下载地址：
+#下面是重新安装的脚本，下载地址及安装指令：
 
 wget http://www.jicker.cn/down/source/php56_debian75_product_install.sh
 
