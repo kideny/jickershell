@@ -12,9 +12,11 @@ fi
 cd /usr/local/src
 
 #清理之前的垃圾
-rm-rf /usr/local/src/php56_debian75_product.sh
-rm-rf /usr/local/src/php-5.6.20.tar.gz
-rm-rf /usr/local/src/php-5.6.20
+rm /usr/local/src/php56_debian75_product.sh
+rm /usr/local/src/php56_debian75_product.sh.*
+rm /usr/local/src/php-5.6.20.tar.gz
+rm /usr/local/src/php-5.6.20.tar.gz.*
+rm /usr/local/src/php-5.6.20
 
 #下载最新版本的脚本重新安装
 wget http://www.jicker.cn/down/source/php56_debian75_product.sh
