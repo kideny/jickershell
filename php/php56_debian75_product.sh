@@ -45,10 +45,18 @@ time make
 make install
 
 #复制PHP的配置文件到配置文件目录
-cp /usr/local/src/php-5.6.20/php.ini-production /usr/local/php56/lib/php.ini
+cp /usr/local/src/php-5.6.20/php.ini-production /usr/local/php56/etc/php.ini
 
 #开启Opcache
-sed -i '/$/a zend_extension=opcache.so'  /usr/local/php56/lib/php.ini
+#sed -i '/$/a zend_extension=opcache.so'  /usr/local/php56/etc/php.ini
+sed -i '/;opcache.enable=0/i\zend_extension=opcache.so' /usr/local/php56/etc/php.ini
+sed -i 's/;opcache.enable=0/opcache.enable=1/g' /usr/local/php56/etc/php.ini
+sed -i 's/;opcache.enable_cli=0/opcache.enable_cli=1/g' /usr/local/php56/etc/php.ini
+sed -i 's/;opcache.memory_consumption=64/opcache.memory_consumption=128/g' /usr/local/php56/etc/php.ini
+sed -i 's/;opcache.interned_strings_buffer=4/opcache.interned_strings_buffer=8/g' /usr/local/php56/etc/php.ini
+sed -i 's/;pcache.max_accelerated_files=2000/pcache.max_accelerated_files=4000/g' /usr/local/php56/etc/php.ini
+sed -i 's/;opcache.revalidate_freq=2/opcache.revalidate_freq=60/g' /usr/local/php56/etc/php.ini
+sed -i 's/;opcache.fast_shutdown=0/opcache.fast_shutdown=1/g' /usr/local/php56/etc/php.ini
 
 #进入PHP源码的目录
 cd /usr/local/src/php-5.6.20/sapi/fpm
