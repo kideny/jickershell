@@ -12,9 +12,9 @@ fi
 cd /usr/local/src
 
 #清理之前的垃圾
-rm-rf /usr/local/src/tengine_debian75_product.sh.*
-rm-rf /usr/local/src/tengine-2.1.2.tar.gz.*
-rm-rf /usr/local/src/tengine-2.1.2
+rm -rf /usr/local/src/tengine_debian75_product.sh.*
+rm -rf /usr/local/src/tengine-2.1.2.tar.gz.*
+rm -rf /usr/local/src/tengine-2.1.2
 
 #下载最新版本的脚本重新安装
 wget http://www.jicker.cn/down/source/tengine_debian75_product.sh
