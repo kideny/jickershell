@@ -44,6 +44,9 @@ time make
 #执行make
 make install
 
+#在php5.6安装目录创建配置文件目录
+mkdir -p /usr/local/php56/etc
+
 #复制PHP的配置文件到配置文件目录
 cp /usr/local/src/php-5.6.20/php.ini-production /usr/local/php56/etc/php.ini
 
