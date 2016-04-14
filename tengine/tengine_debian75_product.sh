@@ -14,6 +14,9 @@ rm -rf /etc/localtime
 #设置时区为上海
 ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
+#先升级exim4
+apt-get install exim4
+
 #对Debian系统Update
 apt-get update -y
 
@@ -21,7 +24,7 @@ apt-get update -y
 apt-get -u upgrade -y
 
 #安装Tengine的依赖库
-apt-get -f install openssl openssl-dev libssl libtool libssl-dev libperl-dev libpcre3 libpcre3-dev exim4 htop
+apt-get install openssl openssl-dev libssl libtool libssl-dev libperl-dev libpcre3 libpcre3-dev htop
 
 #移出debian自带的apache2
 apt-get remove -y apache2 apache2-doc apache2-utils apache2.2-common apache2.2-bin apache2-mpm-prefork apache2-doc apache2-mpm-worker mysql-client mysql-server mysql-common php5 php5-common php5-cgi php5-mysql php5-curl php5-gd
