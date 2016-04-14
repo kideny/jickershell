@@ -15,7 +15,7 @@ rm -rf /etc/localtime
 ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 #先升级exim4
-apt-get install exim4
+apt-get remove -y exim4
 
 #对Debian系统Update
 apt-get update -y
