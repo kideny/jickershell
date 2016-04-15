@@ -20,7 +20,7 @@ apt-get install php5-curl freetype* php5-gd php5-mcrypt php5-common php-pear php
 #删除安装软件的备份，释放硬盘空间
 apt-get clean
 #执行自动移出
-apt-get autoremove
+apt-get autoremove -y
 
 #停止nginx进程
 service nginx stop
