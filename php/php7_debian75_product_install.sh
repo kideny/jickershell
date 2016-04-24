@@ -20,6 +20,7 @@ rm /usr/local/src/php-7.0.5
 
 #停止php7-fpm
 service php-fpm stop
+service php5-fpm stop
 service php7-fpm stop
 
 #下载最新版本的脚本重新安装
