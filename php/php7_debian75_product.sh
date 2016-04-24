@@ -66,10 +66,10 @@ sed -i '/$/a zend_extension=opcache.so'  /usr/local/php7/lib/php.ini
 cd /usr/local/src/php-7.0.5/sapi/fpm
 
 #复制php7-fpm管理脚本到初始化启动目录
-cp /usr/local/php/etc/php-fpm.conf.default /etc/init.d/php7-fpm
+cp /usr/local/php7/etc/php-fpm.conf.default /etc/init.d/php7-fpm
 
 #复制站点的PHP7-fpm配置文件
-cp /usr/local/php/etc/php-fpm.d/www.conf.default /usr/local/php/etc/php-fpm.d/www.conf
+cp /usr/local/php7/etc/php-fpm.d/www.conf.default /usr/local/php7/etc/php-fpm.d/www.conf
 
 #给php7-fpm增加执行权限
 chmod +x /etc/init.d/php7-fpm
