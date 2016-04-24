@@ -48,7 +48,7 @@ tar zxvf php-7.0.5.tar.gz
 cd /usr/local/src/php-7.0.5
 
 #配置并检查依赖
-./configure --prefix=/usr/local/php7  --with-config-file-path=/usr/local/php7/etc --with-fpm-user=www-data --with-fpm-group=www-data --with-gd --with-freetype-dir=/usr/lib   --with-jpeg-dir=/usr/lib --with-mcrypt --with-mhash --with-openssl --with-pdo-mysql=mysqlnd --with-mysqli=mysqlnd --with-curl --with-iconv --with-zlib-dir=/usr/local/zlib --with-gettext  --enable-bcmath --enable-inline-optimization --enable-mbstring --enable-sockets --enable-session --enable-fpm --enable-opcache --enable-pdo --enable-gd-native-ttf --enable-zip --disable-debug --disable-ipv6
+./configure --prefix=/usr/local/php7  --with-config-file-path=/usr/local/php7/etc --with-fpm-user=www-data --with-fpm-group=www-data --with-gd --with-freetype-dir=DIR --with-jpeg-dir=DIR --with-png-dir=DIR --with-mcrypt --with-mhash --with-openssl --with-pdo-mysql=mysqlnd --with-mysqli=mysqlnd --with-curl --with-iconv --with-zlib-dir=/usr/local/zlib --with-gettext  --enable-bcmath --enable-inline-optimization --enable-mbstring --enable-sockets --enable-session --enable-fpm --enable-opcache --enable-pdo --enable-gd-native-ttf --enable-zip --disable-debug --disable-ipv6
 
 #编译并且执行安装
 time make
