@@ -18,6 +18,11 @@ rm /usr/local/src/php-7.0.5.tar.gz
 rm /usr/local/src/php-7.0.5.tar.gz.*
 rm /usr/local/src/php-7.0.5
 
+#停止php7-fpm
+service php-fpm stop
+service php7-fpm stop
+
 #下载最新版本的脚本重新安装
 wget http://www.jicker.cn/down/source/php7_debian75_product.sh
+#执行脚本
 sh php7_debian75_product.sh
