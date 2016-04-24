@@ -39,13 +39,13 @@ service nginx stop
 cd /usr/local/src
 
 #下载指定版本的PHP7
-wget http://cn2.php.net/distributions/php-7.0.4.tar.gz
+wget http://cn2.php.net/distributions/php-7.0.5.tar.gz
 
 #解压缩
-tar zxvf php-7.0.4.tar.gz
+tar zxvf php-7.0.5.tar.gz
 
 #进入PHP7源码的目录
-cd /usr/local/src/php-7.0.4
+cd /usr/local/src/php-7.0.5
 
 #配置并检查依赖
 ./configure --prefix=/usr/local/php7  --with-config-file-path=/usr/local/php7/etc --with-fpm-user=www-data --with-fpm-group=www-data --with-gd --with-freetype-dir=/usr/lib   --with-jpeg-dir=/usr/lib --with-mcrypt --with-mhash --with-openssl --with-pdo-mysql=mysqlnd --with-mysqli=mysqlnd --with-curl --with-iconv --with-zlib-dir=/usr/local/zlib --with-gettext  --enable-bcmath --enable-inline-optimization --enable-mbstring --enable-sockets --enable-session --enable-fpm --enable-opcache --enable-pdo --enable-gd-native-ttf --enable-zip --disable-debug --disable-ipv6
@@ -57,13 +57,13 @@ time make
 make install
 
 #复制PHP7的配置文件到配置文件目录
-cp /usr/local/src/php-7.0.4/php.ini-production /usr/local/php7/lib/php.ini
+cp /usr/local/src/php-7.0.5/php.ini-production /usr/local/php7/lib/php.ini
 
 #开启Opcache
 sed -i '/$/a zend_extension=opcache.so'  /usr/local/php7/lib/php.ini
 
 #进入PHP7源码的目录
-cd /usr/local/src/php-7.0.4/sapi/fpm
+cd /usr/local/src/php-7.0.5/sapi/fpm
 
 #复制php7-fpm管理脚本到初始化启动目录
 cp /usr/local/php/etc/php-fpm.conf.default /etc/init.d/php7-fpm
