@@ -11,8 +11,11 @@ fi
 #定义servername
 servername="www.jicker.cn"
 
-#读取用户输入的hostname
+#读取用户输入的hostname，如果hostname为空，则默认为servername
 read -p " --Enter: " hostname
+if [ "$hostname" = "" ]; then
+	hostname="$servername"
+fi
 
 #删除系统自带的时区文件
 rm -rf /etc/localtime
