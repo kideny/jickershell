@@ -44,6 +44,14 @@ apt-get -fy install
 dpkg -P libmysqlclient15off libmysqlclient15-dev mysql-common
 dpkg -P apache2 apache2-doc apache2-mpm-prefork apache2-utils apache2.2-common
 
+#debian系统的update
+apt-get autoremove -y
+apt-get -fy install
+dpkg -P mysql-server mysql-client
+dpkg -P nginx php5-fpm php5-gd php5-mysql
+dpkg -l |grep nginx | awk -F " " '{print $2}' | xargs dpkg -P
+apt-get remove -y apache2 apache2-doc apache2-utils apache2.2-common apache2.2-bin apache2-mpm-prefork apache2-doc apache2-mpm-worker mysql-client mysql-server mysql-common
+
 #对Debian系统Upgrade，-u参数可以罗列出需要升级的软件
 apt-get -u upgrade -y
 
