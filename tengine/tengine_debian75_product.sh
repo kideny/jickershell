@@ -78,7 +78,7 @@ apt-get autoremove -y
 apt-get -fy install
 
 #安装Tengine的依赖库
-apt-get install libtool libssl-dev openssl openssl-dev libperl-dev libpcre3 libpcre3-dev
+apt-get -y install libpcre3-dev zlib1g-dev libssl-dev libxml2-dev libxslt1-dev libgd2-xpm-dev liblua5.1-0-dev libgeoip-dev
 
 #删除安装软件的备份，释放硬盘空间
 apt-get clean
