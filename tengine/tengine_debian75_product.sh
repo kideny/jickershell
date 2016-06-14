@@ -8,6 +8,12 @@ if [ $(id -u) != "0" ]; then
     exit 1
 fi
 
+#定义servername
+servername="www.jicker.cn"
+
+#读取用户输入的hostname
+read -p " --Enter: " hostname
+
 #删除系统自带的时区文件
 rm -rf /etc/localtime
 
@@ -15,7 +21,7 @@ rm -rf /etc/localtime
 ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 #安装基础环境
-apt-get install -y gcc g++ make wget
+apt-get install -y gcc g++ make wget htop
 
 #先卸载exim4及系统自带的apache2
 apt-get remove -y exim4 apache2 apache2-doc apache2-utils apache2.2-common apache2.2-bin apache2-mpm-prefork apache2-doc apache2-mpm-worker mysql-client mysql-server mysql-common php5 php5-common php5-cgi php5-mysql php5-curl php5-gd
@@ -32,7 +38,7 @@ apt-get autoremove -y
 apt-get -u upgrade -y
 
 #安装Tengine的依赖库
-apt-get install libtool libssl-dev openssl-dev libperl-dev libpcre3 libpcre3-dev htop
+apt-get install libtool libssl-dev openssl openssl-dev libperl-dev libpcre3 libpcre3-dev
 
 #删除安装软件的备份，释放硬盘空间
 apt-get clean
