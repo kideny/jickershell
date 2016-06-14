@@ -37,10 +37,12 @@ apt-get remove -y exim4 apache2 apache2-doc apache2-utils apache2.2-common apach
 #杀死所有apache2的进程
 killall apache2
 
-#对Debian系统Update
+#remove不需要的debian系统自带程序
 apt-get update
-#自动移出
 apt-get autoremove -y
+apt-get -fy install
+dpkg -P libmysqlclient15off libmysqlclient15-dev mysql-common
+dpkg -P apache2 apache2-doc apache2-mpm-prefork apache2-utils apache2.2-common
 
 #对Debian系统Upgrade，-u参数可以罗列出需要升级的软件
 apt-get -u upgrade -y
