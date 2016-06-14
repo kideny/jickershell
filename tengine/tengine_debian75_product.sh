@@ -56,7 +56,7 @@ sed -i '/CFLAGS="$CFLAGS -g"/s/CFLAGS="$CFLAGS -g"/# CFLAGS="$CFLAGS -g"/g' gcc
 cd /usr/local/src/tengine-2.1.2
 
 #配置并检查依赖
-./configure --prefix=/usr/local/nginx --group=www-data --user=www-data  --with-http_stub_status_module --with-http_ssl_module --without-http-cache --without-mail_pop3_module --without-mail_imap_module  --without-mail_smtp_module
+./configure --prefix=/usr/local/nginx --group=www-data --user=www-data  --with-http_stub_status_module --with-http_ssl_module --with-openssl=/usr/local/ssl --without-http-cache --without-mail_pop3_module --without-mail_imap_module  --without-mail_smtp_module
 
 #编译并且执行安装
 time make
