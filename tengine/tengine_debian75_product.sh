@@ -52,8 +52,30 @@ dpkg -P nginx php5-fpm php5-gd php5-mysql
 dpkg -l |grep nginx | awk -F " " '{print $2}' | xargs dpkg -P
 apt-get remove -y apache2 apache2-doc apache2-utils apache2.2-common apache2.2-bin apache2-mpm-prefork apache2-doc apache2-mpm-worker mysql-client mysql-server mysql-common
 
-#对Debian系统Upgrade，-u参数可以罗列出需要升级的软件
-apt-get -u upgrade -y
+#修改默认的源然后upgrade
+if [ -s /etc/apt/sources.list.bak ]; then
+rm /etc/apt/sources.list -f
+mv /etc/apt/sources.list.bak /etc/apt/sources.list
+fi
+mv /etc/apt/sources.list /etc/apt/sources.list.bak
+cat >> /etc/apt/sources.list<<EOF
+deb http://mirrors.163.com/debian/ wheezy main
+deb-src http://mirrors.163.com/debian/ wheezy main
+deb http://security.debian.org/ wheezy/updates main
+deb-src http://security.debian.org/ wheezy/updates main
+deb http://packages.dotdeb.org stable all
+deb-src http://packages.dotdeb.org stable all
+deb http://mirrors.163.com/debian/ wheezy-updates main
+deb-src http://mirrors.163.com/debian/ wheezy-updates main
+EOF
+apt-get clean
+apt-get autoclean
+rm /var/lib/apt/lists/* -vf
+apt-get check
+apt-get upgrade
+apt-get update
+apt-get autoremove -y
+apt-get -fy install
 
 #安装Tengine的依赖库
 apt-get install libtool libssl-dev openssl openssl-dev libperl-dev libpcre3 libpcre3-dev
