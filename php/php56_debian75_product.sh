@@ -2,6 +2,15 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
+#定义servername
+defaultversion="5.6.22"
+
+#读取用户输入的defaultversion，如果defaultversion为空，则默认为defaultversion
+read -p " --Enter: " hostname
+if [ "$phpversion" = "" ]; then
+	phpversion="$defaultversion"
+fi
+
 #检测是否是root账户权限
 if [ $(id -u) != "0" ]; then
     echo "Error: You must be root to run this script, please use root to install ltnmp"
@@ -29,13 +38,13 @@ service nginx stop
 cd /usr/local/src
 
 #下载指定版本的PHP
-wget http://cn2.php.net/distributions/php-5.6.20.tar.gz
+wget http://cn2.php.net/distributions/php-${phpversion}.tar.gz
 
 #解压缩
-tar zxvf php-5.6.20.tar.gz
+tar zxvf php-${phpversion}.tar.gz
 
 #进入PHP源码的目录
-cd /usr/local/src/php-5.6.20
+cd /usr/local/src/php-${phpversion}
 
 #配置并检查依赖
 ./configure --prefix=/usr/local/php56  --with-config-file-path=/usr/local/php56/etc --with-fpm-user=www-data --with-fpm-group=www-data --with-gd --with-freetype-dir --with-jpeg-dir  --with-mcrypt --with-mhash --with-openssl --with-pdo-mysql=mysqlnd --with-mysqli=mysqlnd --with-mysql=mysqlnd --with-curl --with-iconv --with-zlib  --with-gettext --enable-inline-optimization --enable-ftp --enable-mbstring --enable-sockets --enable-xml --enable-fpm --enable-opcache  --enable-bcmath --enable-gd-native-ttf --enable-soap --enable-zip --disable-debug --disable-ipv6 --disable-rpath --disable-fileinfo
@@ -50,7 +59,7 @@ make install
 mkdir -p /usr/local/php56/etc
 
 #复制PHP的配置文件到配置文件目录
-cp /usr/local/src/php-5.6.20/php.ini-production /usr/local/php56/etc/php.ini
+cp /usr/local/src/php-${phpversion}/php.ini-production /usr/local/php56/etc/php.ini
 
 #开启Opcache
 #sed -i '/$/a zend_extension=opcache.so'  /usr/local/php56/etc/php.ini
@@ -64,7 +73,7 @@ sed -i 's/;opcache.revalidate_freq=2/opcache.revalidate_freq=60/g' /usr/local/ph
 sed -i 's/;opcache.fast_shutdown=0/opcache.fast_shutdown=1/g' /usr/local/php56/etc/php.ini
 
 #进入PHP源码的目录
-cd /usr/local/src/php-5.6.20/sapi/fpm
+cd /usr/local/src/php-${phpversion}/sapi/fpm
 
 #复制php5-fpm管理脚本到初始化启动目录
 cp init.d.php-fpm /etc/init.d/php5-fpm
