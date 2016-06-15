@@ -27,4 +27,4 @@ apt-get install vsftp
 service vsftp start
 
 #安装成功的欢迎致辞！
-echo "Tengine install chenggong!";
+echo "vsftp  install chenggong!";
