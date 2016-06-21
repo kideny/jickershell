@@ -5,6 +5,16 @@ export PATH
 #定义默认安装的php版本号
 defaultversion="7.0.7"
 
+#输出提示
+echo -e "\033[41;37m Please enter the php version, the default is: $defaultversion  < \033[0m"
+echo -e "\033[41;37m Example: 5.6.22 \033[0m"
+
+#读取用户输入的defaultversion，如果defaultversion为空，则默认为defaultversion
+read -p " --Enter: " hostname
+if [ "$phpversion" = "" ]; then
+	phpversion="$defaultversion"
+fi
+
 # 检测是否是root账户权限
 if [ $(id -u) != "0" ]; then
     echo "Error: You must be root to run this script, please use root to install ltnmp"
