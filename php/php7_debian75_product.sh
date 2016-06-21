@@ -35,10 +35,11 @@ apt-get remove -y apache2 apache2-doc apache2-utils apache2.2-common apache2.2-b
 
 #删除安装软件的备份，释放硬盘空间
 apt-get clean
+#执行自动移出
+apt-get autoremove -y
 
 #杀死所有apache2的进程
 killall apache2
-
 #停止nginx进程
 service nginx stop
 
