@@ -29,16 +29,11 @@ apt-get -u upgrade -y
 #安装PHP7的依赖库
 apt-get install make libxml2-dev libcurl4-openssl-dev libjpeg8-dev libpng12-dev libxpm-dev libmysqlclient-dev libicu-dev libfreetype6-dev libxslt1-dev libssl-dev libbz2-dev libgmp-dev libmcrypt-dev libpspell-dev librecode-dev libpq-dev
 
-#移出Debian自带的apache2及PHP5
-apt-get remove -y apache2 apache2-doc apache2-utils apache2.2-common apache2.2-bin apache2-mpm-prefork apache2-doc apache2-mpm-worker mysql-client mysql-server mysql-common
-
 #删除安装软件的备份，释放硬盘空间
 apt-get clean
 #执行自动移出
 apt-get autoremove -y
 
-#杀死所有apache2的进程
-killall apache2
 #停止nginx进程
 service nginx stop
 
