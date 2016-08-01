@@ -4,7 +4,7 @@
 
 作者博客：http://www.jicker.cn
 
-项目简介：主要用于Debian7.5操作系统的web环境配置。
+项目简介：主要用于Debian操作系统的web环境配置。
 
 #脚本使用方法
 将install.sh文件上传到服务器的任意目录，然后执行sh install.sh即可。tengine采用默认安装和默认配置，安装路径在/usr/local/。
