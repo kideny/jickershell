@@ -27,23 +27,6 @@
             "php": "7.0.9"
         }
     },
-    "suggest": {
-        "ext-zip": "Enabling the zip extension allows you to unzip archives",
-        "ext-zlib": "Allow gzip compression of HTTP requests",
-        "ext-openssl": "Enabling the openssl extension allows you to access https URLs for repositories and packages"
-    },
-    "autoload": {
-        "psr-4": { "Composer\\": "src/Composer" }
-    },
-    "autoload-dev": {
-        "psr-4": { "Composer\\Test\\": "tests/Composer/Test" }
-    },
-    "bin": ["bin/composer"],
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.2-dev"
-        }
-    },
     "scripts": {
         "test": "phpunit"
     }
