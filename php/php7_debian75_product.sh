@@ -3,11 +3,11 @@ PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
 #定义默认安装的php版本号
-defaultversion="7.0.7"
+defaultversion="7.0.9"
 
 #输出提示
 echo -e "\033[41;37m Please enter the php version, the default is: $defaultversion  < \033[0m"
-echo -e "\033[41;37m Example: 7.0.7 \033[0m"
+echo -e "\033[41;37m Example: 7.0.9 \033[0m"
 
 #读取用户输入的defaultversion，如果defaultversion为空，则默认为defaultversion
 read -p " --Enter: " hostname
