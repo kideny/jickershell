@@ -1,6 +1,6 @@
 {
     "name": "kideny/ltnmp",
-    "description": "LTNMP，俗称老太娘一键包。是文武双全自己编写的一套基于Debian的Web环境安装脚本。",
+    "description": "LTNMP，俗称老太娘一键包。是文武双全编写的一套基于Debian的Web环境安装脚本。",
     "keywords": ["ltnmp", "debian", "web","php","tengine"],
     "homepage": "http://ltnmp.jicker.cn/",
     "type": "library",
