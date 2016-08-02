@@ -8,9 +8,11 @@
 
 项目简介：主要用于Debian操作系统的web环境配置。
 
-#脚本使用方法
-将install.sh文件上传到服务器的任意目录，然后执行sh install.sh即可。tengine采用默认安装和默认配置，安装路径在/usr/local/。
-更多Tengine的使用方法，请参考Tengine的官网http://tengine.taobao.org/。
+#脚本git克隆脚本文件到服务器
+
+使用cd  /usr/local/src 命令进入源码下载目录。
+
+使用 git clone https://git.oschina.net/jicker/DDFH.git 命令把源码从OSC GIT下载到服务器。
 
 #下面是重新安装的脚本，下载地址及安装指令：
 
