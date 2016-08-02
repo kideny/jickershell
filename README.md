@@ -16,16 +16,16 @@
 
 #下面是重新安装的脚本，下载地址及安装指令：
 
-#安装php5.6的命令
+安装php5.6的命令
 sh php56_debian75_product_install.sh
 
-#安装php7的命令
+安装php7的命令
 sh php7_debian75_product_install.sh
 
-#生产服务器安装tengine的命令
+生产服务器安装tengine的命令
 sh tengine_debian75_product_install.sh
 
-#反向代理服务器安装tengine的命令
+反向代理服务器安装tengine的命令
 sh tengine_debian75_proxy_install.sh
 
 常用debian命令：
