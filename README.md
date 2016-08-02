@@ -1,6 +1,8 @@
-项目名称：ltnmp
+英文名称：DDFH
 
-作者名称：文武双全
+中文名称：Debian大法好
+
+作者名称：袁斌
 
 作者博客：http://www.jicker.cn
 
