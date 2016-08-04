@@ -5,7 +5,7 @@ export PATH
 
 #检测是否root账户权限
 if [ $(id -u) != "0" ]; then
-    echo "Error: You must be root to run this script, please use root to install LTNMP"
+    echo "Error: You must be root to run this script, please use root to install DDFH"
     exit 1
 fi
 
