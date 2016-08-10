@@ -17,3 +17,6 @@ sed -i '/$/a extension=phalcon.so'  /usr/local/php7/lib/php.ini
 
 #重新启动php-fpm
 service php7-fpm restart
+
+#拷贝默认的系统文件
+cp ./conf/phalcon.conf /usr/local/nginx/conf/vhost/phalcon.conf
