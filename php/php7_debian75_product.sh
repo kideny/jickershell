@@ -59,10 +59,10 @@ time make
 make install
 
 #复制PHP7的配置文件到配置文件目录
-cp /usr/local/src/php-${phpversion}/php.ini-production /usr/local/php7/lib/php.ini
+cp /usr/local/src/php-${phpversion}/php.ini-production /usr/local/php7/etc/php.ini
 
 #开启Opcache
-sed -i '/$/a zend_extension=opcache.so'  /usr/local/php7/lib/php.ini
+sed -i '/$/a zend_extension=opcache.so'  /usr/local/php7/etc/php.ini
 
 #进入PHP7源码的目录
 cd /usr/local/src/php-${phpversion}/sapi/fpm
