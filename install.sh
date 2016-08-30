@@ -23,6 +23,18 @@ ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 # 定义变量
 current_dir=$(pwd)  #定义当前路径变量
 
+#清屏准备显示选择组件
+clear
+
+# 加载各种安装脚本
+. tengine/tengine_debian75_proxy.sh
+. tengine/tengine_debian75_product.sh
+. php/php56_debian75.sh
+. php/php7_debian75.sh
+. go/go.sh
+. mysql/mysql.sh
+
+
 ## 第一步，选择要安装的组件
 install() {
     echo ""
