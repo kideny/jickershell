@@ -35,7 +35,7 @@ clear
 . mysql/mysql.sh
 
 
-## 第一步，选择要安装的组件
+# 选择要安装的组件
 install() {
     echo ""
     echo "  1: tengine on proxy server"
