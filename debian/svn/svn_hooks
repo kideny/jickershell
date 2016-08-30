@@ -1,8 +1,0 @@
-#让SVN站点的网站目录自动保持更新的钩子
-#vim /home/svn/repos/hooks/post-commit
-
-#!/bin/sh
-export LANG="zh_CN.UTF-8" #防止乱码
-svn update /var/www/web --username user1 --password password1 --no-auth-cache
-
-#chmod 755 /home/svn/repos/hooks/post-commit
