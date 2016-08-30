@@ -34,7 +34,6 @@ clear
 . go/go.sh
 . mysql/mysql.sh
 
-
 # 选择要安装的组件
 install() {
     echo ""
