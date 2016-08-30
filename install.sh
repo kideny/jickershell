@@ -1,7 +1,9 @@
 #!/bin/bash
-
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
+
+#  Auther   Frank.Yuan
+#  Website http://www.jicker.cn https://www.frankyuan.com
 
 #检测是否root账户权限
 if [ $(id -u) != "0" ]; then
@@ -88,4 +90,8 @@ install() {
             exit 1
         ;;
     esac
+}
+
+clear() {
+    rm -rf /usr/local/src/*.*
 }
