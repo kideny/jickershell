@@ -2,6 +2,13 @@
 
 install_tengine_proxy() {
 
+    #定义默认安装的php版本号
+    tengineversion="2.1.2"
+
+    #输出提示
+    echo -e "\033[41;37m Please enter the tengine version, the default is: $(tengineversion)  < \033[0m"
+    echo -e "\033[41;37m Example: $(tengineversion) \033[0m"
+
     #卸载exim4邮件发送程序
     apt-get --purge remove exim4
     apt-get --purge remove exim4-base
@@ -28,19 +35,19 @@ install_tengine_proxy() {
     cd /usr/local/src
 
     #下载指定版本的Tengine
-    wget http://tengine.taobao.org/download/tengine-2.1.2.tar.gz
+    wget http://tengine.taobao.org/download/tengine-$(tengineversion).tar.gz
 
     #解压缩
-    tar zxvf tengine-2.1.2.tar.gz
+    tar zxvf tengine-$(tengineversion).tar.gz
 
     #进入gcc文件的目录
-    cd /usr/local/src/tengine-2.1.2/auto/cc
+    cd /usr/local/src/tengine-$(tengineversion)/auto/cc
 
     #使用sed命令注释掉nginx编译文件中的debug
     sed -i '/CFLAGS="$CFLAGS -g"/s/CFLAGS="$CFLAGS -g"/# CFLAGS="$CFLAGS -g"/g' gcc
 
     #进入Tengine的目录
-    cd /usr/local/src/tengine-2.1.2
+    cd /usr/local/src/tengine-$(tengineversion)
 
     #配置并检查依赖
     ./configure --prefix=/usr/local/nginx --group=www-data --user=www-data  --with-http_stub_status_module --with-http_ssl_module --without-http-cache --without-mail_pop3_module --without-mail_imap_module  --without-mail_smtp_module
