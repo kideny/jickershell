@@ -2,7 +2,7 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
-install_php7(){
+install_php7() {
     #定义默认安装的php版本号
     defaultversion="7.0.10"
 
