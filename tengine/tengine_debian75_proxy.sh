@@ -9,6 +9,12 @@ install_tengine_proxy() {
     echo -e "\033[41;37m Please enter the tengine version, the default is: $(tengineversion)  < \033[0m"
     echo -e "\033[41;37m Example: $(tengineversion) \033[0m"
 
+    #读取用户输入的tengineversion，如果tengineversion为空，则默认为tengineversion
+    read -p " --Enter: " hostname
+    if [ "$tengineversion" = "" ]; then
+        tengineversion="$tengineversion"
+    fi
+
     #卸载exim4邮件发送程序
     apt-get --purge remove exim4
     apt-get --purge remove exim4-base
@@ -58,8 +64,8 @@ install_tengine_proxy() {
     #执行make
     make install
 
-    #下载Tengine的控制脚本到初始化配置文件的目录
-    wget http://www.jicker.cn/down/source/nginx -O /etc/init.d/nginx
+    #复制Tengine的控制脚本到初始化配置文件的目录
+    cp $(current_dir)/tengine/nginx /etc/init.d/nginx
 
     #给Tengine控制脚本添加执行权限
     chmod +x /etc/init.d/nginx

@@ -1,13 +1,26 @@
 #!/bin/bash
-run() {
-    #执行tengine安装函数
-    tengine_install
-}
 
-tengine_install() {
+install_tengine_proxy() {
+
+    #定义默认安装的php版本号
+    tengineversion="2.1.2"
+
+    #输出提示
+    echo -e "\033[41;37m Please enter the tengine version, the default is: $(tengineversion)  < \033[0m"
+    echo -e "\033[41;37m Example: $(tengineversion) \033[0m"
+
+    #读取用户输入的tengineversion，如果tengineversion为空，则默认为tengineversion
+    read -p " --Enter: " hostname
+    if [ "$tengineversion" = "" ]; then
+        tengineversion="$tengineversion"
+    fi
 
     #定义servername
-    servername="www.jicker.cn"
+    servername="wwwjickercn"
+
+    #输出提示
+    echo -e "\033[41;37m Please enter the website, the default is: $(servername)  < \033[0m"
+    echo -e "\033[41;37m Example: $(servername) \033[0m"
 
     #读取用户输入的hostname，如果hostname为空，则默认为servername
     read -p " --Enter: " hostname
@@ -38,26 +51,6 @@ tengine_install() {
     dpkg -P nginx php5-fpm php5-gd php5-mysql
     dpkg -l |grep nginx | awk -F " " '{print $2}' | xargs dpkg -P
     apt-get remove -y apache2 apache2-doc apache2-utils apache2.2-common apache2.2-bin apache2-mpm-prefork apache2-doc apache2-mpm-worker mysql-client mysql-server mysql-common
-
-    #修改默认的源然后upgrade
-    if [ -s /etc/apt/sources.list.bak ]; then
-    rm /etc/apt/sources.list -f
-    mv /etc/apt/sources.list.bak /etc/apt/sources.list
-    fi
-    mv /etc/apt/sources.list /etc/apt/sources.list.bak
-    cat >> /etc/apt/sources.list<<EOF
-    deb http://mirrors.163.com/debian/ wheezy main
-    deb-src http://mirrors.163.com/debian/ wheezy main
-    deb http://security.debian.org/ wheezy/updates main
-    deb-src http://security.debian.org/ wheezy/updates main
-    deb http://packages.dotdeb.org stable all
-    deb-src http://packages.dotdeb.org stable all
-    deb http://mirrors.163.com/debian/ wheezy-updates main
-    deb-src http://mirrors.163.com/debian/ wheezy-updates main
-    EOF
-    apt-get clean
-    apt-get autoclean
-    rm /var/lib/apt/lists/* -vf
     apt-get check
     apt-get upgrade
     apt-get update
@@ -74,19 +67,19 @@ tengine_install() {
     cd /usr/local/src
 
     #下载指定版本的Tengine
-    wget http://tengine.taobao.org/download/tengine-2.1.2.tar.gz
+    wget http://tengine.taobao.org/download/tengine-$(tengineversion).tar.gz
 
     #解压缩
-    tar zxvf tengine-2.1.2.tar.gz
+    tar zxvf tengine-$(tengineversion).tar.gz
 
     #进入gcc文件的目录
-    cd /usr/local/src/tengine-2.1.2/auto/cc
+    cd /usr/local/src/tengine-$(tengineversion)/auto/cc
 
     #使用sed命令注释掉nginx编译文件中的debug
     sed -i '/CFLAGS="$CFLAGS -g"/s/CFLAGS="$CFLAGS -g"/# CFLAGS="$CFLAGS -g"/g' gcc
 
     #进入Tengine的目录
-    cd /usr/local/src/tengine-2.1.2
+    cd /usr/local/src/tengine-$(tengineversion)
 
     #配置并检查依赖
     ./configure --prefix=/usr/local/nginx --group=www-data --user=www-data  --with-http_stub_status_module --with-http_ssl_module --without-http-cache --without-mail_pop3_module --without-mail_imap_module  --without-mail_smtp_module
@@ -97,8 +90,8 @@ tengine_install() {
     #执行make
     make install
 
-    #下载Tengine的控制脚本到初始化配置文件的目录
-    wget http://www.jicker.cn/down/source/nginx -O /etc/init.d/nginx
+    #复制Tengine的控制脚本到初始化配置文件的目录
+    cp $(current_dir)/tengine/nginx /etc/init.d/nginx
 
     #给Tengine控制脚本添加执行权限
     chmod +x /etc/init.d/nginx
