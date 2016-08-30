@@ -2,8 +2,9 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
-#  Auther   Frank.Yuan
-#  Website http://www.jicker.cn https://www.frankyuan.com
+#  Auther      Frank.Yuan
+#  Website    http://www.jicker.cn https://www.frankyuan.com
+#  Company  http://www.qmschool.cn
 
 #检测是否root账户权限
 if [ $(id -u) != "0" ]; then
@@ -21,6 +22,26 @@ rm -rf /etc/localtime
 
 #设置时区为上海
 ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+#修改默认的源，添加往医院和debian官方源
+if [ -s /etc/apt/sources.list.bak ]; then
+rm /etc/apt/sources.list -f
+mv /etc/apt/sources.list.bak /etc/apt/sources.list
+fi
+mv /etc/apt/sources.list /etc/apt/sources.list.bak
+cat >> /etc/apt/sources.list<<EOF
+deb http://mirrors.163.com/debian/ wheezy main
+deb-src http://mirrors.163.com/debian/ wheezy main
+deb http://security.debian.org/ wheezy/updates main
+deb-src http://security.debian.org/ wheezy/updates main
+deb http://packages.dotdeb.org stable all
+deb-src http://packages.dotdeb.org stable all
+deb http://mirrors.163.com/debian/ wheezy-updates main
+deb-src http://mirrors.163.com/debian/ wheezy-updates main
+EOF
+apt-get clean
+apt-get autoclean
+rm /var/lib/apt/lists/* -vf
 
 # 定义变量
 current_dir=$(pwd)  #定义当前路径变量
@@ -94,4 +115,5 @@ install() {
 
 clear() {
     rm -rf /usr/local/src/*.*
+    echo "Install Sucess! Debian DaFa GuoRan Hao ,HaHaHa!"
 }
