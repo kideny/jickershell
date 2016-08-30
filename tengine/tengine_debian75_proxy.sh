@@ -1,68 +1,72 @@
 #!/bin/bash
 
-#卸载exim4邮件发送程序
-apt-get --purge remove exim4
-apt-get --purge remove exim4-base
+install_tengine_proxy() {
 
-#对Debian系统Update
-apt-get update -y
+    #卸载exim4邮件发送程序
+    apt-get --purge remove exim4
+    apt-get --purge remove exim4-base
 
-#对Debian系统Upgrade，-u参数可以罗列出需要升级的软件
-apt-get -u upgrade -y
+    #对Debian系统Update
+    apt-get update -y
 
-#安装Tengine的依赖库
-apt-get install openssl libtool libssl-dev libperl-dev libpcre3 libpcre3-dev
+    #对Debian系统Upgrade，-u参数可以罗列出需要升级的软件
+    apt-get -u upgrade -y
 
-#移出debian自带的apache2
-apt-get remove -y apache2 apache2-doc apache2-utils apache2.2-common apache2.2-bin apache2-mpm-prefork apache2-doc apache2-mpm-worker mysql-client mysql-server mysql-common php5 php5-common php5-cgi php5-mysql php5-curl php5-gd
+    #安装Tengine的依赖库
+    apt-get install openssl libtool libssl-dev libperl-dev libpcre3 libpcre3-dev
 
-#杀死所有apache2的进程
-killall apache2
+    #移出debian自带的apache2
+    apt-get remove -y apache2 apache2-doc apache2-utils apache2.2-common apache2.2-bin apache2-mpm-prefork apache2-doc apache2-mpm-worker mysql-client mysql-server mysql-common php5 php5-common php5-cgi php5-mysql php5-curl php5-gd
 
-#删除安装软件的备份，释放硬盘空间
-apt-get clean
+    #杀死所有apache2的进程
+    killall apache2
 
-#进入Debian的源文件目录
-cd /usr/local/src
+    #删除安装软件的备份，释放硬盘空间
+    apt-get clean
 
-#下载指定版本的Tengine
-wget http://tengine.taobao.org/download/tengine-2.1.2.tar.gz
+    #进入Debian的源文件目录
+    cd /usr/local/src
 
-#解压缩
-tar zxvf tengine-2.1.2.tar.gz
+    #下载指定版本的Tengine
+    wget http://tengine.taobao.org/download/tengine-2.1.2.tar.gz
 
-#进入gcc文件的目录
-cd /usr/local/src/tengine-2.1.2/auto/cc
+    #解压缩
+    tar zxvf tengine-2.1.2.tar.gz
 
-#使用sed命令注释掉nginx编译文件中的debug
-sed -i '/CFLAGS="$CFLAGS -g"/s/CFLAGS="$CFLAGS -g"/# CFLAGS="$CFLAGS -g"/g' gcc
+    #进入gcc文件的目录
+    cd /usr/local/src/tengine-2.1.2/auto/cc
 
-#进入Tengine的目录
-cd /usr/local/src/tengine-2.1.2
+    #使用sed命令注释掉nginx编译文件中的debug
+    sed -i '/CFLAGS="$CFLAGS -g"/s/CFLAGS="$CFLAGS -g"/# CFLAGS="$CFLAGS -g"/g' gcc
 
-#配置并检查依赖
-./configure --prefix=/usr/local/nginx --group=www-data --user=www-data  --with-http_stub_status_module --with-http_ssl_module --without-http-cache --without-mail_pop3_module --without-mail_imap_module  --without-mail_smtp_module
+    #进入Tengine的目录
+    cd /usr/local/src/tengine-2.1.2
 
-#编译并且执行安装
-time make
+    #配置并检查依赖
+    ./configure --prefix=/usr/local/nginx --group=www-data --user=www-data  --with-http_stub_status_module --with-http_ssl_module --without-http-cache --without-mail_pop3_module --without-mail_imap_module  --without-mail_smtp_module
 
-#执行make
-make install
+    #编译并且执行安装
+    time make
 
-#下载Tengine的控制脚本到初始化配置文件的目录
-wget http://www.jicker.cn/down/source/nginx -O /etc/init.d/nginx
+    #执行make
+    make install
 
-#给Tengine控制脚本添加执行权限
-chmod +x /etc/init.d/nginx
+    #下载Tengine的控制脚本到初始化配置文件的目录
+    wget http://www.jicker.cn/down/source/nginx -O /etc/init.d/nginx
 
-#将Tengine控制脚本添加到自启动的列表
-update-rc.d -f nginx defaults
+    #给Tengine控制脚本添加执行权限
+    chmod +x /etc/init.d/nginx
 
-#创建站点配置文件的目录
-mkdir -p /usr/local/nginx/conf/vhost
+    #将Tengine控制脚本添加到自启动的列表
+    update-rc.d -f nginx defaults
 
-#重新启动Tengine
-service nginx start
+    #创建站点配置文件的目录
+    mkdir -p /usr/local/nginx/conf/vhost
 
-#安装成功的欢迎致辞！
-echo "Tengine install chenggong!";
+    #重新启动Tengine
+    service nginx start
+
+    #安装成功的欢迎致辞！
+    echo "Tengine install chenggong!";
+
+}
