@@ -1,12 +1,10 @@
-英文名称：DDFH
-
-中文名称：Debian大法好
+项目名称：webshell
 
 作者名称：袁斌
 
 作者博客：http://www.jicker.cn
 
-项目简介：主要用于Debian操作系统的web环境配置。
+项目简介：使用shell语言编写的，用户Debian操作系统的web环境配置，默认64位。
 
 项目特色：简单，轻量级，支持多种web环境的配置。
 
@@ -19,7 +17,7 @@ apt-get install git
 cd  /usr/local/src 
 
 # 使用git克隆代码
-git clone https://git.oschina.net/jicker/DDFH.git 。
+git clone https://github.com/kideny/webshell.git
 
 # 执行安装脚本
 cd /DDFH & sh install.sh
