@@ -1,0 +1,26 @@
+#!/bin/bash
+
+start(){
+        ssserver -c /etc/shadowsocks.json -d start
+}
+
+stop(){
+        ssserver -c /etc/shadowsocks.json -d stop
+}
+
+case "$1" in
+start)
+        start        
+        ;;
+stop)
+        stop        
+        ;;
+restart)
+        stop
+        start        
+        ;;
+*)
+        echo "Usage: $0 {start|restart|stop}"
+        exit 1        
+        ;;
+esac
