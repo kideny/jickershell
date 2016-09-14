@@ -10,16 +10,16 @@
 
 安装方法：
 
-# 安装git
+# 第一步：安装git
 apt-get install git
 
-# 命令进入源码下载目录
+# 第二步：命令进入源码下载目录
 cd  /usr/local/src
 
-# 使用git克隆代码
+# 第三步：使用git克隆代码
 git clone https://github.com/kideny/webshell.git
 
-# 执行安装脚本
+# 第四步：执行安装脚本
 cd /webshell & sh install.sh
 
 常用debian命令：
