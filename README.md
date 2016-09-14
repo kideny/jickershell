@@ -14,13 +14,13 @@
 apt-get install git
 
 # 命令进入源码下载目录
-cd  /usr/local/src 
+cd  /usr/local/src
 
 # 使用git克隆代码
 git clone https://github.com/kideny/webshell.git
 
 # 执行安装脚本
-cd /DDFH & sh install.sh
+cd /webshell & sh install.sh
 
 常用debian命令：
 检查编译后nginx文件的大小：ls -lh /usr/local/nginx/sbin/nginx
