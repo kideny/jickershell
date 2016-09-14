@@ -50,10 +50,10 @@ current_dir=$(pwd)  #定义当前路径变量
 clear
 
 # 加载各种安装脚本
-. tengine/tengine_debian75_proxy.sh
-. tengine/tengine_debian75_product.sh
-. php/php56_debian75.sh
-. php/php7_debian75.sh
+. tengine/tengine_debian7_proxy.sh
+. tengine/tengine_debian7_product.sh
+. php/php56_debian7.sh
+. php/php7_debian7.sh
 . go/go.sh
 . mysql/mysql.sh
 
