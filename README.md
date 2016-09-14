@@ -1,6 +1,6 @@
 项目名称：webshell
 
-作者名称：袁斌
+作者名称：Frank Yuan
 
 作者博客：http://www.jicker.cn
 
