@@ -1,0 +1,3 @@
+ 1 Host git.oschina.net
+  2 User git
+  3 IdentityFile ~/.ssh/git_rsa
