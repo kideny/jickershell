@@ -1,5 +1,6 @@
 <?php
 // 本类主要用于跟git交互的webhook
+
 class GitAction extends HCommonAction {
 
 	//拉取接口
