@@ -1,0 +1,6 @@
+ # SSH的配置文件，指定Host使用特定的私钥文件，而不是默认的id_rsa
+ # 文件存放位置 root用户户请丢到/root/.ssh/目录下，www-data用户要丢到对应的根目录下，没有设置根目录应丢到/var/www/.ssh目录下
+
+Host git.oschina.net
+User git
+IdentityFile ~/.ssh/git_rsa
