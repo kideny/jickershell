@@ -6,7 +6,7 @@ Blog：http://www.jicker.cn
 
 Description：WebShell is webserver environment configuration's script using shell language on Debian System, It's only support 64 bit。
 
-项目特色：简单，轻量级，支持多种web环境的配置。
+Features：Simple，Full。
 
 Install Method：
 
