@@ -46,9 +46,6 @@ rm /var/lib/apt/lists/* -vf
 # 定义变量
 current_dir=$(pwd)
 
-#清屏准备显示选择组件
-clear
-
 # 加载各种安装脚本
 . server/nginx/install/proxy.sh
 . server/nginx/install/product.sh
