@@ -65,7 +65,7 @@ install_tengine_proxy() {
     make install
 
     #复制Tengine的控制脚本到初始化配置文件的目录
-    cp $(current_dir)/tengine/nginx /etc/init.d/nginx
+    cp $(current_dir)/server/tengine/init.d/nginx   /etc/init.d/nginx
 
     #给Tengine控制脚本添加执行权限
     chmod +x /etc/init.d/nginx
@@ -77,7 +77,7 @@ install_tengine_proxy() {
     mkdir -p /usr/local/nginx/conf/vhost
 
     #复制默认站点配置文件到站点配置文件目录
-    cp $(current_dir)/conf/nginx/default.conf /usr/local/nginx/conf/vhost/$(hostname).conf
+    cp $(current_dir)/server/tengine/conf/default.conf    /usr/local/nginx/conf/vhost/$(hostname).conf
 
     #重新启动Tengine
     service nginx start

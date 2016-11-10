@@ -50,15 +50,14 @@ current_dir=$(pwd)  #定义当前路径变量
 clear
 
 # 加载各种安装脚本
-. server/nginx/proxy.sh
-. server/nginx/product.sh
-. server/openresty/proxy.sh
-. server/openresty/product.sh
-. server/tengine/proxy.sh
-. server/tengine/product.sh
+. server/nginx/install/proxy.sh
+. server/nginx/install/product.sh
+. server/openresty/install/proxy.sh
+. server/openresty/install/product.sh
+. server/tengine/install/proxy.sh
+. server/tengine/install/product.sh
 . app/php/php56.sh
 . app/php/php7.sh
-. mysql/mysql.sh
 
 # 选择要安装的组件
 install() {
