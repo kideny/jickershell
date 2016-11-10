@@ -41,7 +41,8 @@ deb-src http://mirrors.163.com/debian/ wheezy-updates main
 EOF
 apt-get clean
 apt-get autoclean
-rm /var/lib/apt/lists/* -vf
+
+# rm /var/lib/apt/lists/* -vf
 
 # 定义变量
 current_dir=$(pwd)
@@ -56,100 +57,44 @@ current_dir=$(pwd)
 . app/php/php56.sh
 . app/php/php7.sh
 
-install()
+run() {
+    install
+}
 
 # 选择要安装的组件
 install() {
     echo ""
     echo "  1: tengine on proxy server"
-    echo "  2: tengine+php5.6"
-    echo "  3: tengine+php7"
-    echo "  4: tengine+go"
-    echo "  5: tengine+go+php7"
-    echo "  6: tengine+php5.6+mysql"
-    echo "  7: tengine+php7+mysql"
-    echo "  8: tengine+go+mysql"
-    echo "  11: tengine on proxy server"
-    echo "  12: tengine+php5.6"
-    echo "  13: tengine+php7"
-    echo "  14: tengine+go"
-    echo "  15: tengine+go+php7"
-    echo "  16: tengine+php5.6+mysql"
-    echo "  17: tengine+php7+mysql"
-    echo "  18: tengine+go+mysql"
+    echo "  2: nginx on proxy server"
+    echo "  3: openresty on proxy server"
+    echo "  4: tengine+php7"
+    echo "  5: nginx+php7"
+    echo "  6: openresty+php7"
+    echo ""
 
-    read -p ">>Enter your choose number (or exit): " num
+    read -p ">>Enter your choose number (or exit): "  num
 
     case "$(num)" in
         1)
             install_tengine_proxy
             ;;
         2)
-            install_tengine_product
-            install_php56
+            install_nginx_proxy
             ;;
         3)
-            install_tengine_product
-            install_php7
+            install_tengine_proxy
             ;;
         4)
             install_tengine_product
-            install_go
+            install_php7
             ;;
         5)
-            install_tengine__product
-            install_go
+            install_nginx_product
             install_php7
             ;;
         6)
-            install_tengine__product
-            install_php56
-            install_mysql
-            ;;
-        7)
-            install_tengine__product
+            install_openresty_product
             install_php7
-            install_mysql
-            ;;
-        8)
-            install_tengine__product
-            install_go
-            install_mysql
-            ;;
-        11)
-            install_nginx_proxy
-            ;;
-        12)
-            install_nginx_product
-            install_php56
-            ;;
-        13)
-            install_nginx_product
-            install_php7
-            ;;
-        14)
-            install_nginx_product
-            install_go
-            ;;
-        15)
-            install_nginx__product
-            install_go
-            install_php7
-            ;;
-        16)
-            install_nginx__product
-            install_php56
-            install_mysql
-            ;;
-        17)
-            install_nginx__product
-            install_php7
-            install_mysql
-            ;;
-        18)
-            install_nginx__product
-            install_go
-            install_mysql
             ;;
         * )
             exit 1
