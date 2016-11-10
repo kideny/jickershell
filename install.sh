@@ -59,6 +59,8 @@ clear
 . app/php/php56.sh
 . app/php/php7.sh
 
+install()
+
 # 选择要安装的组件
 install() {
     echo ""
