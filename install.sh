@@ -72,7 +72,6 @@ install() {
     echo "  6: tengine+php5.6+mysql"
     echo "  7: tengine+php7+mysql"
     echo "  8: tengine+go+mysql"
-    echo "  "
     echo "  11: tengine on proxy server"
     echo "  12: tengine+php5.6"
     echo "  13: tengine+php7"
