@@ -2,9 +2,9 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
-#  Auther      Frank.Yuan
-#  Website    http://www.jicker.cn https://www.frankyuan.com
-#  Company  http://www.qmschool.cn
+#  Auther      Frank Kennedy Yuan
+#  Website    http://www.jicker.cn
+#  Company  http://www.loserhub.com
 
 #检测是否root账户权限
 if [ $(id -u) != "0" ]; then
@@ -23,7 +23,7 @@ rm -rf /etc/localtime
 #设置时区为上海
 ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-#修改默认的源，添加往医院和debian官方源
+#修改默认的源，添加163源和debian官方源
 if [ -s /etc/apt/sources.list.bak ]; then
 rm /etc/apt/sources.list -f
 mv /etc/apt/sources.list.bak /etc/apt/sources.list
@@ -50,11 +50,14 @@ current_dir=$(pwd)  #定义当前路径变量
 clear
 
 # 加载各种安装脚本
-. tengine/tengine_debian7_proxy.sh
-. tengine/tengine_debian7_product.sh
-. php/php56_debian7.sh
-. php/php7_debian7.sh
-. go/go.sh
+. server/nginx/proxy.sh
+. server/nginx/product.sh
+. server/openresty/proxy.sh
+. server/openresty/product.sh
+. server/tengine/proxy.sh
+. server/tengine/product.sh
+. app/php/php56.sh
+. app/php/php7.sh
 . mysql/mysql.sh
 
 # 选择要安装的组件
@@ -68,8 +71,7 @@ install() {
     echo "  6: tengine+php5.6+mysql"
     echo "  7: tengine+php7+mysql"
     echo "  8: tengine+go+mysql"
-
-    echo ""
+    echo "  "
     echo "  11: tengine on proxy server"
     echo "  12: tengine+php5.6"
     echo "  13: tengine+php7"
