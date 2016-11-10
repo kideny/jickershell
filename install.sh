@@ -44,7 +44,7 @@ apt-get autoclean
 rm /var/lib/apt/lists/* -vf
 
 # 定义变量
-current_dir=$(pwd)  #定义当前路径变量
+current_dir=$(pwd)
 
 #清屏准备显示选择组件
 clear
