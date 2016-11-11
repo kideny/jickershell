@@ -1,4 +1,4 @@
-Name：WebShell
+Name：JickerShell
 
 Author：Frank Yuan
 
@@ -14,7 +14,7 @@ Install Method：
 apt-get install git
 
 # Step 2：use git clone the code
-cd  /usr/local/src & git clone https://github.com/kideny/webshell.git
+cd  /usr/local/src & git clone https://github.com/kideny/jickershell.git
 
 # Step 3：install script
-cd /webshell & sh install.sh
+cd /jickershell & sh debian8.sh

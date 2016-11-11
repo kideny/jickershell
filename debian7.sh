@@ -48,7 +48,7 @@ apt-get autoclean
 
 # rm /var/lib/apt/lists/* -vf
 
-# 定义变量
+# 定义变量，获得当前脚本的路路径
 current_dir=$(pwd)
 
 # 加载各种安装脚本
