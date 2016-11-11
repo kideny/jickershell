@@ -74,6 +74,9 @@ install() {
     echo "  4: tengine+php7"
     echo "  5: nginx+php7"
     echo "  6: openresty+php7"
+    echo "  31: tengine+php5.6"
+    echo "  32: nginx+php5.6"
+    echo "  33: openresty+php5.6"
     echo ""
 
     read -p ">>Enter your choose number (or exit): "  num
@@ -100,6 +103,17 @@ install() {
             install_openresty_product
             install_php7
             ;;
+        31)
+            install_tengine_product
+            install_php56
+            ;;
+        32)
+            install_nginx_product
+            install_php56
+            ;;
+        33)
+            install_openresty_product
+            install_php56
         * )
             exit 1
         ;;
