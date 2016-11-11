@@ -61,7 +61,7 @@ apt-get autoclean
 # rm /var/lib/apt/lists/* -vf
 
 # 定义变量
-current_dir=$(pwd)
+current_dir=${pwd}
 
 # 加载各种安装脚本
 . server/nginx/install/proxy.sh
@@ -86,7 +86,7 @@ install() {
 
     read -p ">>Enter your choose number (or exit): "  num
 
-    case "$num" in
+    case "${num}" in
         1)
             install_tengine_proxy
             ;;

@@ -6,26 +6,26 @@ install_tengine_proxy() {
     tengineversion="2.1.2"
 
     #输出提示
-    echo -e "\033[41;37m Please enter the tengine version, the default is: $(tengineversion)  < \033[0m"
-    echo -e "\033[41;37m Example: $(tengineversion) \033[0m"
+    echo -e "\033[41;37m Please enter the tengine version, the default is: ${tengineversion}  < \033[0m"
+    echo -e "\033[41;37m Example: ${tengineversion} \033[0m"
 
     #读取用户输入的tengineversion，如果tengineversion为空，则默认为tengineversion
     read -p " --Enter: " hostname
-    if [ "$tengineversion" = "" ]; then
-        tengineversion="$tengineversion"
+    if [ "${tengineversion}" = "" ]; then
+        tengineversion="${tengineversion}"
     fi
 
     #定义servername
     servername="wwwjickercn"
 
     #输出提示
-    echo -e "\033[41;37m Please enter the website, the default is: $(servername)  < \033[0m"
-    echo -e "\033[41;37m Example: $(servername) \033[0m"
+    echo -e "\033[41;37m Please enter the website, the default is: ${servername}  < \033[0m"
+    echo -e "\033[41;37m Example: ${servername} \033[0m"
 
     #读取用户输入的hostname，如果hostname为空，则默认为servername
     read -p " --Enter: " hostname
-    if [ "$hostname" = "" ]; then
-        hostname="$servername"
+    if [ "${hostname}" = "" ]; then
+        hostname="${servername}"
     fi
 
     #安装基础环境
@@ -67,19 +67,19 @@ install_tengine_proxy() {
     cd /usr/local/src
 
     #下载指定版本的Tengine
-    wget http://tengine.taobao.org/download/tengine-$(tengineversion).tar.gz
+    wget http://tengine.taobao.org/download/tengine-${tengineversion}.tar.gz
 
     #解压缩
-    tar zxvf tengine-$(tengineversion).tar.gz
+    tar zxvf tengine-${tengineversion}.tar.gz
 
     #进入gcc文件的目录
-    cd /usr/local/src/tengine-$(tengineversion)/auto/cc
+    cd /usr/local/src/tengine-${tengineversion}/auto/cc
 
     #使用sed命令注释掉nginx编译文件中的debug
     sed -i '/CFLAGS="$CFLAGS -g"/s/CFLAGS="$CFLAGS -g"/# CFLAGS="$CFLAGS -g"/g' gcc
 
     #进入Tengine的目录
-    cd /usr/local/src/tengine-$(tengineversion)
+    cd /usr/local/src/tengine-$tengineversion
 
     #配置并检查依赖
     ./configure --prefix=/usr/local/nginx --group=www-data --user=www-data  --with-http_stub_status_module --with-http_ssl_module --without-http-cache --without-mail_pop3_module --without-mail_imap_module  --without-mail_smtp_module
@@ -91,7 +91,7 @@ install_tengine_proxy() {
     make install
 
     #复制Tengine的控制脚本到初始化配置文件的目录
-    cp $(current_dir)/server/tengine/init.d/nginx   /etc/init.d/nginx
+    cp ${current_dir}/server/tengine/init.d/nginx   /etc/init.d/nginx
 
     #给Tengine控制脚本添加执行权限
     chmod +x /etc/init.d/nginx
@@ -103,8 +103,8 @@ install_tengine_proxy() {
     mkdir -p /usr/local/nginx/conf/vhost
 
     #复制默认站点配置文件到站点配置文件目录
-    cp $(current_dir)/server/tengine/conf/default.conf    /usr/local/nginx/conf/vhost/$(hostname).conf
-    cp $(current_dir)/server/tengine/conf/nginx.conf    /usr/local/nginx/conf/nginx.conf
+    cp ${current_dir}/server/tengine/conf/default.conf    /usr/local/nginx/conf/vhost/${hostname}.conf
+    cp ${current_dir}/server/tengine/conf/nginx.conf    /usr/local/nginx/conf/nginx.conf
 
     #重新启动Tengine
     service nginx start
