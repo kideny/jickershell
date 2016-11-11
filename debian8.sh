@@ -74,7 +74,7 @@ current_dir=$(pwd)
 . app/php/php7.sh
 
 # 选择要安装的组件
-    function install() {
+install() {
     echo ""
     echo "  1: tengine on proxy server"
     echo "  2: nginx on proxy server"
