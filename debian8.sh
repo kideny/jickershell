@@ -86,7 +86,7 @@ install() {
 
     read -p ">>Enter your choose number (or exit): "  num
 
-    case "$(num)" in
+    case "$num" in
         1)
             install_tengine_proxy
             ;;
