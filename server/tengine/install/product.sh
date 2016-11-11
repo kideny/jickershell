@@ -52,8 +52,8 @@ install_tengine_proxy() {
     dpkg -l |grep nginx | awk -F " " '{print $2}' | xargs dpkg -P
     apt-get remove -y apache2 apache2-doc apache2-utils apache2.2-common apache2.2-bin apache2-mpm-prefork apache2-doc apache2-mpm-worker mysql-client mysql-server mysql-common
     apt-get check
-    apt-get upgrade
     apt-get update
+    apt-get upgrade
     apt-get autoremove -y
     apt-get -fy install
 
@@ -104,6 +104,7 @@ install_tengine_proxy() {
 
     #复制默认站点配置文件到站点配置文件目录
     cp $(current_dir)/server/tengine/conf/default.conf    /usr/local/nginx/conf/vhost/$(hostname).conf
+    cp $(current_dir)/server/tengine/conf/nginx.conf    /usr/local/nginx/conf/nginx.conf
 
     #重新启动Tengine
     service nginx start

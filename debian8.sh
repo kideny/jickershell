@@ -73,12 +73,8 @@ current_dir=$(pwd)
 . app/php/php56.sh
 . app/php/php7.sh
 
-run() {
-    install
-}
-
 # 选择要安装的组件
-install() {
+    function install() {
     echo ""
     echo "  1: tengine on proxy server"
     echo "  2: nginx on proxy server"
@@ -116,6 +112,10 @@ install() {
             exit 1
         ;;
     esac
+}
+
+run() {
+    install
 }
 
 clear() {
