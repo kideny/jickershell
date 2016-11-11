@@ -38,6 +38,8 @@ deb http://packages.dotdeb.org stable all
 deb-src http://packages.dotdeb.org stable all
 deb http://mirrors.163.com/debian/ wheezy-updates main
 deb-src http://mirrors.163.com/debian/ wheezy-updates main
+deb http://nginx.org/packages/debian/ wheezy nginx
+deb-src http://nginx.org/packages/debian/ wheezy nginx
 EOF
 apt-get clean
 apt-get autoclean
