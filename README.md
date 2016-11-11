@@ -1,10 +1,10 @@
 Name：JickerShell
 
-Author：Frank Yuan
+Author：Frank Kennedy Yuan
 
 Blog：http://www.jicker.cn
 
-Description：WebShell is webserver environment configuration's script using shell language on Debian System, It's only support 64 bit。
+Description：JickerShell is webserver environment configuration's script using shell language on Debian System, It's only support 64 bit。
 
 Features：Simple，Full。
 
