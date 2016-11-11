@@ -114,9 +114,7 @@ install() {
     esac
 }
 
-run() {
-    install
-}
+install
 
 clear() {
     rm -rf /usr/local/src/*.*
