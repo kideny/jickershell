@@ -3,7 +3,7 @@
 install_tengine_proxy() {
 
     #定义默认安装的php版本号
-    tengineversion="2.1.2"
+    tengineversion="2.2.0"
 
     #输出提示
     echo -e "\033[41;37m Please enter the tengine version, the default is: ${tengineversion}  < \033[0m"
