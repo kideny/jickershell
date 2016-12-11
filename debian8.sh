@@ -56,6 +56,7 @@ EOF
 
 # Install Node.js 7.x , Using Debian, as root
 curl -sL https://deb.nodesource.com/setup_7.x | bash -
+#apt-get install -y nodejs
 
 #执行自动清理
 apt-get clean

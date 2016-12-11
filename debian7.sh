@@ -44,6 +44,7 @@ EOF
 
 # Install Node.js 6.x ,Using Debian, as root
 curl -sL https://deb.nodesource.com/setup_6.x | bash -
+#apt-get install -y nodejs
 
 #执行自动清理
 apt-get clean
