@@ -54,6 +54,9 @@ deb http://nginx.org/packages/debian/  	jessie nginx
 deb-src http://nginx.org/packages/debian/  	jessie nginx
 EOF
 
+# Install Node.js 7.x , Using Debian, as root
+curl -sL https://deb.nodesource.com/setup_7.x | bash -
+
 #执行自动清理
 apt-get clean
 apt-get autoclean
