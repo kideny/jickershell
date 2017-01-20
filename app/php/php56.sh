@@ -3,7 +3,7 @@
 install_php56() {
 
     #定义默认安装的php版本号
-    defaultversion="5.6.28"
+    defaultversion="5.6.30"
 
     #输出提示
     echo -e "\033[41;37m Please enter the php version, the default is: $(defaultversion)  < \033[0m"

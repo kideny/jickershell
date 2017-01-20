@@ -2,7 +2,7 @@
 
 install_php7() {
     #定义默认安装的php版本号
-    defaultversion="7.0.14"
+    defaultversion="7.0.15"
 
     #输出提示
     echo -e "\033[41;37m Please enter the php version, the default is: $(defaultversion)  < \033[0m"
