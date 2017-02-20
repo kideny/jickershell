@@ -56,14 +56,14 @@ apt-get autoclean
 current_dir=$(pwd)
 
 # 加载各种安装脚本
-. server/nginx/install/proxy.sh
-. server/nginx/install/product.sh
-. server/openresty/install/proxy.sh
-. server/openresty/install/product.sh
-. server/tengine/install/proxy.sh
-. server/tengine/install/product.sh
-. app/php/php56.sh
-. app/php/php7.sh
+. apps/nginx/install/proxy.sh
+. apps/nginx/install/product.sh
+. apps/openresty/install/proxy.sh
+. apps/openresty/install/product.sh
+. apps/tengine/install/proxy.sh
+. apps/tengine/install/product.sh
+. apps/php/php56.sh
+. apps/php/php7.sh
 
 run() {
     install

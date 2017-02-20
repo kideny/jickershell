@@ -52,15 +52,18 @@ install_php7() {
     cp /usr/local/src/php-${phpversion}/php.ini-production /usr/local/php7/etc/php.ini
 
     #开启Opcache
-    sed -i '/$/a zend_extension=opcache.so'  /usr/local/php7/etc/php.ini
+    #sed -i '/$/a zend_extension=opcache.so'  /usr/local/php7/etc/php.ini
 
     #进入PHP7源码的目录
     cd /usr/local/src/php-${phpversion}/sapi/fpm
 
-    #复制php7-fpm管理脚本到初始化启动目录
-    cp /usr/local/php7/etc/php-fpm.conf.default /etc/init.d/php7-fpm
+    #复制php7-fpm管理脚本到操作系统初始化启动目录
+    cp /usr/local/src/php-${phpversion}/sapi/fpm/init.d.php-fpm.in /etc/init.d/php7-fpm
 
-    #复制站点的PHP7-fpm配置文件
+    #复制站点的PHP7-fpm默认配置文件
+    cp /usr/local/php7/etc/php-fpm.conf.default /usr/local/php7/etc/php-fpm.conf
+
+    #复制站点的PHP7-fpm站点配置文件
     cp /usr/local/php7/etc/php-fpm.d/www.conf.default /usr/local/php7/etc/php-fpm.d/www.conf
 
     #给php7-fpm增加执行权限
