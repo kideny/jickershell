@@ -2,19 +2,34 @@
 
 install_php7() {
 
-    #定义默认安装的php版本号变量
-    defaultversion="7.1.2"
+    #定义默认安装程序的下载路径
+    srcDir="/usr/local/src"
 
     #输出提示，用户可以自定义自己要安装的版本好，覆盖默认安装的版本好
-    echo -e "\033[41;37m Please enter the php version, the default is: $(defaultversion)  < \033[0m"
-    echo -e "\033[41;37m Example: $(defaultversion) \033[0m"
+    echo -e "\033[41;37m Please enter the php version, the default is: 7.1.2  < \033[0m"
+    echo -e "\033[41;37m Example: 7.1.2 \033[0m"
 
-    #读取用户输入的defaultversion
-    read -p " --Enter: " hostname
+    #读取用户输入的phpVersion
+    read -p " --Enter: " phpVersion
 
-    #如果defaultversion为空，则默认为defaultversion
-    if [ "$phpversion" = "" ]; then
-        phpversion="$defaultversion"
+    #如果用户未填写，则默认为phpVersion
+    if [ $phpVersion = "" ]; then
+        $phpVersion="7.1.2"
+    fi
+
+    #定义默认安装的php路径
+    phpDir="/usr/local/php71"
+
+    #输出提示，用户可以自定义自己要安装的路径，覆盖默认定义的安装路径
+    echo -e "\033[41;37m Please enter the install dir, the default dir is: /usr/local/php71  < \033[0m"
+    echo -e "\033[41;37m Example: /usr/local/php71 \033[0m"
+
+    #读取用户输入的phpDir
+    read -p " --Enter: " phpDir
+
+    #如果用户未填写，则默认为"/usr/local/php71",
+    if [ $phpDir = "" ]; then
+        $phpDir="/usr/local/php71"
     fi
 
     #对Debian系统Update
@@ -36,49 +51,49 @@ install_php7() {
     service nginx stop
 
     #进入Debian的源文件目录
-    cd /usr/local/src
+    cd $(srcDir)
 
     #下载指定版本的PHP7
-    wget http://cn2.php.net/distributions/php-${phpversion}.tar.gz
+    wget http://cn2.php.net/distributions/php-${phpVersion}.tar.gz
 
     #解压缩
-    tar zxvf php-${phpversion}.tar.gz
+    tar zxvf php-${phpVersion}.tar.gz
 
     #进入PHP7源码的目录
-    cd /usr/local/src/php-${phpversion}
+    cd $(srcDir)/php-${phpVersion}
 
     #配置并检查依赖
-    ./configure --prefix=/usr/local/php --with-zlib-dir --with-config-file-path=/usr/local/php/etc --with-fpm-user=www-data --with-fpm-group=www-data --with-gd --with-freetype-dir=DIR --with-jpeg-dir=DIR --with-png-dir=DIR --with-mcrypt --with-mhash --with-openssl --with-pdo-mysql=mysqlnd --with-mysqli=mysqlnd --with-curl --with-iconv --with-gettext --with-bz2 --with-zlib --enable-bcmath --enable-inline-optimization --enable-mbstring --enable-sockets --enable-session --enable-fpm --enable-opcache --enable-pdo --enable-gd-native-ttf --enable-zip --disable-ipv6 --disable-rpath
+    ./configure --prefix=$(phpDir) --with-zlib-dir --with-config-file-path=$(phpDir)/etc --with-fpm-user=www-data --with-fpm-group=www-data --with-gd --with-freetype-dir=DIR --with-jpeg-dir=DIR --with-png-dir=DIR --with-mcrypt --with-mhash --with-openssl --with-pdo-mysql=mysqlnd --with-mysqli=mysqlnd --with-curl --with-iconv --with-gettext --with-bz2 --with-zlib --enable-bcmath --enable-inline-optimization --enable-mbstring --enable-sockets --enable-session --enable-fpm --enable-opcache --enable-pdo --enable-gd-native-ttf --enable-zip --disable-ipv6 --disable-rpath
 
     #编译并且执行安装
     time make && make install
 
     #复制PHP7的配置文件到配置文件目录
-    cp /usr/local/src/php-${phpversion}/php.ini-production /usr/local/php/etc/php.ini
+    cp $(srcDir)/php-${phpVersion}/php.ini-production $(phpDir)/etc/php.ini
 
     #开启Opcache
-    #sed -i '/$/a zend_extension=opcache.so'  /usr/local/php/etc/php.ini
+    #sed -i '/$/a zend_extension=opcache.so'  $(phpDir)/etc/php.ini
 
     #进入PHP7源码的目录
-    cd /usr/local/src/php-${phpversion}/sapi/fpm
+    cd $(srcDir)/php-${phpVersion}/sapi/fpm
 
     #复制php7-fpm管理脚本到操作系统初始化启动目录
-    cp /usr/local/src/php-${phpversion}/sapi/fpm/init.d.php-fpm.in /etc/init.d/php7-fpm
+    cp $(srcDir)/php-${phpVersion}/sapi/fpm/init.d.php-fpm.in /etc/init.d/php71-fpm
 
     #复制站点的PHP7-fpm默认配置文件
-    cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf
+    cp $(phpDir)/etc/php-fpm.conf.default $(phpDir)/etc/php-fpm.conf
 
     #复制站点的PHP7-fpm站点配置文件
-    cp /usr/local/php/etc/php-fpm.d/www.conf.default /usr/local/php/etc/php-fpm.d/www.conf
+    cp $(phpDir)/etc/php-fpm.d/www.conf.default $(phpDir)/etc/php-fpm.d/www.conf
 
     #给php7-fpm增加执行权限
-    chmod +x /etc/init.d/php7-fpm
+    chmod +x /etc/init.d/php71-fpm
 
     #现在尝试启动php7的配置测试看看是否有误
-    service php7-fpm configtest
+    service php71-fpm configtest
 
     #如果测试没问题，启动php7-fpm
-    service php7-fpm start
+    service php71-fpm start
 
     #启动Nginx
     service nginx start
