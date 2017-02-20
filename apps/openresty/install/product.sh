@@ -31,34 +31,26 @@ install_openresty_product() {
     #安装基础环境
     apt-get install -y gcc g++ make wget htop
 
-    #先卸载exim4及系统自带的apache2
-    apt-get remove -y exim4 apache2 apache2-doc apache2-utils apache2.2-common apache2.2-bin apache2-mpm-prefork apache2-doc apache2-mpm-worker mysql-client mysql-server mysql-common php5 php5-common php5-cgi php5-mysql php5-curl php5-gd
-
     #杀死所有apache2的进程
     killall apache2
 
     #remove不需要的debian系统自带程序
-    apt-get update
-    apt-get autoremove -y
-    apt-get -fy install
     dpkg -P libmysqlclient15off libmysqlclient15-dev mysql-common
     dpkg -P apache2 apache2-doc apache2-mpm-prefork apache2-utils apache2.2-common
-
-    #debian系统的update
-    apt-get autoremove -y
-    apt-get -fy install
     dpkg -P mysql-server mysql-client
     dpkg -P nginx php5-fpm php5-gd php5-mysql
     dpkg -l |grep nginx | awk -F " " '{print $2}' | xargs dpkg -P
-    apt-get remove -y apache2 apache2-doc apache2-utils apache2.2-common apache2.2-bin apache2-mpm-prefork apache2-doc apache2-mpm-worker mysql-client mysql-server mysql-common
+    apt-get remove -y exim4 apache2 apache2-doc apache2-utils apache2.2-common apache2.2-bin apache2-mpm-prefork apache2-doc apache2-mpm-worker mysql-client mysql-server mysql-common
+
+    #debian系统的update
     apt-get check
-    apt-get upgrade
     apt-get update
+    apt-get upgrade
     apt-get autoremove -y
     apt-get -fy install
 
-    #安装nginx的依赖库
-    apt-get -y install libpcre3-dev zlib1g-dev libssl-dev libxml2-dev libgd2-xpm-dev libgeoip-dev
+    #安装Tengine的依赖库
+    apt-get -y install libpcre3-dev zlib1g-dev libssl-dev libxml2-dev libgd2-xpm-dev libgeoip-dev libjpeg62-turbo-dev
 
     #删除安装软件的备份，释放硬盘空间
     apt-get clean
