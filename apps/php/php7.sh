@@ -78,7 +78,7 @@ install_php7() {
     cd $(srcDir)/php-${phpVersion}/sapi/fpm
 
     #复制php7-fpm管理脚本到操作系统初始化启动目录
-    cp $(srcDir)/php-${phpVersion}/sapi/fpm/init.d.php-fpm.in /etc/init.d/php7-fpm
+    cp $(srcDir)/php-${phpVersion}/sapi/fpm/init.d.php-fpm.in  /etc/init.d/php7-fpm
 
     #复制站点的PHP7-fpm默认配置文件
     cp $(phpDir)/etc/php-fpm.conf.default  $(phpDir)/etc/php-fpm.conf

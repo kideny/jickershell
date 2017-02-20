@@ -69,7 +69,7 @@ install_php7() {
     time make && make install
 
     #复制PHP7的配置文件到配置文件目录
-    cp $(srcDir)/php-${phpVersion}/php.ini-production $(phpDir)/etc/php.ini
+    cp $(srcDir)/php-${phpVersion}/php.ini-production  $(phpDir)/etc/php.ini
 
     #开启Opcache
     #sed -i '/$/a zend_extension=opcache.so'  $(phpDir)/etc/php.ini
@@ -78,13 +78,13 @@ install_php7() {
     cd $(srcDir)/php-${phpVersion}/sapi/fpm
 
     #复制php7-fpm管理脚本到操作系统初始化启动目录
-    cp $(srcDir)/php-${phpVersion}/sapi/fpm/init.d.php-fpm.in /etc/init.d/php71-fpm
+    cp $(srcDir)/php-${phpVersion}/sapi/fpm/init.d.php-fpm.in  /etc/init.d/php71-fpm
 
     #复制站点的PHP7-fpm默认配置文件
-    cp $(phpDir)/etc/php-fpm.conf.default $(phpDir)/etc/php-fpm.conf
+    cp $(phpDir)/etc/php-fpm.conf.default  $(phpDir)/etc/php-fpm.conf
 
     #复制站点的PHP7-fpm站点配置文件
-    cp $(phpDir)/etc/php-fpm.d/www.conf.default $(phpDir)/etc/php-fpm.d/www.conf
+    cp $(phpDir)/etc/php-fpm.d/www.conf.default  $(phpDir)/etc/php-fpm.d/www.conf
 
     #给php7-fpm增加执行权限
     chmod +x /etc/init.d/php71-fpm
