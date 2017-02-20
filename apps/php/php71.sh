@@ -1,6 +1,6 @@
 #!/bin/bash
 
-install_php7() {
+install_php71() {
 
     #定义默认安装的php路径
     defaultDir="/usr/local/php71"
