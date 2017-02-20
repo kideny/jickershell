@@ -2,11 +2,8 @@
 
 install_php7() {
 
-    #定义默认安装的php路径
-    defaultDir="/usr/local/php7"
-
     #定义环境变量
-    PATH=${phpDir}/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/bin
+    PATH=/usr/local/php7/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/bin
     export PATH
 
     #对Debian系统Update
@@ -41,6 +38,9 @@ install_php7() {
     if [ "$phpVersion" = "" ]; then
         phpVersion="$defaultVersion"
     fi
+
+    #定义默认安装的php路径
+    defaultDir="/usr/local/php7"
 
     #输出提示，用户可以自定义自己要安装的路径，覆盖默认定义的安装路径
     echo -e "\033[41;37m Please enter the install dir, the default dir is: ${defaultDir}  < \033[0m"
