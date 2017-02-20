@@ -2,32 +2,6 @@
 
 install_tengine_product() {
 
-    #定义默认安装的php版本号
-    defaultVersion="2.2.0"
-
-    #输出提示
-    echo -e "\033[41;37m Please enter the tengine version, the default is: ${defaultVersion}  < \033[0m"
-    echo -e "\033[41;37m Example: ${defaultVersion} \033[0m"
-
-    #读取用户输入的tengineVersion，如果tengineVersion为空，则默认为defaultVersion
-    read -p " --Enter: " tengineVersion
-    if [ ${tengineVersion} = "" ]; then
-        $tengineVersion=${defaultVersion}
-    fi
-
-    #定义serverName
-    serverName="wwwjickercn"
-
-    #输出提示
-    echo -e "\033[41;37m Please enter the website, the default is: ${serverName}  < \033[0m"
-    echo -e "\033[41;37m Example: ${serverName} \033[0m"
-
-    #读取用户输入的hostname，如果hostname为空，则默认为servername
-    read -p " --Enter: " hostname
-    if [ ${hostname} = "" ]; then
-        $hostname="${servername}"
-    fi
-
     #安装基础环境
     apt-get install -y gcc g++ make wget htop
 
@@ -62,6 +36,32 @@ install_tengine_product() {
 
     #删除安装软件的备份，释放硬盘空间
     apt-get clean
+
+    #定义默认安装的php版本号
+    defaultVersion="2.2.0"
+
+    #输出提示
+    echo -e "\033[41;37m Please enter the tengine version, the default is: ${defaultVersion}  < \033[0m"
+    echo -e "\033[41;37m Example: ${defaultVersion} \033[0m"
+
+    #读取用户输入的tengineVersion，如果tengineVersion为空，则默认为defaultVersion
+    read -p " --Enter: " tengineVersion
+    if [ ${tengineVersion} = "" ]; then
+        $tengineVersion=${defaultVersion}
+    fi
+
+    #定义serverName
+    serverName="wwwjickercn"
+
+    #输出提示
+    echo -e "\033[41;37m Please enter the website, the default is: ${serverName}  < \033[0m"
+    echo -e "\033[41;37m Example: ${serverName} \033[0m"
+
+    #读取用户输入的hostname，如果hostname为空，则默认为servername
+    read -p " --Enter: " hostname
+    if [ ${hostname} = "" ]; then
+        $hostname="${servername}"
+    fi
 
     #进入Debian的源文件目录
     cd ${srcDir}

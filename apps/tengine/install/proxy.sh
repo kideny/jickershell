@@ -1,20 +1,7 @@
 #!/bin/bash
 
 install_tengine_proxy() {
-
-    #定义默认安装的php版本号
-    tengineVersion="2.2.0"
-
-    #输出提示
-    echo -e "\033[41;37m Please enter the tengine version, the default is: ${tengineVersion}  < \033[0m"
-    echo -e "\033[41;37m Example: ${tengineVersion} \033[0m"
-
-    #读取用户输入的tengineVersion，如果tengineVersion为空，则默认为tengineVersion
-    read -p " --Enter: " tengineVersion
-    if [ "${tengineVersion}" = "" ]; then
-        $tengineVersion=$defaultVersion
-    fi
-
+    
     #卸载exim4邮件发送程序
     apt-get --purge remove exim4
     apt-get --purge remove exim4-base
@@ -36,6 +23,19 @@ install_tengine_proxy() {
 
     #删除安装软件的备份，释放硬盘空间
     apt-get clean
+
+    #定义默认安装的php版本号
+    tengineVersion="2.2.0"
+
+    #输出提示
+    echo -e "\033[41;37m Please enter the tengine version, the default is: ${tengineVersion}  < \033[0m"
+    echo -e "\033[41;37m Example: ${tengineVersion} \033[0m"
+
+    #读取用户输入的tengineVersion，如果tengineVersion为空，则默认为tengineVersion
+    read -p " --Enter: " tengineVersion
+    if [ "${tengineVersion}" = "" ]; then
+        $tengineVersion=$defaultVersion
+    fi
 
     #进入Debian的源文件目录
     cd ${srcDir}
