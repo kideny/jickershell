@@ -138,7 +138,7 @@ install() {
 }
 
 clear() {
-    rm -rf /usr/local/src/*.*
+    #rm -rf /usr/local/src/*.*
     echo "Install Sucess! Debian DaFa GuoRan Hao ,HaHaHa!"
 }
 
