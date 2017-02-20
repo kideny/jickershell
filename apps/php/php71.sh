@@ -2,14 +2,33 @@
 
 install_php7() {
 
-    #定义默认安装程序的下载路径
-    srcDir="${srcDir}"
+    #定义默认安装的php路径
+    defaultDir="/usr/local/php71"
+
+    #定义环境变量
+    PATH=${phpDir}/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/bin
+    export PATH
+
+    #对Debian系统Update
+    apt-get update -y
+
+    #对Debian系统Upgrade，-u参数可以罗列出需要升级的软件
+    apt-get -u upgrade -y
+
+    #安装PHP7的依赖库
+    apt-get install make libxml2-dev libcurl4-openssl-dev libjpeg8-dev libpng12-dev libxpm-dev libmysqlclient-dev libicu-dev libfreetype6-dev libxslt1-dev libssl-dev libbz2-dev libgmp-dev libmcrypt-dev libpspell-dev librecode-dev libpq-dev libpcre3-dev gcc make
+
+    #删除安装软件的备份，释放硬盘空间
+    apt-get clean
+
+    #执行自动移出
+    apt-get autoremove -y
+
+    #停止nginx进程
+    service nginx stop
 
     #定义默认安装程序的下载路径
     defaultVersion="7.1.2"
-
-    #定义默认安装的php路径
-    defaultDir="/usr/local/php71"
 
     #输出提示，用户可以自定义自己要安装的版本好，覆盖默认安装的版本好
     echo -e "\033[41;37m Please enter the php version, the default is: $defaultVersion  < \033[0m"
@@ -34,28 +53,6 @@ install_php7() {
     if [ $phpDir = "" ]; then
         $phpDir=$defaultDir
     fi
-
-    #定义环境变量
-    PATH=${phpDir}/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/bin
-    export PATH
-
-    #对Debian系统Update
-    apt-get update -y
-
-    #对Debian系统Upgrade，-u参数可以罗列出需要升级的软件
-    apt-get -u upgrade -y
-
-    #安装PHP7的依赖库
-    apt-get install make libxml2-dev libcurl4-openssl-dev libjpeg8-dev libpng12-dev libxpm-dev libmysqlclient-dev libicu-dev libfreetype6-dev libxslt1-dev libssl-dev libbz2-dev libgmp-dev libmcrypt-dev libpspell-dev librecode-dev libpq-dev libpcre3-dev gcc make
-
-    #删除安装软件的备份，释放硬盘空间
-    apt-get clean
-
-    #执行自动移出
-    apt-get autoremove -y
-
-    #停止nginx进程
-    service nginx stop
 
     #进入Debian的源文件目录
     cd ${srcDir}
