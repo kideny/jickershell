@@ -3,18 +3,18 @@
 install_php56() {
 
     #定义默认安装的php版本号
-    defaultversion="5.6.30"
+    defaultVersion="5.6.30"
 
     #输出提示
-    echo -e "\033[41;37m Please enter the php version, the default is: $(defaultversion)  < \033[0m"
-    echo -e "\033[41;37m Example: $(defaultversion) \033[0m"
+    echo -e "\033[41;37m Please enter the php version, the default is: ${defaultVersion}  < \033[0m"
+    echo -e "\033[41;37m Example: ${defaultVersion} \033[0m"
 
     #读取用户输入的defaultversion，
     read -p " --Enter: " hostname
 
     #如果defaultversion为空，则默认为defaultversion
     if [ "$phpversion" = "" ]; then
-        phpversion="$defaultversion"
+        phpversion="$defaultVersion"
     fi
 
     #对Debian系统Update

@@ -12,7 +12,7 @@ install_nginx_proxy() {
     #读取用户输入的nginxVersion，如果nginxVersion为空，则默认为defaultVersion
     read -p " --Enter: " nginxVersion
     if [ "$nginxVersion" = "" ]; then
-        $nginxVersion="$defaultVersion"
+        nginxVersion="$defaultVersion"
     fi
 
     #卸载exim4邮件发送程序

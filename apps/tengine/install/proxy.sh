@@ -1,7 +1,7 @@
 #!/bin/bash
 
 install_tengine_proxy() {
-    
+
     #卸载exim4邮件发送程序
     apt-get --purge remove exim4
     apt-get --purge remove exim4-base
@@ -25,16 +25,16 @@ install_tengine_proxy() {
     apt-get clean
 
     #定义默认安装的php版本号
-    tengineVersion="2.2.0"
+    defaultVersion="2.2.0"
 
     #输出提示
-    echo -e "\033[41;37m Please enter the tengine version, the default is: ${tengineVersion}  < \033[0m"
-    echo -e "\033[41;37m Example: ${tengineVersion} \033[0m"
+    echo -e "\033[41;37m Please enter the tengine version, the default is: ${defaultVersion}  < \033[0m"
+    echo -e "\033[41;37m Example: ${defaultVersion} \033[0m"
 
     #读取用户输入的tengineVersion，如果tengineVersion为空，则默认为tengineVersion
     read -p " --Enter: " tengineVersion
     if [ "${tengineVersion}" = "" ]; then
-        $tengineVersion=$defaultVersion
+        tengineVersion="$defaultVersion"
     fi
 
     #进入Debian的源文件目录
@@ -77,8 +77,8 @@ install_tengine_proxy() {
     mkdir -p /usr/local/nginx/conf/vhost
 
     #复制默认站点配置文件到站点配置文件目录
-    cp ${current_dir}/server/tengine/conf/default.conf    /usr/local/nginx/conf/vhost/${hostname}.conf
-    cp ${current_dir}/server/tengine/conf/nginx.conf    /usr/local/nginx/conf/nginx.conf
+    cp ${current_dir}/apps/tengine/conf/default.conf    /usr/local/nginx/conf/vhost/${hostname}.conf
+    cp ${current_dir}/apps/tengine/conf/nginx.conf    /usr/local/nginx/conf/nginx.conf
 
     #重新启动Tengine
     service nginx start
