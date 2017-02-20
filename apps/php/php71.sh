@@ -32,6 +32,10 @@ install_php7() {
         $phpDir="/usr/local/php71"
     fi
 
+    #定义环境变量
+    PATH=${phpDir}/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/bin
+    export PATH
+
     #对Debian系统Update
     apt-get update -y
 
@@ -51,7 +55,7 @@ install_php7() {
     service nginx stop
 
     #进入Debian的源文件目录
-    cd $(srcDir)
+    cd ${srcDir}
 
     #下载指定版本的PHP7
     wget http://cn2.php.net/distributions/php-${phpVersion}.tar.gz
@@ -60,34 +64,34 @@ install_php7() {
     tar zxvf php-${phpVersion}.tar.gz
 
     #进入PHP7源码的目录
-    cd $(srcDir)/php-${phpVersion}
+    cd ${srcDir}/php-${phpVersion}
 
     #配置并检查依赖
-    ./configure --prefix=$(phpDir) --with-zlib-dir --with-config-file-path=$(phpDir)/etc --with-fpm-user=www-data --with-fpm-group=www-data --with-gd --with-freetype-dir=DIR --with-jpeg-dir=DIR --with-png-dir=DIR --with-mcrypt --with-mhash --with-openssl --with-pdo-mysql=mysqlnd --with-mysqli=mysqlnd --with-curl --with-iconv --with-gettext --with-bz2 --with-zlib --enable-bcmath --enable-inline-optimization --enable-mbstring --enable-sockets --enable-session --enable-fpm --enable-opcache --enable-pdo --enable-gd-native-ttf --enable-zip --enable-xml --disable-ipv6 --disable-rpath
+    ./configure --prefix=${phpDir} --with-zlib-dir --with-config-file-path=${phpDir}/etc --with-fpm-user=www-data --with-fpm-group=www-data --with-gd --with-freetype-dir=DIR --with-jpeg-dir=DIR --with-png-dir=DIR --with-mcrypt --with-mhash --with-openssl --with-pdo-mysql=mysqlnd --with-mysqli=mysqlnd --with-curl --with-iconv --with-gettext --with-bz2 --with-zlib --enable-bcmath --enable-inline-optimization --enable-mbstring --enable-sockets --enable-session --enable-fpm --enable-opcache --enable-pdo --enable-gd-native-ttf --enable-zip --enable-xml --disable-ipv6 --disable-rpath
 
     #编译并且执行安装
     time make && make install
 
     #复制PHP7的配置文件到配置文件目录
-    cp $(srcDir)/php-${phpVersion}/php.ini-production  $(phpDir)/etc/php.ini
+    cp ${srcDir}/php-${phpVersion}/php.ini-production  ${phpDir}/etc/php.ini
 
     #开启Opcache
-    echo "zend_extension=opcache.so"  >>  $(phpDir)/etc/php.ini
+    echo "zend_extension=opcache.so"  >>  ${phpDir}/etc/php.ini
 
     #修改php.ini配置
-    sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g"  $(phpDir)/etc/php.ini
+    sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g"  ${phpDir}/etc/php.ini
 
     #进入PHP7源码的目录
-    cd $(srcDir)/php-${phpVersion}/sapi/fpm
+    cd ${srcDir}/php-${phpVersion}/sapi/fpm
 
     #复制php7-fpm管理脚本到操作系统初始化启动目录
-    cp $(srcDir)/php-${phpVersion}/sapi/fpm/init.d.php-fpm  /etc/init.d/php71-fpm
+    cp ${srcDir}/php-${phpVersion}/sapi/fpm/init.d.php-fpm  /etc/init.d/php71-fpm
 
     #复制站点的PHP7-fpm默认配置文件
-    cp $(phpDir)/etc/php-fpm.conf.default  $(phpDir)/etc/php-fpm.conf
+    cp ${phpDir}/etc/php-fpm.conf.default  ${phpDir}/etc/php-fpm.conf
 
     #复制站点的PHP7-fpm站点配置文件
-    cp $(phpDir)/etc/php-fpm.d/www.conf.default  $(phpDir)/etc/php-fpm.d/www.conf
+    cp ${phpDir}/etc/php-fpm.d/www.conf.default  ${phpDir}/etc/php-fpm.d/www.conf
 
     #给php7-fpm增加执行权限
     chmod +x /etc/init.d/php71-fpm
