@@ -46,7 +46,7 @@ install_php7() {
     ./configure --prefix=/usr/local/php7 --with-zlib-dir --with-config-file-path=/usr/local/php7/etc --with-fpm-user=www-data --with-fpm-group=www-data --with-gd --with-freetype-dir=DIR --with-jpeg-dir=DIR --with-png-dir=DIR --with-mcrypt --with-mhash --with-openssl --with-pdo-mysql=mysqlnd --with-mysqli=mysqlnd --with-curl --with-iconv --with-gettext --with-bz2 --with-zlib --enable-bcmath --enable-inline-optimization --enable-mbstring --enable-sockets --enable-session --enable-fpm --enable-opcache --enable-pdo --enable-gd-native-ttf --enable-zip --disable-ipv6 --disable-rpath
 
     #编译并且执行安装
-    time make & make install
+    time make && make install
 
     #复制PHP7的配置文件到配置文件目录
     cp /usr/local/src/php-${phpversion}/php.ini-production /usr/local/php7/etc/php.ini
