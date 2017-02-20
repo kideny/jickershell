@@ -72,7 +72,10 @@ install_php7() {
     cp $(srcDir)/php-${phpVersion}/php.ini-production  $(phpDir)/etc/php.ini
 
     #开启Opcache
-    #sed -i '/$/a zend_extension=opcache.so'  $(phpDir)/etc/php.ini
+    echo "zend_extension=opcache.so"  >>  $(phpDir)/etc/php.ini
+
+    #修改php配置文件php.ini
+    sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g"  $(phpDir)/etc/php.ini
 
     #进入PHP7源码的目录
     cd $(srcDir)/php-${phpVersion}/sapi/fpm
