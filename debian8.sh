@@ -83,6 +83,9 @@ install() {
     echo "  1: tengine on proxy server"
     echo "  2: nginx on proxy server"
     echo "  3: openresty on proxy server"
+    echo "  11: php5.6 only install"
+    echo "  12: php7.0 only Install"
+    echo "  13: php7.1 only Install"
     echo "  4: tengine+php7"
     echo "  5: nginx+php7"
     echo "  6: openresty+php7"
@@ -102,6 +105,15 @@ install() {
             ;;
         3)
             install_tengine_proxy
+            ;;
+        11)
+            install_php56
+            ;;
+        12)
+            install_php7
+            ;;
+        13)
+            install_php71
             ;;
         4)
             install_tengine_product
