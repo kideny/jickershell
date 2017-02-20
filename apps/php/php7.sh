@@ -1,21 +1,25 @@
 #!/bin/bash
 
 install_php7() {
-    #定义默认安装的php版本号
+
+    #定义默认安装的php版本号变量
     defaultversion="7.0.16"
 
-    #输出提示
+    #输出提示，用户可以自定义自己要安装的版本好，覆盖默认安装的版本好
     echo -e "\033[41;37m Please enter the php version, the default is: $(defaultversion)  < \033[0m"
     echo -e "\033[41;37m Example: $(defaultversion) \033[0m"
 
-    #读取用户输入的defaultversion，如果defaultversion为空，则默认为defaultversion
+    #读取用户输入的defaultversion，
     read -p " --Enter: " hostname
+
+    #如果defaultversion为空，则默认为defaultversion
     if [ "$phpversion" = "" ]; then
         phpversion="$defaultversion"
     fi
 
     #对Debian系统Update
     apt-get update -y
+
     #对Debian系统Upgrade，-u参数可以罗列出需要升级的软件
     apt-get -u upgrade -y
 
@@ -24,6 +28,7 @@ install_php7() {
 
     #删除安装软件的备份，释放硬盘空间
     apt-get clean
+
     #执行自动移出
     apt-get autoremove -y
 
