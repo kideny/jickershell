@@ -48,16 +48,16 @@ install_php7() {
     cd /usr/local/src/php-${phpversion}
 
     #配置并检查依赖
-    ./configure --prefix=/usr/local/php7 --with-zlib-dir --with-config-file-path=/usr/local/php7/etc --with-fpm-user=www-data --with-fpm-group=www-data --with-gd --with-freetype-dir=DIR --with-jpeg-dir=DIR --with-png-dir=DIR --with-mcrypt --with-mhash --with-openssl --with-pdo-mysql=mysqlnd --with-mysqli=mysqlnd --with-curl --with-iconv --with-gettext --with-bz2 --with-zlib --enable-bcmath --enable-inline-optimization --enable-mbstring --enable-sockets --enable-session --enable-fpm --enable-opcache --enable-pdo --enable-gd-native-ttf --enable-zip --disable-ipv6 --disable-rpath
+    ./configure --prefix=/usr/local/php --with-zlib-dir --with-config-file-path=/usr/local/php/etc --with-fpm-user=www-data --with-fpm-group=www-data --with-gd --with-freetype-dir=DIR --with-jpeg-dir=DIR --with-png-dir=DIR --with-mcrypt --with-mhash --with-openssl --with-pdo-mysql=mysqlnd --with-mysqli=mysqlnd --with-curl --with-iconv --with-gettext --with-bz2 --with-zlib --enable-bcmath --enable-inline-optimization --enable-mbstring --enable-sockets --enable-session --enable-fpm --enable-opcache --enable-pdo --enable-gd-native-ttf --enable-zip --disable-ipv6 --disable-rpath
 
     #编译并且执行安装
     time make && make install
 
     #复制PHP7的配置文件到配置文件目录
-    cp /usr/local/src/php-${phpversion}/php.ini-production /usr/local/php7/etc/php.ini
+    cp /usr/local/src/php-${phpversion}/php.ini-production /usr/local/php/etc/php.ini
 
     #开启Opcache
-    #sed -i '/$/a zend_extension=opcache.so'  /usr/local/php7/etc/php.ini
+    #sed -i '/$/a zend_extension=opcache.so'  /usr/local/php/etc/php.ini
 
     #进入PHP7源码的目录
     cd /usr/local/src/php-${phpversion}/sapi/fpm
@@ -66,10 +66,10 @@ install_php7() {
     cp /usr/local/src/php-${phpversion}/sapi/fpm/init.d.php-fpm.in /etc/init.d/php7-fpm
 
     #复制站点的PHP7-fpm默认配置文件
-    cp /usr/local/php7/etc/php-fpm.conf.default /usr/local/php7/etc/php-fpm.conf
+    cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf
 
     #复制站点的PHP7-fpm站点配置文件
-    cp /usr/local/php7/etc/php-fpm.d/www.conf.default /usr/local/php7/etc/php-fpm.d/www.conf
+    cp /usr/local/php/etc/php-fpm.d/www.conf.default /usr/local/php/etc/php-fpm.d/www.conf
 
     #给php7-fpm增加执行权限
     chmod +x /etc/init.d/php7-fpm
