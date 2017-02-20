@@ -118,6 +118,7 @@ install() {
         33)
             install_openresty_product
             install_php56
+            ;;
         * )
             exit 1
         ;;
