@@ -9,14 +9,17 @@ install_php56() {
     echo -e "\033[41;37m Please enter the php version, the default is: $(defaultversion)  < \033[0m"
     echo -e "\033[41;37m Example: $(defaultversion) \033[0m"
 
-    #读取用户输入的defaultversion，如果defaultversion为空，则默认为defaultversion
+    #读取用户输入的defaultversion，
     read -p " --Enter: " hostname
+
+    #如果defaultversion为空，则默认为defaultversion
     if [ "$phpversion" = "" ]; then
         phpversion="$defaultversion"
     fi
 
     #对Debian系统Update
     apt-get update -y
+
     #对Debian系统Upgrade，-u参数可以罗列出需要升级的软件
     apt-get -u upgrade -y
 
@@ -25,6 +28,7 @@ install_php56() {
 
     #删除安装软件的备份，释放硬盘空间
     apt-get clean
+
     #执行自动移出
     apt-get autoremove -y
 
@@ -56,7 +60,7 @@ install_php56() {
     mkdir -p /usr/local/php56/etc
 
     #复制PHP的配置文件到配置文件目录
-    cp /usr/local/src/php-${phpversion}/php.ini-production /usr/local/php56/etc/php.ini
+    cp /usr/local/src/php-${phpversion}/php.ini-production  /usr/local/php56/etc/php.ini
 
     #开启Opcache
     #sed -i '/$/a zend_extension=opcache.so'  /usr/local/php56/etc/php.ini
