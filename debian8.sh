@@ -79,6 +79,7 @@ srcDir="/usr/local/src"
 . apps/tengine/install/product.sh
 . apps/php/php56.sh
 . apps/php/php7.sh
+. apps/php/php71.sh
 
 # 选择要安装的组件
 install() {
