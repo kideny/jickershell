@@ -13,7 +13,7 @@ install_php7() {
     read -p " --Enter: " phpVersion
 
     #如果用户未填写，则默认为phpVersion
-    if [ $phpVersion = "" ]; then
+    if [ "$phpVersion" = "" ]; then
         $phpVersion="7.1.2"
     fi
 
@@ -28,7 +28,7 @@ install_php7() {
     read -p " --Enter: " phpDir
 
     #如果用户未填写，则默认为"/usr/local/php71",
-    if [ $phpDir = "" ]; then
+    if [ "$phpDir" = "" ]; then
         $phpDir="/usr/local/php71"
     fi
 
