@@ -3,16 +3,16 @@
 install_tengine_proxy() {
 
     #定义默认安装的php版本号
-    tengineversion="2.2.0"
+    tengineVersion="2.2.0"
 
     #输出提示
-    echo -e "\033[41;37m Please enter the tengine version, the default is: ${tengineversion}  < \033[0m"
-    echo -e "\033[41;37m Example: ${tengineversion} \033[0m"
+    echo -e "\033[41;37m Please enter the tengine version, the default is: ${tengineVersion}  < \033[0m"
+    echo -e "\033[41;37m Example: ${tengineVersion} \033[0m"
 
-    #读取用户输入的tengineversion，如果tengineversion为空，则默认为tengineversion
-    read -p " --Enter: " hostname
-    if [ "${tengineversion}" = "" ]; then
-        tengineversion="${tengineversion}"
+    #读取用户输入的tengineVersion，如果tengineVersion为空，则默认为tengineVersion
+    read -p " --Enter: " tengineVersion
+    if [ "${tengineVersion}" = "" ]; then
+        $tengineVersion=${tengineVersion}
     fi
 
     #卸载exim4邮件发送程序
@@ -38,22 +38,22 @@ install_tengine_proxy() {
     apt-get clean
 
     #进入Debian的源文件目录
-    cd /usr/local/src
+    cd ${srcDir}
 
     #下载指定版本的Tengine
-    wget http://tengine.taobao.org/download/tengine-${tengineversion}.tar.gz
+    wget http://tengine.taobao.org/download/tengine-${tengineVersion}.tar.gz
 
     #解压缩
-    tar zxvf tengine-${tengineversion}.tar.gz
+    tar zxvf tengine-${tengineVersion}.tar.gz
 
     #进入gcc文件的目录
-    cd /usr/local/src/tengine-${tengineversion}/auto/cc
+    cd ${srcDir}/tengine-${tengineVersion}/auto/cc
 
     #使用sed命令注释掉nginx编译文件中的debug
     sed -i '/CFLAGS="$CFLAGS -g"/s/CFLAGS="$CFLAGS -g"/# CFLAGS="$CFLAGS -g"/g' gcc
 
     #进入Tengine的目录
-    cd /usr/local/src/tengine-${tengineversion}
+    cd ${srcDir}/tengine-${tengineVersion}
 
     #配置并检查依赖
     ./configure --prefix=/usr/local/nginx --group=www-data --user=www-data  --with-http_stub_status_module --with-http_ssl_module --without-http-cache --without-mail_pop3_module --without-mail_imap_module  --without-mail_smtp_module
@@ -65,7 +65,7 @@ install_tengine_proxy() {
     make install
 
     #复制Tengine的控制脚本到初始化配置文件的目录
-    cp ${current_dir}/server/tengine/init.d/nginx   /etc/init.d/nginx
+    cp ${current_dir}/apps/tengine/init.d/nginx   /etc/init.d/nginx
 
     #给Tengine控制脚本添加执行权限
     chmod +x /etc/init.d/nginx

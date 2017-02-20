@@ -67,6 +67,9 @@ apt-get autoclean
 # 定义变量，获得当前脚本的路路径
 current_dir=$(pwd)
 
+#定义默认安装程序的下载路径
+srcDir="/usr/local/src"
+
 # 加载各种安装脚本
 . apps/nginx/install/proxy.sh
 . apps/nginx/install/product.sh
@@ -146,7 +149,7 @@ install() {
 }
 
 clear() {
-    #rm -rf /usr/local/src/*.*
+    #rm -rf ${srcDir}/*.*
     echo "Install Sucess! Debian DaFa GuoRan Hao ,HaHaHa!"
 }
 

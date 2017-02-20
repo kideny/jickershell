@@ -12,7 +12,7 @@ install_tengine_product() {
     #读取用户输入的tengineVersion，如果tengineVersion为空，则默认为defaultVersion
     read -p " --Enter: " tengineVersion
     if [ ${tengineVersion} = "" ]; then
-        tengineVersion=${tengineVersion}
+        $tengineVersion=${tengineVersion}
     fi
 
     #定义serverName
@@ -25,7 +25,7 @@ install_tengine_product() {
     #读取用户输入的hostname，如果hostname为空，则默认为servername
     read -p " --Enter: " hostname
     if [ ${hostname} = "" ]; then
-        hostname="${servername}"
+        $hostname="${servername}"
     fi
 
     #安装基础环境
@@ -64,7 +64,7 @@ install_tengine_product() {
     apt-get clean
 
     #进入Debian的源文件目录
-    cd /usr/local/src
+    cd ${srcDir}
 
     #下载指定版本的Tengine
     wget http://tengine.taobao.org/download/tengine-${tengineVersion}.tar.gz
@@ -73,13 +73,13 @@ install_tengine_product() {
     tar zxvf tengine-${tengineVersion}.tar.gz
 
     #进入gcc文件的目录
-    cd /usr/local/src/tengine-${tengineVersion}/auto/cc
+    cd ${srcDir}/tengine-${tengineVersion}/auto/cc
 
     #使用sed命令注释掉nginx编译文件中的debug
     sed -i '/CFLAGS="$CFLAGS -g"/s/CFLAGS="$CFLAGS -g"/# CFLAGS="$CFLAGS -g"/g' gcc
 
     #进入Tengine的目录
-    cd /usr/local/src/tengine-$tengineVersion
+    cd ${srcDir}/tengine-$tengineVersion
 
     #配置并检查依赖
     ./configure --prefix=/usr/local/nginx --group=www-data --user=www-data  --with-http_stub_status_module --with-http_ssl_module --without-http-cache --without-mail_pop3_module --without-mail_imap_module  --without-mail_smtp_module

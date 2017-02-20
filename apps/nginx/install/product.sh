@@ -64,7 +64,7 @@ install_nginx_product() {
     apt-get clean
 
     #进入Debian的源文件目录
-    cd /usr/local/src
+    cd ${srcDir}
 
     #下载指定版本的nginx
     wget http://nginx.org/download/nginx-${nginxversion}.tar.gz
@@ -73,13 +73,13 @@ install_nginx_product() {
     tar zxvf nginx-${nginxversion}.tar.gz
 
     #进入gcc文件的目录
-    cd /usr/local/src/nginx-${nginxversion}/auto/cc
+    cd ${srcDir}/nginx-${nginxversion}/auto/cc
 
     #使用sed命令注释掉nginx编译文件中的debug
     sed -i '/CFLAGS="$CFLAGS -g"/s/CFLAGS="$CFLAGS -g"/# CFLAGS="$CFLAGS -g"/g' gcc
 
     #进入nginx的目录
-    cd /usr/local/src/nginx-${nginxversion}
+    cd ${srcDir}/nginx-${nginxversion}
 
     #配置并检查依赖
     ./configure --prefix=/usr/local/nginx --group=www-data --user=www-data  --with-http_stub_status_module --with-http_ssl_module --without-http-cache --without-mail_pop3_module --without-mail_imap_module  --without-mail_smtp_module
