@@ -1,30 +1,30 @@
 #!/bin/bash
 
-install_tengine_proxy() {
+install_tengine_product() {
 
     #定义默认安装的php版本号
-    tengineversion="2.2.0"
+    defaultVersion="2.2.0"
 
     #输出提示
-    echo -e "\033[41;37m Please enter the tengine version, the default is: ${tengineversion}  < \033[0m"
-    echo -e "\033[41;37m Example: ${tengineversion} \033[0m"
+    echo -e "\033[41;37m Please enter the tengine version, the default is: ${defaultVersion}  < \033[0m"
+    echo -e "\033[41;37m Example: ${defaultVersion} \033[0m"
 
-    #读取用户输入的tengineversion，如果tengineversion为空，则默认为tengineversion
-    read -p " --Enter: " hostname
-    if [ "${tengineversion}" = "" ]; then
-        tengineversion="${tengineversion}"
+    #读取用户输入的tengineVersion，如果tengineVersion为空，则默认为defaultVersion
+    read -p " --Enter: " tengineVersion
+    if [ ${tengineVersion} = "" ]; then
+        tengineVersion=${tengineVersion}
     fi
 
-    #定义servername
-    servername="wwwjickercn"
+    #定义serverName
+    serverName="wwwjickercn"
 
     #输出提示
-    echo -e "\033[41;37m Please enter the website, the default is: ${servername}  < \033[0m"
-    echo -e "\033[41;37m Example: ${servername} \033[0m"
+    echo -e "\033[41;37m Please enter the website, the default is: ${serverName}  < \033[0m"
+    echo -e "\033[41;37m Example: ${serverName} \033[0m"
 
     #读取用户输入的hostname，如果hostname为空，则默认为servername
     read -p " --Enter: " hostname
-    if [ "${hostname}" = "" ]; then
+    if [ ${hostname} = "" ]; then
         hostname="${servername}"
     fi
 
@@ -67,19 +67,19 @@ install_tengine_proxy() {
     cd /usr/local/src
 
     #下载指定版本的Tengine
-    wget http://tengine.taobao.org/download/tengine-${tengineversion}.tar.gz
+    wget http://tengine.taobao.org/download/tengine-${tengineVersion}.tar.gz
 
     #解压缩
-    tar zxvf tengine-${tengineversion}.tar.gz
+    tar zxvf tengine-${tengineVersion}.tar.gz
 
     #进入gcc文件的目录
-    cd /usr/local/src/tengine-${tengineversion}/auto/cc
+    cd /usr/local/src/tengine-${tengineVersion}/auto/cc
 
     #使用sed命令注释掉nginx编译文件中的debug
     sed -i '/CFLAGS="$CFLAGS -g"/s/CFLAGS="$CFLAGS -g"/# CFLAGS="$CFLAGS -g"/g' gcc
 
     #进入Tengine的目录
-    cd /usr/local/src/tengine-$tengineversion
+    cd /usr/local/src/tengine-$tengineVersion
 
     #配置并检查依赖
     ./configure --prefix=/usr/local/nginx --group=www-data --user=www-data  --with-http_stub_status_module --with-http_ssl_module --without-http-cache --without-mail_pop3_module --without-mail_imap_module  --without-mail_smtp_module

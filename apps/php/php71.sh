@@ -5,31 +5,34 @@ install_php7() {
     #定义默认安装程序的下载路径
     srcDir="/usr/local/src"
 
+    #定义默认安装程序的下载路径
+    defaultVersion="7.1.2"
+
+    #定义默认安装的php路径
+    defaultDir="/usr/local/php71"
+
     #输出提示，用户可以自定义自己要安装的版本好，覆盖默认安装的版本好
-    echo -e "\033[41;37m Please enter the php version, the default is: 7.1.2  < \033[0m"
-    echo -e "\033[41;37m Example: 7.1.2 \033[0m"
+    echo -e "\033[41;37m Please enter the php version, the default is: $defaultVersion  < \033[0m"
+    echo -e "\033[41;37m Example: $defaultVersion \033[0m"
 
     #读取用户输入的phpVersion
     read -p " --Enter: " phpVersion
 
     #如果用户未填写，则默认为phpVersion
-    if [ "$phpVersion" = "" ]; then
-        $phpVersion="7.1.2"
+    if [ $phpVersion = "" ]; then
+        $phpVersion=$defaultVersion
     fi
 
-    #定义默认安装的php路径
-    phpDir="/usr/local/php71"
-
     #输出提示，用户可以自定义自己要安装的路径，覆盖默认定义的安装路径
-    echo -e "\033[41;37m Please enter the install dir, the default dir is: /usr/local/php71  < \033[0m"
-    echo -e "\033[41;37m Example: /usr/local/php71 \033[0m"
+    echo -e "\033[41;37m Please enter the install dir, the default dir is: $defaultDir  < \033[0m"
+    echo -e "\033[41;37m Example: $defaultDir \033[0m"
 
     #读取用户输入的phpDir
     read -p " --Enter: " phpDir
 
-    #如果用户未填写，则默认为"/usr/local/php71",
-    if [ "$phpDir" = "" ]; then
-        $phpDir="/usr/local/php71"
+    #如果用户未填写，则默认为$defaultDir,
+    if [ $phpDir = "" ]; then
+        $phpDir=$defaultDir
     fi
 
     #定义环境变量
