@@ -12,7 +12,7 @@ install_tengine_product() {
     #读取用户输入的tengineVersion，如果tengineVersion为空，则默认为defaultVersion
     read -p " --Enter: " tengineVersion
     if [ ${tengineVersion} = "" ]; then
-        $tengineVersion=${tengineVersion}
+        $tengineVersion=${defaultVersion}
     fi
 
     #定义serverName

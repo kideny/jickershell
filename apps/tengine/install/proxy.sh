@@ -12,7 +12,7 @@ install_tengine_proxy() {
     #读取用户输入的tengineVersion，如果tengineVersion为空，则默认为tengineVersion
     read -p " --Enter: " tengineVersion
     if [ "${tengineVersion}" = "" ]; then
-        $tengineVersion=${tengineVersion}
+        $tengineVersion=$defaultVersion
     fi
 
     #卸载exim4邮件发送程序

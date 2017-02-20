@@ -3,16 +3,16 @@
 install_nginx_proxy() {
 
     #定义默认安装的php版本号
-    nginxversion="1.11.4"
+    defaultVersion="1.11.4"
 
     #输出提示
-    echo -e "\033[41;37m Please enter the nginx version, the default is: ${nginxversion}  < \033[0m"
-    echo -e "\033[41;37m Example: ${nginxversion} \033[0m"
+    echo -e "\033[41;37m Please enter the nginx version, the default is: ${defaultVersion}  < \033[0m"
+    echo -e "\033[41;37m Example: ${defaultVersion} \033[0m"
 
-    #读取用户输入的nginxversion，如果nginxversion为空，则默认为nginxversion
-    read -p " --Enter: " hostname
-    if [ "$nginxversion" = "" ]; then
-        nginxversion="$nginxversion"
+    #读取用户输入的nginxVersion，如果nginxVersion为空，则默认为defaultVersion
+    read -p " --Enter: " nginxVersion
+    if [ "$nginxVersion" = "" ]; then
+        $nginxVersion="$defaultVersion"
     fi
 
     #卸载exim4邮件发送程序
@@ -41,19 +41,19 @@ install_nginx_proxy() {
     cd ${srcDir}
 
     #下载指定版本的nginx
-    wget http://nginx.org/download/nginx-${nginxversion}.tar.gz
+    wget http://nginx.org/download/nginx-${nginxVersion}.tar.gz
 
     #解压缩
-    tar zxvf nginx-${nginxversion}.tar.gz
+    tar zxvf nginx-${nginxVersion}.tar.gz
 
     #进入gcc文件的目录
-    cd ${srcDir}/nginx-${nginxversion}/auto/cc
+    cd ${srcDir}/nginx-${nginxVersion}/auto/cc
 
     #使用sed命令注释掉nginx编译文件中的debug
     sed -i '/CFLAGS="$CFLAGS -g"/s/CFLAGS="$CFLAGS -g"/# CFLAGS="$CFLAGS -g"/g' gcc
 
     #进入nginx的目录
-    cd ${srcDir}/nginx-${nginxversion}
+    cd ${srcDir}/nginx-${nginxVersion}
 
     #配置并检查依赖
     ./configure --prefix=/usr/local/nginx --group=www-data --user=www-data  --with-http_stub_status_module --with-http_ssl_module --without-http-cache --without-mail_pop3_module --without-mail_imap_module  --without-mail_smtp_module
