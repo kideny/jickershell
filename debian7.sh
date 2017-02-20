@@ -30,14 +30,22 @@ mv /etc/apt/sources.list.bak /etc/apt/sources.list
 fi
 mv /etc/apt/sources.list /etc/apt/sources.list.bak
 cat >> /etc/apt/sources.list<<EOF
-deb http://mirrors.163.com/debian/ wheezy main
-deb-src http://mirrors.163.com/debian/ wheezy main
+deb http://mirrors.163.com/debian/ testing contrib main non-free
+deb-src http://mirrors.163.com/debian/ testing contrib main non-free
+deb http://mirrors.163.com/debian/ wheezy-updates main
+deb http://mirrors.163.com/debian wheezy main non-free contrib
+deb http://mirrors.163.com/debian wheezy-updates main non-free contrib
+deb-src http://mirrors.163.com/debian/ wheezy-updates main
+deb-src http://mirrors.163.com/debian wheezy main non-free contrib
+deb-src http://mirrors.163.com/debian wheezy-updates main non-free contrib
+deb http://mirrors.aliyun.com/debian/ wheezy main non-free contrib
+deb http://mirrors.aliyun.com/debian/ wheezy-proposed-updates main non-free contrib
+deb-src http://mirrors.aliyun.com/debian/ wheezy main non-free contrib
+deb-src http://mirrors.aliyun.com/debian/ wheezy-proposed-updates main non-free contrib
 deb http://security.debian.org/ wheezy/updates main
 deb-src http://security.debian.org/ wheezy/updates main
 deb http://packages.dotdeb.org stable all
 deb-src http://packages.dotdeb.org stable all
-deb http://mirrors.163.com/debian/ wheezy-updates main
-deb-src http://mirrors.163.com/debian/ wheezy-updates main
 deb http://nginx.org/packages/debian/ wheezy nginx
 deb-src http://nginx.org/packages/debian/ wheezy nginx
 EOF
