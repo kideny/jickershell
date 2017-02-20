@@ -47,7 +47,7 @@ install_tengine_product() {
     #读取用户输入的tengineVersion，如果tengineVersion为空，则默认为defaultVersion
     read -p " --Enter: " tengineVersion
     if [ "${tengineVersion}" = "" ]; then
-        $tengineVersion="${defaultVersion}"
+        tengineVersion="${defaultVersion}"
     fi
 
     #定义serverName
@@ -60,7 +60,7 @@ install_tengine_product() {
     #读取用户输入的hostname，如果hostname为空，则默认为servername
     read -p " --Enter: " hostname
     if [ "${hostname}" = "" ]; then
-        $hostname="${servername}"
+        hostname="${servername}"
     fi
 
     #进入Debian的源文件目录
