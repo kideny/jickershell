@@ -1,6 +1,6 @@
 #!/bin/bash
 
-install_nginx_proxy() {
+install_nginx_product() {
 
     #定义默认安装的php版本号
     nginxversion="1.11.4"

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-install_openresty_proxy() {
+install_openresty_product() {
 
     #定义默认安装的php版本号
     nginxversion="1.11.4"
