@@ -76,24 +76,24 @@ install_php71() {
     cp ${srcDir}/php-${phpVersion}/php.ini-production  ${phpDir}/etc/php.ini
 
     #开启Opcache
-    echo "zend_extension=opcache.so"  >>  ${phpDir}/etc/php.ini
+    echo  "zend_extension=opcache.so"  >>  ${phpDir}/etc/php.ini
 
     #修改php.ini配置
     sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g"  ${phpDir}/etc/php.ini
 
     #进入PHP7源码的目录
-    cd ${srcDir}/php-${phpVersion}/sapi/fpm
+    cd  ${srcDir}/php-${phpVersion}/sapi/fpm
 
     #复制php7-fpm管理脚本到操作系统初始化启动目录
-    cp ${srcDir}/php-${phpVersion}/sapi/fpm/init.d.php-fpm  /etc/init.d/php71-fpm
+    cp  ${srcDir}/php-${phpVersion}/sapi/fpm/init.d.php-fpm  /etc/init.d/php71-fpm
 
-    #复制站点的PHP7-fpm默认配置文件
-    cp ${phpDir}/etc/php-fpm.conf.default  ${phpDir}/etc/php-fpm.conf
+    #复制站点的PHP71-fpm默认配置文件
+    cp  ${phpDir}/etc/php-fpm.conf.default  ${phpDir}/etc/php-fpm.conf
 
-    #复制站点的PHP7-fpm站点配置文件
-    cp ${phpDir}/etc/php-fpm.d/www.conf.default  ${phpDir}/etc/php-fpm.d/www.conf
+    #复制站点的PHP71-fpm站点配置文件
+    cp  ${phpDir}/etc/php-fpm.d/www.conf.default  ${phpDir}/etc/php-fpm.d/www.conf
 
-    #给php7-fpm增加执行权限
+    #给php71-fpm增加执行权限
     chmod +x /etc/init.d/php71-fpm
 
     #现在尝试启动php7的配置测试看看是否有误
