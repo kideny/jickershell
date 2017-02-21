@@ -86,20 +86,23 @@ srcDir="/usr/local/src"
 
 # 选择要安装的组件
 install() {
+
+    echo "-------------------------------------------------------------------------"
     echo ""
-    echo "  1: Tengine on proxy server"
-    echo "  2: Nginx on proxy server"
-    echo "  3: OpenResty on proxy server"
-    echo "  11: PHP5.6 only install"
-    echo "  12: PHP7.0 only Install"
-    echo "  13: PHP7.1 only Install"
-    echo "  4: Tengine + PHP7"
-    echo "  5: Nginx + PHP7"
-    echo "  6: OpenResty + PHP7"
-    echo "  31: Tengine + PHP5.6"
-    echo "  32: Nginx + PHP5.6"
-    echo "  33: OpenResty + PHP5.6"
+    echo "  1:  Install  Tengine as proxy server  "
+    echo "  2:  Install  Nginx as proxy server  "
+    echo "  3:  Install  OpenResty  as proxy server  "
+    echo "  11: Install  PHP5.6  "
+    echo "  12: Install  PHP7.0  "
+    echo "  13: Install  PHP7.1  "
+    echo "  4:  Install  Tengine  +  PHP7  "
+    echo "  5:  Install  Nginx  +  PHP7  "
+    echo "  6:  Install  OpenResty  +  PHP7  "
+    echo "  31: Install  Tengine  +  PHP5.6  "
+    echo "  32: Install  Nginx  +  PHP5.6  "
+    echo "  33: Install  OpenResty  +  PHP5.6  "
     echo ""
+    echo "-------------------------------------------------------------------------"
 
     read -p ">>Enter your choose number (or exit): "  num
 
