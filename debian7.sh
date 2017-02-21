@@ -89,9 +89,9 @@ install() {
 
     echo "-------------------------------------------------------------------------"
     echo ""
-    echo "  1:  Install  Tengine as proxy server  "
-    echo "  2:  Install  Nginx as proxy server  "
-    echo "  3:  Install  OpenResty  as proxy server  "
+    echo "  1:  Install  Tengine as proxy  "
+    echo "  2:  Install  Nginx as proxy  "
+    echo "  3:  Install  OpenResty  as proxy  "
     echo "  11: Install  PHP5.6  "
     echo "  12: Install  PHP7.0  "
     echo "  13: Install  PHP7.1  "
