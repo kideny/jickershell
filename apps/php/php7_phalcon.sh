@@ -21,5 +21,8 @@ service  php7-fpm  restart
 #拷贝默认的系统文件
 cp  ./conf/phalcon.conf  /usr/local/nginx/conf/vhost/phalcon.conf
 
-# Ubuntu/Debian with php5-fpm: 在 /etc/php5/fpm/conf.d/ 目录下添加一个名为 30-phalcon.ini 的文件, 内容如下:
+# 必读提示一：Ubuntu/Debian with php5-fpm: 在 /etc/php5/fpm/conf.d/ 目录下添加一个名为 30-phalcon.ini 的文件, 内容如下:
 extension=phalcon.so
+
+# 必读提示二：php.ini必须修改cgi.fix_pathinfo=1
+cgi.fix_pathinfo=1
