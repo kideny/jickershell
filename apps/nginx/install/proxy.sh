@@ -3,7 +3,7 @@
 install_nginx_proxy() {
 
     #定义默认安装的php版本号
-    defaultVersion="1.11.4"
+    defaultVersion="1.12.0"
 
     #输出提示
     echo -e "\033[41;37m Please enter the nginx version, the default is: ${defaultVersion}  < \033[0m"
