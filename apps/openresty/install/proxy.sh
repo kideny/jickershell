@@ -9,10 +9,10 @@ install_openresty_proxy() {
     echo -e "\033[41;37m Please enter the nginx version, the default is: ${defaultVersion}  < \033[0m"
     echo -e "\033[41;37m Example: ${defaultVersion} \033[0m"
 
-    #读取用户输入的nginxVersion，如果nginxVersion为空，则默认为defaultVersion
-    read -p " --Enter: " nginxVersion
-    if [ "$nginxVersion" = "" ]; then
-        nginxVersion="$defaultversion"
+    #读取用户输入的openrestyVersion，如果openrestyVersion为空，则默认为defaultVersion
+    read -p " --Enter: " openrestyVersion
+    if [ "$openrestyVersion" = "" ]; then
+        openrestyVersion="$defaultversion"
     fi
 
     #卸载exim4邮件发送程序
@@ -40,20 +40,20 @@ install_openresty_proxy() {
     #进入Debian的源文件目录
     cd ${srcDir}
 
-    #下载指定版本的nginx
-    wget http://nginx.org/download/nginx-${nginxVersion}.tar.gz
+    #下载指定版本的OpenResty
+    wget https://openresty.org/download/openresty-${openrestyVersion}.tar.gz
 
     #解压缩
-    tar zxvf nginx-${nginxVersion}.tar.gz
+    tar zxvf nginx-${openrestyVersion}.tar.gz
 
     #进入gcc文件的目录
-    cd ${srcDir}/nginx-${nginxVersion}/auto/cc
+    cd ${srcDir}/nginx-${openrestyVersion}/auto/cc
 
     #使用sed命令注释掉nginx编译文件中的debug
     sed -i '/CFLAGS="$CFLAGS -g"/s/CFLAGS="$CFLAGS -g"/# CFLAGS="$CFLAGS -g"/g' gcc
 
     #进入nginx的目录
-    cd ${srcDir}/nginx-${nginxVersion}
+    cd ${srcDir}/nginx-${openrestyVersion}
 
     #配置并检查依赖
     ./configure --prefix=/usr/local/nginx --group=www-data --user=www-data  --with-http_stub_status_module --with-http_ssl_module --without-http-cache --without-mail_pop3_module --without-mail_imap_module  --without-mail_smtp_module

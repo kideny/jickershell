@@ -6,8 +6,8 @@ install_nginx_proxy() {
     defaultVersion="1.12.0"
 
     #输出提示
-    echo -e "\033[41;37m Please enter the nginx version, the default is: ${defaultVersion}  < \033[0m"
-    echo -e "\033[41;37m Example: ${defaultVersion} \033[0m"
+    echo -e "\033[41;37m Please enter the nginx version, the default is: 1.12.0  < \033[0m"
+    echo -e "\033[41;37m Example: 1.12.0 \033[0m"
 
     #读取用户输入的nginxVersion，如果nginxVersion为空，则默认为defaultVersion
     read -p " --Enter: " nginxVersion
