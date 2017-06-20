@@ -27,6 +27,9 @@ install_php71() {
     #定义默认安装程序的下载路径
     defaultVersion="7.1.6"
 
+    #定义进程的名称
+    procName="php-fpm7.1"
+
     #输出提示，用户可以自定义自己要安装的版本好，覆盖默认安装的版本好
     echo -e "\033[41;37m Please enter the php version, the default is: ${defaultVersion}  < \033[0m"
     echo -e "\033[41;37m Example: ${defaultVersion} \033[0m"
@@ -85,27 +88,34 @@ install_php71() {
     cd  ${srcDir}/php-${phpVersion}/sapi/fpm
 
     #复制php7-fpm管理脚本到操作系统初始化启动目录
-    cp  ${srcDir}/php-${phpVersion}/sapi/fpm/init.d.php-fpm  /etc/init.d/php71-fpm
+    cp  ${srcDir}/php-${phpVersion}/sapi/fpm/init.d.php-fpm  /etc/init.d/${procName}
 
-    #复制站点的PHP71-fpm默认配置文件
+    #复制站点的php-fpm7.1默认配置文件
     cp  ${phpDir}/etc/php-fpm.conf.default  ${phpDir}/etc/php-fpm.conf
 
-    #复制站点的PHP71-fpm站点配置文件
+    #复制站点的php-fpm7.1站点配置文件
     cp  ${phpDir}/etc/php-fpm.d/www.conf.default  ${phpDir}/etc/php-fpm.d/www.conf
 
-    #给php71-fpm增加执行权限
-    chmod +x /etc/init.d/php71-fpm
+    #给php-fpm7.1增加执行权限
+    chmod +x /etc/init.d/${procName}
 
     #现在尝试启动php7的配置测试看看是否有误
-    service php71-fpm configtest
+    service ${procName} configtest
 
     #如果测试没问题，启动php7-fpm
-    service php71-fpm start
+    service ${procName} start
 
     #启动Nginx
     service nginx start
 
-    #安装成功的欢迎致辞！
-    echo "PHP7.1 install ChengGong!";
+    #检查php-fpm的进程是否存在
+    cmd=$(pidof ${procName})
 
+    if [ ! $cmd ]; then
+        #安装失败的欢迎致辞！
+        echo "PHP${phpVersion} install fail!";
+    else
+        #安装成功的欢迎致辞！
+        echo "PHP${phpVersion} install success!";
+    fi
 }

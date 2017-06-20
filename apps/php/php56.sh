@@ -5,6 +5,9 @@ install_php56() {
     #定义默认安装的php版本号
     defaultVersion="5.6.30"
 
+    #定义进程的名称
+    procName="php-fpm5.6"
+
     #输出提示
     echo -e "\033[41;37m Please enter the php version, the default is: ${defaultVersion}  < \033[0m"
     echo -e "\033[41;37m Example: ${defaultVersion} \033[0m"
@@ -76,25 +79,32 @@ install_php56() {
     #进入PHP源码的目录
     cd ${srcDir}/php-${phpversion}/sapi/fpm
 
-    #复制php5-fpm管理脚本到初始化启动目录
+    #复制php-fpm5.6管理脚本到初始化启动目录
     cp init.d.php-fpm /etc/init.d/php5-fpm
 
-    #复制站点的php5-fpm配置文件
+    #复制站点的php-fpm5.6配置文件
     cp /usr/local/php56/etc/php-fpm.conf.default /usr/local/php56/etc/php-fpm.conf
 
-    #给php5-fpm增加执行权限
-    chmod +x /etc/init.d/php5-fpm
+    #给php-fpm5.6增加执行权限
+    chmod +x /etc/init.d/${procName}
 
-    #测试php5-fpm
-    service php5-fpm configtest
+    #测试php-fpm5.6
+    service ${procName} configtest
 
-    #如果测试没问题，启动php5-fpm
-    service php5-fpm start
+    #如果测试没问题，启动php-fpm5.6
+    service ${procName} start
 
     #启动Nginx
     service  nginx start
 
-    #安装成功的欢迎致辞！
-    echo "PHP5.6 install chenggong!";
+    #检查php-fpm的进程是否存在
+    cmd=$(pidof ${procName})
 
+    if [ ! $cmd ]; then
+        #安装失败的欢迎致辞！
+        echo "PHP${phpVersion} install fail!";
+    else
+        #安装成功的欢迎致辞！
+        echo "PHP${phpVersion} install success!";
+    fi
 }

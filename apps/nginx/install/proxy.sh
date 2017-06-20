@@ -82,7 +82,15 @@ install_nginx_proxy() {
     #重新启动nginx
     service nginx start
 
-    #安装成功的欢迎致辞！
-    echo "nginx install chenggong!";
+    #检查nginx的进程是否存在
+    cmd=$(pidof nginx)
+
+    if [ ! $cmd ]; then
+        #安装失败的欢迎致辞！
+        echo "nginx${nginxVersion} install fail!";
+    else
+        #安装成功的欢迎致辞！
+        echo "nginx${nginxVersion} install success!";
+    fi
 
 }
