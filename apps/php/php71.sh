@@ -12,7 +12,7 @@ install_php71() {
     #对Debian系统Upgrade，-u参数可以罗列出需要升级的软件
     apt-get -u upgrade -y
 
-    #安装PHP7的依赖库
+    #安装PHP7.1的依赖库
     apt-get install \
         make \
         libxml2-dev \
