@@ -99,7 +99,7 @@ install_php71() {
         --with-jpeg-dir=DIR \
         --with-png-dir=DIR \
         --with-mcrypt \
-        --with-mhash\ 
+        --with-mhash\
         --with-openssl \
         --with-pdo-mysql=mysqlnd \
         --with-mysqli=mysqlnd \
