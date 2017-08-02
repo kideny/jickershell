@@ -44,7 +44,7 @@ install_php71() {
     service nginx stop
 
     #定义默认安装程序的下载路径
-    defaultVersion="7.1.7"
+    defaultVersion="7.1.8"
 
     #定义进程的名称
     procName="php-fpm7.1"
