@@ -108,7 +108,7 @@ install_php7() {
     #启动Nginx
     service nginx start
 
-    #检查php-fpm的进程是否存在
+    # 根据进程的名字，检查php-fpm的进程是否存在
     cmd=$(pidof ${procName})
 
     if [ ! $cmd ]; then
