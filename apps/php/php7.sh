@@ -25,7 +25,7 @@ install_php7() {
     service nginx stop
 
     #定义默认安装程序的版本
-    defaultVersion="7.0.23"
+    defaultVersion="7.0.24"
 
     #定义进程的名称
     procName="php-fpm7.0"
