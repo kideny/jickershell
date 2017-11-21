@@ -1,36 +1,20 @@
 #!/bin/bash
-PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
-export PATH
 
 #  Auther      Frank Kennedy Yuan
 #  Website    http://www.jicker.cn
 #  Company  http://www.loserhub.com
 
-#检测是否root账户权限
-if [ $(id -u) != "0" ]; then
-    echo "Error: You must be root to run this script, please use root to install DDFH"
-    exit 1
-fi
+# 加载预处理脚本
+. script/provision.sh
 
-#判定是否开启selinux，如果开启则关闭
-if [ -s /etc/selinux/config ]; then
-    sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
-fi
+# 执行操作系统预处理函数
+provision
 
-#删除系统自带的时区文件
-rm -rf /etc/localtime
+# 加载系统源处理脚本
+. script/sources.sh
 
-#设置时区为上海
-ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-
-#修改默认的源，添加163源和debian官方源
-if [ -s /etc/apt/sources.list.bak ]; then
-    rm /etc/apt/sources.list -f
-    mv /etc/apt/sources.list.bak /etc/apt/sources.list
-fi
-
-#备份sources.list
-mv /etc/apt/sources.list /etc/apt/sources.list.bak
+# 执行系统源处理的脚本
+sources
 
 #添加新的源
 cat >> /etc/apt/sources.list<<EOF
@@ -62,18 +46,21 @@ EOF
 curl -sL https://deb.nodesource.com/setup_7.x | bash -
 #apt-get install -y nodejs
 
-#执行自动清理
-apt-get clean  &&  apt-get autoclean
+# 加载更新脚本
+. script/update.sh
 
-# rm /var/lib/apt/lists/* -vf
+# 执行操作系统更新的函数
+update
 
 # 定义变量，获得当前脚本的路路径
 current_dir=$(pwd)
 
-#定义默认安装程序的下载路径
+# 定义默认安装程序的下载路径
 srcDir="/usr/local/src"
 
 # 加载各种安装脚本
+. apps/docker/install/docker.sh
+. apps/docker/install/compose.sh
 . apps/nginx/install/proxy.sh
 . apps/nginx/install/product.sh
 . apps/openresty/install/proxy.sh
@@ -89,6 +76,7 @@ install() {
 
     echo "-------------------------------------------------------------------------"
     echo ""
+    echo "  0:  Install  Docker + Compose  "
     echo "  1:  Install  Tengine as proxy  "
     echo "  2:  Install  Nginx as proxy  "
     echo "  3:  Install  OpenResty  as proxy  "
@@ -107,6 +95,10 @@ install() {
     read -p ">>Enter your choose number (or exit): "  num
 
     case "${num}" in
+        0)
+            install__docker
+            install__compose
+            ;;
         1)
             install_tengine_proxy
             ;;
@@ -155,10 +147,11 @@ install() {
     esac
 }
 
-clear() {
-    #rm -rf ${srcDir}/*.*
-    echo "Install Sucess! Debian DaFa GuoRan Hao ,HaHaHa!"
-}
-
+# 执行程序安装的函数
 install
+
+# 加载预处理脚本
+. script/clean.sh
+
+# 执行清理函数
 clear

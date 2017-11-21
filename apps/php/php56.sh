@@ -20,20 +20,8 @@ install_php56() {
         phpversion="$defaultVersion"
     fi
 
-    #对Debian系统Update
-    apt-get update -y
-
-    #对Debian系统Upgrade，-u参数可以罗列出需要升级的软件
-    apt-get -u upgrade -y
-
     #安装PHP的依赖库
-    apt-get install php5-curl freetype* php5-gd php5-mcrypt php5-common php-pear php5-imagick libpcre3 libpcre3-dev libtool openssl libxml2 libxml2-dev libmhash-dev libmcrypt-dev mcrypt curl libcurl3 libcurl4-gnutls-dev libjpeg62-turbo-dev libpng12-dev libbz2-dev libssl-dev libsslcommon2-dev pkg-config
-
-    #删除安装软件的备份，释放硬盘空间
-    apt-get clean
-
-    #执行自动移出
-    apt-get autoremove -y
+    apt-get install php5-curl freetype* php5-gd php5-mcrypt php5-common php-pear php5-imagick libpcre3 libpcre3-dev libtool libxml2 libxml2-dev libmhash-dev libmcrypt-dev mcrypt libcurl3 libcurl4-gnutls-dev libjpeg62-turbo-dev libpng12-dev libbz2-dev libssl-dev libsslcommon2-dev
 
     #停止nginx进程
     service nginx stop
@@ -95,7 +83,7 @@ install_php56() {
     service ${procName} start
 
     #启动Nginx
-    service  nginx start
+    service nginx start
 
     #检查php-fpm的进程是否存在
     cmd=$(pidof ${procName})

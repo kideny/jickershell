@@ -6,15 +6,8 @@ install_php71() {
     PATH=/usr/local/php71/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/bin
     export PATH
 
-    #对Debian系统Update
-    apt-get update -y
-
-    #对Debian系统Upgrade，-u参数可以罗列出需要升级的软件
-    apt-get -u upgrade -y
-
     #安装PHP7.1的依赖库
     apt-get install \
-        make \
         libxml2-dev \
         libcurl4-openssl-dev \
         libjpeg62-turbo-dev \
@@ -32,13 +25,6 @@ install_php71() {
         librecode-dev \
         libpq-dev \
         libpcre3-dev \
-        gcc \
-
-    #删除安装软件的备份，释放硬盘空间
-    apt-get clean
-
-    #执行自动移出
-    apt-get autoremove -y
 
     #停止nginx进程
     service nginx stop

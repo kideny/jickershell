@@ -2,32 +2,8 @@
 
 install_tengine_product() {
 
-    #安装基础环境
-    apt-get install -y gcc g++ make wget htop
-
-    #杀死所有apache2的进程
-    killall apache2
-
-    #remove不需要的debian系统自带程序
-    dpkg -P libmysqlclient15off libmysqlclient15-dev mysql-common
-    dpkg -P apache2 apache2-doc apache2-mpm-prefork apache2-utils apache2.2-common
-    dpkg -P mysql-server mysql-client
-    dpkg -P nginx php5-fpm php5-gd php5-mysql
-    dpkg -l |grep nginx | awk -F " " '{print $2}' | xargs dpkg -P
-    apt-get remove -y exim4 apache2 apache2-doc apache2-utils apache2.2-common apache2.2-bin apache2-mpm-prefork apache2-doc apache2-mpm-worker mysql-client mysql-server mysql-common
-
-    #debian系统的update
-    apt-get check
-    apt-get update
-    apt-get upgrade
-    apt-get autoremove -y
-    apt-get -fy install
-
     #安装Tengine的依赖库
     apt-get -y install libpcre3-dev zlib1g-dev libssl-dev libxml2-dev libgd2-xpm-dev libgeoip-dev libjpeg62-turbo-dev
-
-    #删除安装软件的备份，释放硬盘空间
-    apt-get clean
 
     #定义默认安装的php版本号
     defaultVersion="2.2.0"
