@@ -4,51 +4,39 @@
 #  Website    http://www.jicker.cn
 #  Company  http://www.loserhub.com
 
+# 第一步：执行操作系统的一些预先处理的命令
+
 # 加载预处理脚本
 . script/provision.sh
-
 # 执行操作系统预处理函数
 provision
 
+# 第二步：处理系统源
+
 # 加载系统源处理脚本
 . script/sources.sh
-
 # 执行系统源处理的脚本
 sources
 
-#添加新的源
-cat >> /etc/apt/sources.list<<EOF
-deb http://mirrors.163.com/debian/ testing contrib main non-free
-deb-src http://mirrors.163.com/debian/ testing contrib main non-free
-deb http://mirrors.163.com/debian/ wheezy-updates main
-deb http://mirrors.163.com/debian wheezy main non-free contrib
-deb http://mirrors.163.com/debian wheezy-updates main non-free contrib
-deb-src http://mirrors.163.com/debian/ wheezy-updates main
-deb-src http://mirrors.163.com/debian wheezy main non-free contrib
-deb-src http://mirrors.163.com/debian wheezy-updates main non-free contrib
-deb http://mirrors.aliyun.com/debian/ wheezy main non-free contrib
-deb http://mirrors.aliyun.com/debian/ wheezy-proposed-updates main non-free contrib
-deb-src http://mirrors.aliyun.com/debian/ wheezy main non-free contrib
-deb-src http://mirrors.aliyun.com/debian/ wheezy-proposed-updates main non-free contrib
-deb http://security.debian.org/ wheezy/updates main
-deb-src http://security.debian.org/ wheezy/updates main
-deb http://packages.dotdeb.org stable all
-deb-src http://packages.dotdeb.org stable all
-deb http://nginx.org/packages/debian/ wheezy nginx
-deb-src http://nginx.org/packages/debian/ wheezy nginx
-EOF
+#第三步: 对操作系统进行更新
 
-# Install Node.js 6.x ,Using Debian, as root
-curl -sL https://deb.nodesource.com/setup_6.x | bash -
-#apt-get install -y nodejs
+# 加载更新脚本
+. script/update.sh
+# 执行操作系统更新的函数
+update
+
+# 第四步：定义变量
 
 # 定义变量，获得当前脚本的路路径
 current_dir=$(pwd)
-
-#定义默认安装程序的下载路径
+# 定义默认安装程序的下载路径
 srcDir="/usr/local/src"
 
+# 第五步：加载安装脚本并选择要安装的组件
+
 # 加载各种安装脚本
+. apps/docker/install/docker.sh
+. apps/docker/install/compose.sh
 . apps/nginx/install/proxy.sh
 . apps/nginx/install/product.sh
 . apps/openresty/install/proxy.sh
@@ -59,15 +47,12 @@ srcDir="/usr/local/src"
 . apps/php/php7.sh
 . apps/php/php71.sh
 
-run() {
-    install
-}
-
 # 选择要安装的组件
 install() {
 
     echo "-------------------------------------------------------------------------"
     echo ""
+    echo "  0:  Install  Docker + Compose  "
     echo "  1:  Install  Tengine as proxy  "
     echo "  2:  Install  Nginx as proxy  "
     echo "  3:  Install  OpenResty  as proxy  "
@@ -86,6 +71,10 @@ install() {
     read -p ">>Enter your choose number (or exit): "  num
 
     case "${num}" in
+        0)
+            install__docker
+            install__compose
+            ;;
         1)
             install_tengine_proxy
             ;;
@@ -137,8 +126,9 @@ install() {
 # 执行程序安装的函数
 install
 
-# 加载预处理脚本
-. script/clean.sh
+# 最后一步：系统清理
 
+# 加载系统清理的脚本
+. script/clean.sh
 # 执行清理函数
 clear
