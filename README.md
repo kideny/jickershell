@@ -4,7 +4,7 @@ Name：JickerShell
 
 Author：Frank Kennedy Yuan
 
-Blog：http://www.jicker.cn
+[Blog](http://www.jicker.cn)
 
 Description：JickerShell is webserver environment configuration's script using shell language on Debian System, It's only support 64 bit。
 
