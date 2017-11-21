@@ -36,7 +36,7 @@ install_nginx_product() {
         libxml2-dev \
         libgd2-xpm-dev \
         libgeoip-dev \
-        libjpeg62-turbo-dev \
+        libjpeg62-turbo-dev
 
     #进入Debian的源文件目录
     cd ${srcDir}
@@ -66,7 +66,7 @@ install_nginx_product() {
         --without-http-cache \
         --without-mail_pop3_module \
         --without-mail_imap_module \
-        --without-mail_smtp_module \
+        --without-mail_smtp_module
 
     #编译并且执行安装
     time make

@@ -37,6 +37,8 @@ provision(){
     # 移除操作系统自带的旧版本软件
     apt-get remove -y
         docker \
+        docker-common \
+        docker-selinux \
         docker-engine \
         docker.io \
         exim4 \
@@ -55,7 +57,7 @@ provision(){
         php5-cgi \
         php5-mysql \
         php5-curl \
-        php5-gd \
+        php5-gd
     
     #卸载exim4邮件发送程序
     apt-get --purge remove exim4

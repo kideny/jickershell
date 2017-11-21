@@ -21,7 +21,29 @@ install_php56() {
     fi
 
     #安装PHP的依赖库
-    apt-get install php5-curl freetype* php5-gd php5-mcrypt php5-common php-pear php5-imagick libpcre3 libpcre3-dev libtool libxml2 libxml2-dev libmhash-dev libmcrypt-dev mcrypt libcurl3 libcurl4-gnutls-dev libjpeg62-turbo-dev libpng12-dev libbz2-dev libssl-dev libsslcommon2-dev
+    apt-get install 
+        php5-curl \
+        freetype* \
+        php5-gd \
+        php5-mcrypt \
+        php5-common \
+        php-pear \
+        php5-imagick \
+        libpcre3 \
+        libpcre3-dev \
+        libtool \
+        libxml2 \
+        libxml2-dev \
+        libmhash-dev \
+        libmcrypt-dev \
+        mcrypt \
+        libcurl3 \
+        libcurl4-gnutls-dev \
+        libjpeg62-turbo-dev \
+        libpng12-dev \
+        libbz2-dev \
+        libssl-dev \
+        libsslcommon2-dev
 
     #停止nginx进程
     service nginx stop
@@ -70,7 +92,7 @@ install_php56() {
         --disable-debug \
         --disable-ipv6 \
         --disable-rpath \
-        --disable-fileinfo \
+        --disable-fileinfo
 
     #编译并且执行安装
     time make

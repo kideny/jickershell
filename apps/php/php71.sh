@@ -24,7 +24,7 @@ install_php71() {
         libpspell-dev \
         librecode-dev \
         libpq-dev \
-        libpcre3-dev \
+        libpcre3-dev
 
     #停止nginx进程
     service nginx stop
@@ -106,7 +106,7 @@ install_php71() {
         --enable-zip \
         --enable-xml \
         --disable-ipv6 \
-        --disable-rpath \
+        --disable-rpath
 
     #编译并且执行安装
     time make && make install

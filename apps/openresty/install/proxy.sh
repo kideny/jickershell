@@ -22,7 +22,7 @@ install_openresty_proxy() {
         libssl-dev \
         libperl-dev \
         libpcre3 \
-        libpcre3-dev \
+        libpcre3-dev
 
     #进入Debian的源文件目录
     cd ${srcDir}
@@ -53,7 +53,7 @@ install_openresty_proxy() {
         --without-http-cache \
         --without-mail_pop3_module \
         --without-mail_imap_module \
-        --without-mail_smtp_module \
+        --without-mail_smtp_module
 
     #编译并且执行安装
     time make

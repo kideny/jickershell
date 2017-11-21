@@ -20,5 +20,5 @@ update() {
         perl \
         openssl \
         composer \
-        pkg-config \
+        pkg-config
 }

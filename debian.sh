@@ -52,7 +52,7 @@ install() {
 
     echo "-------------------------------------------------------------------------"
     echo ""
-    echo "  0:  Install  Docker + Compose  "
+    echo "  0:  Install  Docker CE + Docker Compose  "
     echo "  1:  Install  Tengine as proxy  "
     echo "  2:  Install  Nginx as proxy  "
     echo "  3:  Install  OpenResty  as proxy  "

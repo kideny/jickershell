@@ -6,9 +6,26 @@ install_php7() {
     PATH=/usr/local/php7/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/bin
     export PATH
 
-    #安装PHP7的依赖库
-    apt-get install libxml2-dev libcurl4-openssl-dev libjpeg62-turbo-dev libpng12-dev libxpm-dev libmysqlclient-dev libicu-dev libfreetype6-dev libxslt1-dev libssl-dev libbz2-dev libgmp-dev libmcrypt-dev libpspell-dev librecode-dev libpq-dev libpcre3-dev
-
+    #安装PHP7.1的依赖库
+    apt-get install \
+        libxml2-dev \
+        libcurl4-openssl-dev \
+        libjpeg62-turbo-dev \
+        libpng12-dev \
+        libxpm-dev \
+        libmysqlclient-dev \
+        libicu-dev \
+        libfreetype6-dev \
+        libxslt1-dev \
+        libssl-dev \
+        libbz2-dev \
+        libgmp-dev \
+        libmcrypt-dev \
+        libpspell-dev \
+        librecode-dev \
+        libpq-dev \
+        libpcre3-dev
+        
     #停止nginx进程
     service nginx stop
 
@@ -90,7 +107,7 @@ install_php7() {
         --enable-zip \
         --enable-xml \
         --disable-ipv6 \
-        --disable-rpath \
+        --disable-rpath
 
     #编译并且执行安装
     time make && make install

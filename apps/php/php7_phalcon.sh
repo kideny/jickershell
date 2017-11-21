@@ -1,7 +1,10 @@
 #!/bin/bash
 
 # 安装phalcon所需依赖
-apt-get install - y php5-dev libpcre3-dev gcc make php5-mysql
+apt-get install - y 
+    php5-dev \
+    libpcre3-dev \
+    php5-mysql
 
 # 进入源码下载目录
 cd  /usr/local/src

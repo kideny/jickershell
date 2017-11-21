@@ -8,7 +8,7 @@ install_tengine_proxy() {
         libssl-dev \
         libperl-dev \
         libpcre3 \
-        libpcre3-dev \
+        libpcre3-dev
 
     #定义默认安装的php版本号
     defaultVersion="2.2.0"
@@ -51,7 +51,7 @@ install_tengine_proxy() {
         --without-http-cache \
         --without-mail_pop3_module \
         --without-mail_imap_module \
-        --without-mail_smtp_module \
+        --without-mail_smtp_module
 
     #编译并且执行安装
     time make

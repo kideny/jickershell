@@ -39,7 +39,7 @@ install_openresty_product() {
         libjpeg62-turbo-dev \
         libreadline-dev \
         libncurses5-dev \
-        build-essential \
+        build-essential
 
     #进入Debian的源文件目录
     cd ${srcDir}
@@ -70,7 +70,7 @@ install_openresty_product() {
         --without-http-cache \
         --without-mail_pop3_module \
         --without-mail_imap_module \
-        --without-mail_smtp_module \
+        --without-mail_smtp_module
 
     #编译并且执行安装
     time make
