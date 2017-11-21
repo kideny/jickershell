@@ -60,7 +60,17 @@ install_openresty_product() {
     cd ${srcDir}/nginx-${openrestyVersion}
 
     #配置并检查依赖
-    ./configure --prefix=/usr/local/nginx --group=www-data --user=www-data --with-luajit --with-http_stub_status_module --with-http_ssl_module --without-http-cache --without-mail_pop3_module --without-mail_imap_module  --without-mail_smtp_module
+    ./configure 
+        --prefix=/usr/local/nginx \
+        --group=www-data \
+        --user=www-data \
+        --with-luajit \
+        --with-http_stub_status_module \
+        --with-http_ssl_module \
+        --without-http-cache \
+        --without-mail_pop3_module \
+        --without-mail_imap_module \
+        --without-mail_smtp_module \
 
     #编译并且执行安装
     time make

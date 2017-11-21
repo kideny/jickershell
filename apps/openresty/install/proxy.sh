@@ -11,16 +11,18 @@ install_openresty_proxy() {
 
     #读取用户输入的openrestyVersion，如果openrestyVersion为空，则默认为defaultVersion
     read -p " --Enter: " openrestyVersion
+
     if [ "$openrestyVersion" = "" ]; then
         openrestyVersion="$defaultversion"
     fi
 
-    #卸载exim4邮件发送程序
-    apt-get --purge remove exim4
-    apt-get --purge remove exim4-base
-
     #安装nginx的依赖库
-    apt-get install libtool libssl-dev libperl-dev libpcre3 libpcre3-dev
+    apt-get install 
+        libtool \
+        libssl-dev \
+        libperl-dev \
+        libpcre3 \
+        libpcre3-dev \
 
     #进入Debian的源文件目录
     cd ${srcDir}
@@ -41,7 +43,17 @@ install_openresty_proxy() {
     cd ${srcDir}/nginx-${openrestyVersion}
 
     #配置并检查依赖
-    ./configure --prefix=/usr/local/nginx --group=www-data --user=www-data --with-luajit --with-http_stub_status_module --with-http_ssl_module --without-http-cache --without-mail_pop3_module --without-mail_imap_module  --without-mail_smtp_module
+    ./configure 
+        --prefix=/usr/local/nginx \
+        --group=www-data \
+        --user=www-data \
+        --with-luajit \
+        --with-http_stub_status_module \
+        --with-http_ssl_module \
+        --without-http-cache \
+        --without-mail_pop3_module \
+        --without-mail_imap_module \
+        --without-mail_smtp_module \
 
     #编译并且执行安装
     time make

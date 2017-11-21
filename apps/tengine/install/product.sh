@@ -3,7 +3,14 @@
 install_tengine_product() {
 
     #安装Tengine的依赖库
-    apt-get -y install libpcre3-dev zlib1g-dev libssl-dev libxml2-dev libgd2-xpm-dev libgeoip-dev libjpeg62-turbo-dev
+    apt-get -y install 
+        libpcre3-dev \
+        zlib1g-dev \
+        libssl-dev \
+        libxml2-dev \
+        libgd2-xpm-dev \
+        libgeoip-dev \
+        libjpeg62-turbo-dev \
 
     #定义默认安装的php版本号
     defaultVersion="2.2.0"
@@ -50,7 +57,16 @@ install_tengine_product() {
     cd ${srcDir}/tengine-$tengineVersion
 
     #配置并检查依赖
-    ./configure --prefix=/usr/local/nginx --group=www-data --user=www-data  --with-http_stub_status_module --with-http_ssl_module --without-http-cache --without-mail_pop3_module --without-mail_imap_module  --without-mail_smtp_module
+    ./configure 
+        --prefix=/usr/local/nginx \
+        --group=www-data \
+        --user=www-data \
+        --with-http_stub_status_module \
+        --with-http_ssl_module \
+        --without-http-cache \
+        --without-mail_pop3_module \
+        --without-mail_imap_module \
+        --without-mail_smtp_module \
 
     #编译并且执行安装
     time make

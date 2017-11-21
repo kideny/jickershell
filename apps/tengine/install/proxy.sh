@@ -3,7 +3,12 @@
 install_tengine_proxy() {
 
     #安装Tengine的依赖库
-    apt-get install libtool libssl-dev libperl-dev libpcre3 libpcre3-dev
+    apt-get install 
+        libtool \
+        libssl-dev \
+        libperl-dev \
+        libpcre3 \
+        libpcre3-dev \
 
     #定义默认安装的php版本号
     defaultVersion="2.2.0"
@@ -37,7 +42,16 @@ install_tengine_proxy() {
     cd ${srcDir}/tengine-${tengineVersion}
 
     #配置并检查依赖
-    ./configure --prefix=/usr/local/nginx --group=www-data --user=www-data  --with-http_stub_status_module --with-http_ssl_module --without-http-cache --without-mail_pop3_module --without-mail_imap_module  --without-mail_smtp_module
+    ./configure 
+        --prefix=/usr/local/nginx \
+        --group=www-data \
+        --user=www-data \
+        --with-http_stub_status_module \
+        --with-http_ssl_module \
+        --without-http-cache \
+        --without-mail_pop3_module \
+        --without-mail_imap_module \
+        --without-mail_smtp_module \
 
     #编译并且执行安装
     time make
