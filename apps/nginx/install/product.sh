@@ -77,14 +77,13 @@ install_nginx_product() {
     service nginx start
 
     #检查nginx的进程是否存在
-    cmd=$(pidof nginx)
+    process = pidof nginx
 
-    if [ ! $cmd ]; then
+    if [ "${process}" = "" ]; 
         #安装失败的欢迎致辞！
         echo "nginx${nginxVersion} install fail!";
-    else
+    then
         #安装成功的欢迎致辞！
         echo "nginx${nginxVersion} install success!";
     fi
-
 }

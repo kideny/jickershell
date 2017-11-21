@@ -9,5 +9,16 @@ update() {
     apt-get -u upgrade -y
 
     # 安装必要的软件
-    apt-get install htop git composer make gcc pkg-config curl wget openssl 
+    apt-get install 
+        git \
+        composer \
+        pkg-config \
+        curl \
+        openssl \
+        gcc \
+        g++ \
+        make \
+        wget \
+        htop \
+        perl \
 }

@@ -64,7 +64,14 @@ install_tengine_proxy() {
     #重新启动Tengine
     service nginx start
 
-    #安装成功的欢迎致辞！
-    echo "Tengine install chenggong!";
+    #检查nginx的进程是否存在
+    process = pidof nginx
 
+    if [ "${process}" = "" ]; 
+        #安装失败的欢迎致辞！
+        echo "nginx${nginxVersion} install fail!";
+    then
+        #安装成功的欢迎致辞！
+        echo "nginx${nginxVersion} install success!";
+    fi
 }

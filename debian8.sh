@@ -4,19 +4,20 @@
 #  Website    http://www.jicker.cn
 #  Company  http://www.loserhub.com
 
+# 第一步：执行操作系统的一些预先处理的命令
+
 # 加载预处理脚本
 . script/provision.sh
-
 # 执行操作系统预处理函数
 provision
 
+# 第二步：处理系统源
+
 # 加载系统源处理脚本
 . script/sources.sh
-
 # 执行系统源处理的脚本
 sources
 
-#添加新的源
 cat >> /etc/apt/sources.list<<EOF
 deb http://mirrors.aliyun.com/debian jessie main contrib non-free
 deb http://mirrors.aliyun.com/debian jessie-proposed-updates main contrib non-free
@@ -46,17 +47,21 @@ EOF
 curl -sL https://deb.nodesource.com/setup_7.x | bash -
 #apt-get install -y nodejs
 
+#第三步: 对操作系统进行更新
+
 # 加载更新脚本
 . script/update.sh
-
 # 执行操作系统更新的函数
 update
 
+# 第四步：定义变量
+
 # 定义变量，获得当前脚本的路路径
 current_dir=$(pwd)
-
 # 定义默认安装程序的下载路径
 srcDir="/usr/local/src"
+
+# 第五步：加载安装脚本并选择要安装的组件
 
 # 加载各种安装脚本
 . apps/docker/install/docker.sh
@@ -150,8 +155,9 @@ install() {
 # 执行程序安装的函数
 install
 
-# 加载预处理脚本
-. script/clean.sh
+# 最后一步：系统清理
 
+# 加载系统清理的脚本
+. script/clean.sh
 # 执行清理函数
 clear

@@ -76,8 +76,15 @@ install_tengine_product() {
 
     #重新启动Tengine
     service nginx start
+        
+    #检查nginx的进程是否存在
+    process = pidof nginx
 
-    #安装成功的欢迎致辞！
-    echo "Tengine install chenggong!";
-
+    if [ "${process}" = "" ]; 
+        #安装失败的欢迎致辞！
+        echo "nginx${nginxVersion} install fail!";
+    then
+        #安装成功的欢迎致辞！
+        echo "nginx${nginxVersion} install success!";
+    fi
 }

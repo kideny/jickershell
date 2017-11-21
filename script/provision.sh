@@ -24,15 +24,6 @@ provision(){
     #设置时区为上海
     ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-    #安装基础环境
-    apt-get install -y 
-        gcc \
-        g++ \
-        make \
-        wget \
-        htop \
-        perl \
-
     #杀死所有apache2的进程
     killall apache2
 

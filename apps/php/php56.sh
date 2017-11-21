@@ -85,14 +85,14 @@ install_php56() {
     #启动Nginx
     service nginx start
 
-    #检查php-fpm的进程是否存在
-    cmd=$(pidof ${procName})
+    #检查nginx的进程是否存在
+    process = pidof ${procName}
 
-    if [ ! $cmd ]; then
+    if [ "${process}" = "" ]; 
         #安装失败的欢迎致辞！
-        echo "PHP${phpVersion} install fail!";
-    else
+        echo "nginx${phpVersion} install fail!";
+    then
         #安装成功的欢迎致辞！
-        echo "PHP${phpVersion} install success!";
+        echo "nginx${phpVersion} install success!";
     fi
 }
