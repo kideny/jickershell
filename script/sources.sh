@@ -2,13 +2,12 @@
 
 # 操作系统预处理函数
 sources(){
-    
+
     sudo apt-get clean
     cd /var/lib/apt
     sudo mv lists lists.old
     sudo mkdir -p lists/partial
     sudo apt-get clean
-    sudo apt-get update 
 
     #修改默认的源，添加163源和debian官方源
     if [ -s /etc/apt/sources.list.bak ]; then
