@@ -3,12 +3,6 @@
 # 操作系统预处理函数
 sources(){
 
-    sudo apt-get clean
-    cd /var/lib/apt
-    sudo mv lists lists.old
-    sudo mkdir -p lists/partial
-    sudo apt-get clean
-
     #修改默认的源，添加163源和debian官方源
     if [ -s /etc/apt/sources.list.bak ]; then
         rm /etc/apt/sources.list -f
@@ -125,4 +119,5 @@ EOF
     # Install Node.js 9.x , Using Debian, as root
     curl -sL https://deb.nodesource.com/setup_9.x | bash -
     #apt-get install -y nodejs
+
 }
