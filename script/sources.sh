@@ -17,9 +17,9 @@ sources(){
     # 截取版本号的第一个数字
     num = ${debianVersion%.*}
 
-    if [ "${num}" == "10" ]; then
+    if [ $num -eq 10 ]; then
     
-    else [ "${num}" == "9" ]; then
+    elif [ $num -eq 9 ]; then
 
         #添加新的stretch源, 第二个EOF必须顶格写
         cat >> /etc/apt/sources.list <<EOF
@@ -46,7 +46,7 @@ sources(){
             deb-src http://nginx.org/packages/debian/ stretch nginx
 EOF
 
-    else [ "${num}" == "8" ]; then
+    elif [ $num -eq 8 ]; then
 
         #添加新的jessie源, 第二个EOF必须顶格写
         cat >> /etc/apt/sources.list <<EOF
