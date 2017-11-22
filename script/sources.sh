@@ -31,11 +31,6 @@ sources(){
             deb http://mirrors.163.com/debian-security/ stretch/updates main non-free contrib
             deb-src http://mirrors.163.com/debian-security/ stretch/updates main non-free contrib
 
-            deb http://mirrors.aliyuncs.com/debian/  stretch main non-free contrib
-            deb http://mirrors.aliyuncs.com/debian/  stretch-proposed-updates main non-free contrib
-            deb-src http://mirrors.aliyuncs.com/debian/  stretch main non-free contrib
-            deb-src http://mirrors.aliyuncs.com/debian/  stretch-proposed-updates main non-free contrib
-
             deb http://security.debian.org/  stretch/updates main
             deb-src http://security.debian.org/  stretch/updates main
             deb http://packages.dotdeb.org  stretch all
@@ -57,11 +52,6 @@ EOF
             deb-src http://mirrors.163.com/debian/ jessie-backports main non-free contrib
             deb http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib
             deb-src http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib
-
-            deb http://mirrors.aliyuncs.com/debian/  jessie main non-free contrib
-            deb http://mirrors.aliyuncs.com/debian/  jessie-proposed-updates main non-free contrib
-            deb-src http://mirrors.aliyuncs.com/debian/  jessie main non-free contrib
-            deb-src http://mirrors.aliyuncs.com/debian/  jessie-proposed-updates main non-free contrib
 
             deb http://security.debian.org/  jessie/updates main
             deb-src http://security.debian.org/  jessie/updates main
@@ -89,11 +79,6 @@ EOF
             deb-src http://mirrors.163.com/debian/  wheezy-updates main
             deb-src http://mirrors.163.com/debian  wheezy main non-free contrib
             deb-src http://mirrors.163.com/debian  wheezy-updates main non-free contrib
-
-            deb http://mirrors.aliyuncs.com/debian/  wheezy main non-free contrib
-            deb http://mirrors.aliyuncs.com/debian/  wheezy-proposed-updates main non-free contrib
-            deb-src http://mirrors.aliyuncs.com/debian/  wheezy main non-free contrib
-            deb-src http://mirrors.aliyuncs.com/debian/  wheezy-proposed-updates main non-free contrib
 
             deb http://security.debian.org/  wheezy/updates main
             deb-src http://security.debian.org/  wheezy/updates main
