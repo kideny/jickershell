@@ -3,7 +3,7 @@
 install_tengine_proxy() {
 
     #安装Tengine的依赖库
-    apt-get install 
+    apt-get install \
         libtool \
         libssl-dev \
         libperl-dev \
@@ -42,7 +42,7 @@ install_tengine_proxy() {
     cd ${srcDir}/tengine-${tengineVersion}
 
     #配置并检查依赖
-    ./configure 
+    ./configure \
         --prefix=/usr/local/nginx \
         --group=www-data \
         --user=www-data \

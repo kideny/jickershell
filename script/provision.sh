@@ -35,7 +35,7 @@ provision(){
     dpkg -l |grep nginx | awk -F " " '{print $2}' | xargs dpkg -P
 
     # 移除操作系统自带的旧版本软件
-    apt-get remove -y
+    apt-get remove -y \
         docker \
         docker-common \
         docker-selinux \

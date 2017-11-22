@@ -75,7 +75,7 @@ install_php7() {
     cd ${srcDir}/php-${phpVersion}
 
     #配置并检查依赖
-    ./configure 
+    ./configure \
         --prefix=${phpDir} \
         --with-zlib-dir \
         --with-config-file-path=${phpDir}/etc \

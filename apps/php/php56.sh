@@ -21,7 +21,7 @@ install_php56() {
     fi
 
     #安装PHP的依赖库
-    apt-get install 
+    apt-get install \
         php5-curl \
         freetype* \
         php5-gd \
@@ -61,7 +61,7 @@ install_php56() {
     cd ${srcDir}/php-${phpversion}
 
     #配置并检查依赖
-    ./configure 
+    ./configure \
         --prefix=/usr/local/php56  \
         --with-config-file-path=/usr/local/php56/etc \
         --with-fpm-user=www-data \

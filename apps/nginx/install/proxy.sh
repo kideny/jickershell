@@ -16,7 +16,7 @@ install_nginx_proxy() {
     fi
 
     #安装nginx的依赖库
-    apt-get install 
+    apt-get install \
         libtool \
         libssl-dev \
         libperl-dev \
@@ -42,7 +42,7 @@ install_nginx_proxy() {
     cd ${srcDir}/nginx-${nginxVersion}
 
     #配置并检查依赖
-    ./configure 
+    ./configure \
         --prefix=/usr/local/nginx  \
         --group=www-data \
         --user=www-data  \

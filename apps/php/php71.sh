@@ -75,7 +75,8 @@ install_php71() {
     cd ${srcDir}/php-${phpVersion}
 
     #配置并检查依赖
-    ./configure --prefix=${phpDir} \
+    ./configure \
+        --prefix=${phpDir} \
         --with-zlib-dir \
         --with-config-file-path=${phpDir}/etc \
         --with-fpm-user=www-data \

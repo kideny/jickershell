@@ -29,7 +29,7 @@ install_nginx_product() {
     fi
 
     #安装Tengine的依赖库
-    apt-get -y install 
+    apt-get -y install \
         libpcre3-dev \
         zlib1g-dev \
         libssl-dev \
@@ -57,7 +57,7 @@ install_nginx_product() {
     cd ${srcDir}/nginx-${nginxVersion}
 
     #配置并检查依赖
-    ./configure 
+    ./configure \
         --prefix=/usr/local/nginx \
         --group=www-data \
         --user=www-data \

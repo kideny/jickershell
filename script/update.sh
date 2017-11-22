@@ -9,7 +9,7 @@ update() {
     apt-get -u upgrade -y
 
     # 安装必要的软件
-    apt-get install 
+    apt-get install \
         git \
         curl \
         gcc \
