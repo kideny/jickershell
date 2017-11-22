@@ -17,10 +17,11 @@ sources(){
     # 截取版本号的第一个数字
     num = ${debianVersion%.*}
 
-    if [ $num -eq 10 ]; then
-    
-    elif [ $num -eq 9 ]; then
-
+    if [ $num -eq 10 ]; 
+        then
+    ;
+    elif [ $num -eq 9 ]; 
+        then
         #添加新的stretch源, 第二个EOF必须顶格写
         cat >> /etc/apt/sources.list <<EOF
             deb http://mirrors.163.com/debian/ stretch main non-free contrib
@@ -45,9 +46,9 @@ sources(){
             deb http://nginx.org/packages/debian/ stretch nginx
             deb-src http://nginx.org/packages/debian/ stretch nginx
 EOF
-
-    elif [ $num -eq 8 ]; then
-
+    ;
+    elif [ $num -eq 8 ]; 
+        then
         #添加新的jessie源, 第二个EOF必须顶格写
         cat >> /etc/apt/sources.list <<EOF
             deb http://mirrors.163.com/debian/ jessie main non-free contrib
@@ -78,7 +79,7 @@ EOF
             ca-certificates \
             gnupg2 \
             software-properties-common
-
+    ;
     else
         #添加新的wheezy源, 第二个EOF必须顶格写
         cat >> /etc/apt/sources.list <<EOF
