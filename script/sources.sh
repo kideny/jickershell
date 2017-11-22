@@ -72,6 +72,12 @@ EOF
             deb http://nginx.org/packages/debian/  	jessie nginx
             deb-src http://nginx.org/packages/debian/  	jessie nginx
 EOF
+        # Install packages to allow apt to use a repository over HTTPS:
+        sudo apt-get install \
+            apt-transport-https \
+            ca-certificates \
+            gnupg2 \
+            software-properties-common
 
     else
         #添加新的wheezy源, 第二个EOF必须顶格写
@@ -102,6 +108,12 @@ EOF
         # Install Node.js 6.x ,Using Debian, as root
         curl -sL https://deb.nodesource.com/setup_6.x | bash -
         #apt-get install -y nodejs
+
+        # Install packages to allow apt to use a repository over HTTPS:
+        sudo apt-get install \
+            apt-transport-https \
+            ca-certificates \
+            python-software-properties
     fi
     
     
