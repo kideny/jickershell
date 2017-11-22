@@ -43,7 +43,7 @@ sources(){
             deb http://nginx.org/packages/debian/ stretch nginx
             deb-src http://nginx.org/packages/debian/ stretch nginx
 EOF
-    ;
+
     elif [ $num -eq 8 ]; 
         then
         #添加新的jessie源, 第二个EOF必须顶格写
@@ -76,7 +76,7 @@ EOF
             ca-certificates \
             gnupg2 \
             software-properties-common
-    ;
+
     else
         #添加新的wheezy源, 第二个EOF必须顶格写
         cat >> /etc/apt/sources.list <<EOF
