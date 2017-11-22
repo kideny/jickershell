@@ -25,4 +25,7 @@ install__docker() {
 
     ## Upgrade Docker CE
     sudo apt-get update
+
+    ## Start Docker
+    sudo systemctl start docker
 }

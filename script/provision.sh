@@ -57,7 +57,4 @@ provision(){
     #卸载exim4邮件发送程序
     apt-get --purge remove exim4
     apt-get --purge remove exim4-base
-
-    #Signatures
-    apt-key add nginx_signing.key
 }
