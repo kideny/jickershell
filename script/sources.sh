@@ -17,10 +17,7 @@ sources(){
     # 截取版本号的第一个数字
     num = ${debianVersion%.*}
 
-    if [ $num -eq 10 ]; 
-        then
-    ;
-    elif [ $num -eq 9 ]; 
+    if [ $num -eq 9 ]; 
         then
         #添加新的stretch源, 第二个EOF必须顶格写
         cat >> /etc/apt/sources.list <<EOF
