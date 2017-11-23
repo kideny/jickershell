@@ -23,3 +23,6 @@ defaultOpenrestyVersion="1.11.2.5"
 
 # 定义默认的Tengine的版本
 defaultTengineVersion="2.2.0"
+
+# 定义默认安装的Docker Compose的版本
+defaultDockerCompose="1.17.0"
