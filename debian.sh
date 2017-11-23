@@ -25,12 +25,8 @@ sources
 # 执行操作系统更新的函数
 update
 
-# 第四步：定义变量
-
-# 定义变量，获得当前脚本的路路径
-current_dir=$(pwd)
-# 定义默认安装程序的下载路径
-srcDir="/usr/local/src"
+# 第四步：加载定义变量
+. config/variable.sh
 
 # 第五步：加载安装脚本并选择要安装的组件
 

@@ -3,7 +3,7 @@
 install_php56() {
 
     #定义默认安装的php版本号
-    defaultVersion="5.6.31"
+    defaultVersion=${defaultPHP56Version}
 
     #定义进程的名称
     procName="php-fpm5.6"

@@ -13,7 +13,7 @@ install_tengine_product() {
         libjpeg62-turbo-dev
 
     #定义默认安装的php版本号
-    defaultVersion="2.2.0"
+    defaultVersion=${defaultTengineVersion}
 
     #输出提示
     echo -e "\033[41;37m Please enter the tengine version, the default is: ${defaultVersion}  < \033[0m"
