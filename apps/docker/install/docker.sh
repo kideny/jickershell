@@ -25,4 +25,15 @@ install__docker() {
 
     ## Start Docker
     sudo systemctl start docker
+
+    #检查nginx的进程是否存在
+    dockerVersion = $(docker --version)
+
+    if [ "${dockerVersion}" = "" ]; 
+        #安装失败的欢迎致辞！
+        echo "Docker CE install fail!";
+    then
+        #安装成功的欢迎致辞！
+        echo "Docker CE install success!";
+    fi
 }

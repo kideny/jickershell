@@ -9,4 +9,15 @@ install__compose() {
 
     # Apply executable permissions to the binary:
     sudo chmod +x /usr/local/bin/docker-compose
+
+    #检查nginx的进程是否存在
+    dockerComposeVersion = $(docker-compose -v)
+
+    if [ "${dockerComposeVersion}" = "" ]; 
+        #安装失败的欢迎致辞！
+        echo "Docker-Compose install fail!";
+    then
+        #安装成功的欢迎致辞！
+        echo "Docker-Compose install success!";
+    fi
 }
