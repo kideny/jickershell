@@ -11,7 +11,7 @@ install__compose() {
     sudo chmod +x /usr/local/bin/docker-compose
 
     #检查nginx的进程是否存在
-    dockerComposeVersion = $(docker-compose -v)
+    dockerComposeVersion=$(docker-compose -v)
 
     if [ "${dockerComposeVersion}" = "" ]; 
         #安装失败的欢迎致辞！
