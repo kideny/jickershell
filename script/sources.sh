@@ -68,6 +68,18 @@ EOF
             gnupg2 \
             software-properties-common
 
+        # Add Docker’s official GPG key
+        curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
+
+        # Verify that you now have the key with the fingerprint 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88, by searching for the last 8 characters of the fingerprint.
+        sudo apt-key fingerprint 0EBFCD88
+
+        # Use the following command to set up the stable repository
+        sudo add-apt-repository \
+        "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
+        $(lsb_release -cs) \
+        stable"
+
     else
         #添加新的wheezy源, 第二个EOF必须顶格写
         cat >> /etc/apt/sources.list <<EOF
@@ -87,6 +99,8 @@ EOF
 
             deb http://nginx.org/packages/debian/  wheezy nginx
             deb-src http://nginx.org/packages/debian/  wheezy nginx
+
+            deb-src [arch=amd64] https://download.docker.com/linux/debian wheezy stable
 EOF
 
         # Install Node.js 6.x ,Using Debian, as root
