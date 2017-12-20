@@ -26,8 +26,8 @@ install__docker() {
     ## Start Docker
     sudo systemctl start docker
 
-    #检查nginx的进程是否存在
-    dockerVersion = $(docker --version)
+    #检查docker的进程是否存在
+    dockerVersion=$(docker --version)
 
     if [ "${dockerVersion}" = "" ]; 
         #安装失败的欢迎致辞！
