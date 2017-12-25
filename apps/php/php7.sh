@@ -6,7 +6,7 @@ install_php7() {
     PATH=/usr/local/php7/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/bin
     export PATH
 
-    #安装PHP7.1的依赖库
+    #安装PHP7.0的依赖库
     apt-get install \
         libxml2-dev \
         libcurl4-openssl-dev \
