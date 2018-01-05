@@ -9,15 +9,37 @@ install() {
     echo "  1:  Install  Tengine as proxy  "
     echo "  2:  Install  Nginx as proxy  "
     echo "  3:  Install  OpenResty  as proxy  "
+    echo ""
+    echo "-------------------------------------------------------------------------"
+    echo ""
     echo "  11: Install  PHP5.6  "
     echo "  12: Install  PHP7.0  "
     echo "  13: Install  PHP7.1  "
-    echo "  4:  Install  Tengine  +  PHP7  "
-    echo "  5:  Install  Nginx  +  PHP7  "
-    echo "  6:  Install  OpenResty  +  PHP7  "
-    echo "  31: Install  Tengine  +  PHP5.6  "
-    echo "  32: Install  Nginx  +  PHP5.6  "
-    echo "  33: Install  OpenResty  +  PHP5.6  "
+    echo "  14: Install  PHP7.2  "
+    echo ""
+    echo "-------------------------------------------------------------------------"
+    echo ""
+    echo "  7201:  Install  Tengine  +  PHP72  "
+    echo "  7202:  Install  Nginx  +  PHP72  "
+    echo "  7203:  Install  OpenResty  +  PHP72  "
+    echo ""
+    echo "-------------------------------------------------------------------------"
+    echo ""
+    echo "  7101:  Install  Tengine  +  PHP71  "
+    echo "  7102:  Install  Nginx  +  PHP71  "
+    echo "  7103:  Install  OpenResty  +  PHP71  "
+    echo ""
+    echo "-------------------------------------------------------------------------"
+    echo ""
+    echo "  7001:  Install  Tengine  +  PHP7  "
+    echo "  7002:  Install  Nginx  +  PHP7  "
+    echo "  7003:  Install  OpenResty  +  PHP7  "
+    echo ""
+    echo "-------------------------------------------------------------------------"
+    echo ""
+    echo "  561: Install  Tengine  +  PHP5.6  "
+    echo "  562: Install  Nginx  +  PHP5.6  "
+    echo "  563: Install  OpenResty  +  PHP5.6  "
     echo ""
     echo "-------------------------------------------------------------------------"
 
@@ -46,27 +68,54 @@ install() {
         13)
             install_php71
             ;;
-        4)
+        14)
+            install_php72
+            ;;
+        7201)
+            install_tengine_product
+            install_php72
+            ;;
+        7202)
+            install_nginx_product
+            install_php72
+            ;;
+        7203)
+            install_openresty_product
+            install_php72
+            ;;
+        7101)
+            install_tengine_product
+            install_php71
+            ;;
+        7102)
+            install_nginx_product
+            install_php71
+            ;;
+        7103)
+            install_openresty_product
+            install_php71
+            ;;
+        7001)
             install_tengine_product
             install_php7
             ;;
-        5)
+        7002)
             install_nginx_product
             install_php7
             ;;
-        6)
+        7003)
             install_openresty_product
             install_php7
             ;;
-        31)
+        561)
             install_tengine_product
             install_php56
             ;;
-        32)
+        562)
             install_nginx_product
             install_php56
             ;;
-        33)
+        563)
             install_openresty_product
             install_php56
             ;;
