@@ -7,16 +7,16 @@ current_dir=$(pwd)
 srcDir="/usr/local/src"
 
 # 定义默认的PHP7.2的版本
-defaultPHP72Version="7.2.1"
+defaultPHP72Version="7.2.3"
 
 # 定义默认的PHP7.1的版本
-defaultPHP71Version="7.1.13"
+defaultPHP71Version="7.1.15"
 
 # 定义默认的PHP7.0的版本
-defaultPHP70Version="7.0.27"
+defaultPHP70Version="7.0.28"
 
 # 定义默认的PHP5.6的版本
-defaultPHP56Version="5.6.33"
+defaultPHP56Version="5.6.34"
 
 # 定义默认的Nginx的版本
 defaultNginxVersion="1.12.2"
