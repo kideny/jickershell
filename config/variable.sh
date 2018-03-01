@@ -1,4 +1,8 @@
 #!/bin/bash
+# PHP Version    http://www.php.net/
+# Nginx Version  https://nginx.org/en/download.html
+# Openresty Version  https://openresty.org/cn/download.html
+# Docker Version  https://www.docker.com/community-edition#/download
 
 # 定义变量，获得当前脚本的路路径
 current_dir=$(pwd)
@@ -6,7 +10,7 @@ current_dir=$(pwd)
 # 定义默认安装程序的下载路径
 srcDir="/usr/local/src"
 
-# 定义默认的PHP7.2的版本
+# 定义默认的PHP7.2的版本  
 defaultPHP72Version="7.2.3"
 
 # 定义默认的PHP7.1的版本
