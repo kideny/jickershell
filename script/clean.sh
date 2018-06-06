@@ -10,6 +10,6 @@ clear() {
     # rm /var/lib/apt/lists/* -vf
 
     #rm -rf ${srcDir}/*.*
-    echo "Install Sucess! Debian DaFa GuoRan Hao ,HaHaHa!"
+    echo "Clean Sucess! Debian DaFa GuoRan Hao ,HaHaHa!"
 }
 
