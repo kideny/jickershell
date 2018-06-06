@@ -1,6 +1,6 @@
 #!/bin/bash
 
-clear() {
+clean() {
     #执行自动移出
     apt-get autoremove -y
 
