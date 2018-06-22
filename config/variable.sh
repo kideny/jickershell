@@ -14,16 +14,16 @@ srcDir="/usr/local/src"
 defaultPHP72Version="7.2.7"
 
 # 定义默认的PHP7.1的版本
-defaultPHP71Version="7.1.16"
+defaultPHP71Version="7.1.18"
 
 # 定义默认的PHP7.0的版本
-defaultPHP70Version="7.0.29"
+defaultPHP70Version="7.0.30"
 
 # 定义默认的PHP5.6的版本
-defaultPHP56Version="5.6.34"
+defaultPHP56Version="5.6.36"
 
 # 定义默认的Nginx的版本
-defaultNginxVersion="1.12.2"
+defaultNginxVersion="1.14.0"
 
 # 定义默认的Openresty的版本
 defaultOpenrestyVersion="1.13.6.2"
