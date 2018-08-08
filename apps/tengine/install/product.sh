@@ -98,9 +98,9 @@ install_tengine_product() {
 
     if [ "${process}" = "" ]; 
         #安装失败的欢迎致辞！
-        echo "nginx${nginxVersion} install fail!";
+        echo "tengine${nginxVersion} install fail!";
     then
         #安装成功的欢迎致辞！
-        echo "nginx${nginxVersion} install success!";
+        echo "tengine${nginxVersion} install success!";
     fi
 }

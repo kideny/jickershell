@@ -17,8 +17,6 @@ debian_letsencryt_install() {
 
     # Automating renewal
     certbot renew --dry-run
-
-    
 }
 
 centos_letsencryt_install() {

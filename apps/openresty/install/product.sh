@@ -101,9 +101,9 @@ install_openresty_product() {
 
     if [ "${process}" = "" ]; 
         #安装失败的欢迎致辞！
-        echo "nginx${nginxVersion} install fail!";
+        echo "openresty${nginxVersion} install fail!";
     then
         #安装成功的欢迎致辞！
-        echo "nginx${nginxVersion} install success!";
+        echo "openresty${nginxVersion} install success!";
     fi
 }
