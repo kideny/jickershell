@@ -3,6 +3,8 @@
 # Nginx Version  https://nginx.org/en/download.html
 # Openresty Version  https://openresty.org/cn/download.html
 # Docker Version  https://www.docker.com/community-edition#/download
+# Docker Debian   https://docs.docker.com/install/linux/docker-ce/debian/
+# Docker Ubuntu   https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
 # 定义变量，获得当前脚本的路路径
 current_dir=$(pwd)
@@ -20,7 +22,7 @@ defaultPHP71Version="7.1.20"
 defaultPHP70Version="7.0.31"
 
 # 定义默认的PHP5.6的版本
-defaultPHP56Version="5.6.36"
+defaultPHP56Version="5.6.37"
 
 # 定义默认的Nginx的版本
 defaultNginxVersion="1.14.0"
