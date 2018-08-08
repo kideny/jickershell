@@ -1,5 +1,9 @@
 #!/bin/bash
 
+install_ext(){
+
+}
+
 # 安装phalcon所需依赖
 apt-get install - y \
     php5-dev \
