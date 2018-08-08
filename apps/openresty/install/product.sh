@@ -19,8 +19,8 @@ install_openresty_product() {
     servername="wwwjickercn"
 
     #输出提示
-    echo -e "\033[41;37m Please enter the website, the default is: $(servername)  < \033[0m"
-    echo -e "\033[41;37m Example: $(servername) \033[0m"
+    echo -e "\033[41;37m Please enter the website, the default is: ${servername}  < \033[0m"
+    echo -e "\033[41;37m Example: ${servername} \033[0m"
 
     #读取用户输入的hostname，如果hostname为空，则默认为servername
     read -p " --Enter: " hostname
