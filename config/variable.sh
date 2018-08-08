@@ -12,6 +12,9 @@ current_dir=$(pwd)
 # 定义默认安装程序的下载路径
 srcDir="/usr/local/src"
 
+# 定义默认的Phalcon的版本  
+defualtPhalconVersion="3.4.1"
+
 # 定义默认的PHP7.2的版本  
 defaultPHP72Version="7.2.8"
 
