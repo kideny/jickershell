@@ -12,7 +12,7 @@
 
 install__docker() {
     # Uninstall old versions
-    sudo apt-get remove \
+    apt-get remove \
         docker \
         docker.io \
         docker-common \
@@ -21,10 +21,10 @@ install__docker() {
         docker.io
 
     ## Install the latest version of Docker CE
-    sudo apt-get install docker-ce
+    apt-get install docker-ce
 
     ## Start Docker
-    sudo systemctl start docker
+    systemctl start docker
 
     #检查docker的进程是否存在
     dockerVersion=$(docker --version)
