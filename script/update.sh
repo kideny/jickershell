@@ -17,6 +17,7 @@ update() {
         make \
         wget \
         htop \
+        dstat \
         perl \
         openssl \
         composer \
