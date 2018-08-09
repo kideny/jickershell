@@ -116,7 +116,7 @@ install_php72() {
     cp ${srcDir}/php-${phpVersion}/php.ini-production  ${phpDir}/etc/php.ini
 
     #开启Opcache
-    echo  "extension=opcache.so"  >>  ${phpDir}/etc/php.ini
+    echo  "zend_extension=opcache.so"  >>  ${phpDir}/etc/php.ini
 
     #修改php.ini配置
     sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g"  ${phpDir}/etc/php.ini
@@ -179,5 +179,5 @@ install_phalcon(){
     cd  cphalcon/build  &&  ./install
 
     # 修改php7配置文件，开启phalcon扩展
-    echo  "extension=opcache.so"  >>  ${phpDir}/etc/php.ini
+    echo  "zend_extension=phalcon.so"  >>  ${phpDir}/etc/php.ini
 }
