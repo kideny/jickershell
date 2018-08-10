@@ -11,6 +11,7 @@ install_nginx_product() {
 
     #读取用户输入的nginxVersion，如果nginxVersion为空，则默认为defaultVersion
     read -p " --Enter: " hostname
+    
     if [ "$nginxVersion" = "" ]; then
         nginxVersion="$defaultVersion"
     fi

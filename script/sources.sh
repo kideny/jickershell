@@ -115,8 +115,8 @@ EOF
     fi
     
     
-    # Install Node.js 9.x , Using Debian, as root
-    curl -sL https://deb.nodesource.com/setup_9.x | bash -
+    # Install Node.js 10.x , Using Debian, as root
+    curl -sL https://deb.nodesource.com/setup_10.x | bash -
     #apt-get install -y nodejs
 
     echo "Debian Version is ${num}"
