@@ -1,5 +1,5 @@
 #!/bin/bash
-# PHP Version    http://www.php.net/
+
 # Nginx Version  https://nginx.org/en/download.html
 # Openresty Version  https://openresty.org/cn/download.html
 # Docker Version  https://www.docker.com/community-edition#/download
@@ -15,16 +15,10 @@ srcDir="/usr/local/src"
 # 定义默认的Phalcon的版本  
 defualtPhalconVersion="3.4.1"
 
-# 定义默认的PHP7.2的版本  
+# PHP Version    http://www.php.net/
 defaultPHP72Version="7.2.9"
-
-# 定义默认的PHP7.1的版本
 defaultPHP71Version="7.1.21"
-
-# 定义默认的PHP7.0的版本
 defaultPHP70Version="7.0.31"
-
-# 定义默认的PHP5.6的版本
 defaultPHP56Version="5.6.37"
 
 # 定义默认的Nginx的版本
