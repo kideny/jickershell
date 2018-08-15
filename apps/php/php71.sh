@@ -155,4 +155,28 @@ install_php71() {
         #安装成功的欢迎致辞！
         echo "php${phpVersion} install success!";
     fi
+    # 执行php安装扩展的函数
+    install_ext
+}
+
+# php安装扩展的函数
+install_ext(){
+    echo "php${phpVersion} install Start!";
+    install_phalcon
+    echo "php${phpVersion} install End!";
+}
+
+# 安装phalcon扩展
+install_phalcon(){
+    # 进入源码下载目录
+    cd  ${phpDir}
+
+    # git克隆phalcon源码
+    git  clone  git://github.com/phalcon/cphalcon.git
+
+    # 进入安装目录，执行安装程序
+    cd  cphalcon/build  &&  ./install
+
+    # 修改php7配置文件，开启phalcon扩展
+    echo  "zend_extension=phalcon.so"  >>  ${phpDir}/etc/php.ini
 }

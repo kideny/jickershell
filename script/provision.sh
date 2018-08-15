@@ -35,8 +35,7 @@ provision(){
     dpkg -l |grep nginx | awk -F " " '{print $2}' | xargs dpkg -P
 
     # 移除操作系统自带的旧版本软件
-    sudo apt-get remove -y \
-        exim4 \
+    apt-get remove -y \
         apache2 \
         apache2-doc \
         apache2-utils \

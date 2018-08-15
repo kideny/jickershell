@@ -62,20 +62,20 @@ EOF
             deb-src http://nginx.org/packages/debian/  	jessie nginx
 EOF
         # Install packages to allow apt to use a repository over HTTPS:
-        sudo apt-get install \
+        apt-get install \
             apt-transport-https \
             ca-certificates \
             gnupg2 \
             software-properties-common
 
         # Add Docker’s official GPG key
-        curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
+        curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | apt-key add -
 
         # Verify that you now have the key with the fingerprint 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88, by searching for the last 8 characters of the fingerprint.
-        sudo apt-key fingerprint 0EBFCD88
+        apt-key fingerprint 0EBFCD88
 
         # Use the following command to set up the stable repository
-        sudo add-apt-repository \
+        add-apt-repository \
         "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
         $(lsb_release -cs) \
         stable"
@@ -108,15 +108,17 @@ EOF
         #apt-get install -y nodejs
 
         # Install packages to allow apt to use a repository over HTTPS:
-        sudo apt-get install \
+        apt-get install \
             apt-transport-https \
             ca-certificates \
             python-software-properties
     fi
     
     
-    # Install Node.js 9.x , Using Debian, as root
-    curl -sL https://deb.nodesource.com/setup_9.x | bash -
+    # Install Node.js 10.x , Using Debian, as root
+    curl -sL https://deb.nodesource.com/setup_10.x | bash -
     #apt-get install -y nodejs
+
+    echo "Debian Version is ${num}"
 
 }

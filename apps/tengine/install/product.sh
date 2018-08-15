@@ -3,7 +3,7 @@
 install_tengine_product() {
 
     #安装Tengine的依赖库
-    apt-get -y install \
+    apt-get install \
         libpcre3-dev \
         zlib1g-dev \
         libssl-dev \
@@ -21,6 +21,7 @@ install_tengine_product() {
 
     #读取用户输入的tengineVersion，如果tengineVersion为空，则默认为defaultVersion
     read -p " --Enter: " tengineVersion
+    
     if [ "${tengineVersion}" = "" ]; then
         tengineVersion="${defaultVersion}"
     fi

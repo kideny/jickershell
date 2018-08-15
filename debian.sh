@@ -30,7 +30,8 @@ update
 
 # 第五步：加载安装脚本并选择要安装的组件
 
-# 加载各种安装脚本
+# 加载各种应用程序的安装脚本
+. apps/caddy/install/caddy.sh
 . apps/docker/install/docker.sh
 . apps/docker/install/compose.sh
 . apps/nginx/install/proxy.sh
