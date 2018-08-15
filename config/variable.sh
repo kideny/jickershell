@@ -16,10 +16,10 @@ srcDir="/usr/local/src"
 defualtPhalconVersion="3.4.1"
 
 # 定义默认的PHP7.2的版本  
-defaultPHP72Version="7.2.8"
+defaultPHP72Version="7.2.9"
 
 # 定义默认的PHP7.1的版本
-defaultPHP71Version="7.1.20"
+defaultPHP71Version="7.1.21"
 
 # 定义默认的PHP7.0的版本
 defaultPHP70Version="7.0.31"
