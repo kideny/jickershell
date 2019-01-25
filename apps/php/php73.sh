@@ -1,6 +1,6 @@
 #!/bin/bash
 
-install_php7() {
+install_php73() {
 
     #定义环境变量
     PATH=/usr/local/php7/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/bin
@@ -30,7 +30,7 @@ install_php7() {
     service nginx stop
 
     #定义默认安装程序的版本
-    defaultVersion=${defaultPHP70Version}
+    defaultVersion=${defaultPHP73Version}
 
     #定义进程的名称
     procName="php-fpm7.3"
