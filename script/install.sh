@@ -13,9 +13,9 @@ install() {
     echo "-------------------------------------------------------------------------"
     echo ""
     echo "  11: Install  PHP5.6  "
-    echo "  12: Install  PHP7.0  "
-    echo "  13: Install  PHP7.1  "
-    echo "  14: Install  PHP7.2  "
+    echo "  12: Install  PHP7.1  "
+    echo "  13: Install  PHP7.2  "
+    echo "  14: Install  PHP7.3  "
     echo ""
     echo "-------------------------------------------------------------------------"
     echo ""
@@ -31,9 +31,9 @@ install() {
     echo ""
     echo "-------------------------------------------------------------------------"
     echo ""
-    echo "  7001:  Install  Tengine  +  PHP7  "
-    echo "  7002:  Install  Nginx  +  PHP7  "
-    echo "  7003:  Install  OpenResty  +  PHP7  "
+    echo "  7301:  Install  Tengine  +  PHP73  "
+    echo "  7302:  Install  Nginx  +  PHP73  "
+    echo "  7303:  Install  OpenResty  +  PHP73  "
     echo ""
     echo "-------------------------------------------------------------------------"
     echo ""
@@ -63,13 +63,13 @@ install() {
             install_php56
             ;;
         12)
-            install_php7
-            ;;
-        13)
             install_php71
             ;;
-        14)
+        13)
             install_php72
+            ;;
+        14)
+            install_php73
             ;;
         7201)
             install_tengine_product
@@ -95,17 +95,17 @@ install() {
             install_openresty_product
             install_php71
             ;;
-        7001)
+        7301)
             install_tengine_product
-            install_php7
+            install_php73
             ;;
-        7002)
+        7302)
             install_nginx_product
-            install_php7
+            install_php73
             ;;
-        7003)
+        7303)
             install_openresty_product
-            install_php7
+            install_php73
             ;;
         561)
             install_tengine_product

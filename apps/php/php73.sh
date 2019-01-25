@@ -6,7 +6,7 @@ install_php7() {
     PATH=/usr/local/php7/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/bin
     export PATH
 
-    #安装PHP7.0的依赖库
+    #安装PHP7.3的依赖库
     apt-get install \
         libxml2-dev \
         libcurl4-openssl-dev \
@@ -33,7 +33,7 @@ install_php7() {
     defaultVersion=${defaultPHP70Version}
 
     #定义进程的名称
-    procName="php-fpm7.0"
+    procName="php-fpm7.3"
 
     #输出提示，用户可以自定义自己要安装的版本好，覆盖默认安装的版本好
     echo -e "\033[41;37m Please enter the php version, the default is: ${defaultVersion}  < \033[0m"
