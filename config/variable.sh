@@ -16,9 +16,9 @@ srcDir="/usr/local/src"
 defualtPhalconVersion="3.4.1"
 
 # PHP Version    http://www.php.net/
-defaultPHP70Version="7.3.1"
-defaultPHP72Version="7.2.14"
-defaultPHP71Version="7.1.26"
+defaultPHP70Version="7.3.3"
+defaultPHP72Version="7.2.16"
+defaultPHP71Version="7.1.27"
 defaultPHP56Version="5.6.40"
 
 # 定义默认的Nginx的版本
