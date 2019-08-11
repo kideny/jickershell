@@ -38,9 +38,9 @@ update
 . apps/nginx/install/product.sh
 . apps/openresty/install/proxy.sh
 . apps/openresty/install/product.shdd
-. apps/php/php7.sh
 . apps/php/php71.sh
 . apps/php/php72.sh
+. apps/php/php73.sh
 
 #第六步：安装应用
 
