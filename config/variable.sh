@@ -17,18 +17,15 @@ defualtPhalconVersion="3.4.1"
 
 # PHP Version    http://www.php.net/
 defaultPHP70Version="7.3.3"
-defaultPHP72Version="7.2.16"
-defaultPHP71Version="7.1.27"
+defaultPHP72Version="7.2.21"
+defaultPHP71Version="7.1.31"
 defaultPHP56Version="5.6.40"
 
-# 定义默认的Nginx的版本
-defaultNginxVersion="1.14.0"
+# 定义默认的Nginx的版本 http://nginx.org/en/download.html
+defaultNginxVersion="1.16.0"
 
-# 定义默认的Openresty的版本
-defaultOpenrestyVersion="1.13.6.2"
-
-# 定义默认的Tengine的版本
-defaultTengineVersion="2.2.1"
+# 定义默认的Openresty的版本 http://openresty.org/cn/download.html
+defaultOpenrestyVersion="1.15.8.1"
 
 # 定义默认安装的Docker Compose的版本
 defaultDockerCompose="1.21.2"

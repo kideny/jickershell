@@ -37,10 +37,7 @@ update
 . apps/nginx/install/proxy.sh
 . apps/nginx/install/product.sh
 . apps/openresty/install/proxy.sh
-. apps/openresty/install/product.sh
-. apps/tengine/install/proxy.sh
-. apps/tengine/install/product.sh
-. apps/php/php56.sh
+. apps/openresty/install/product.shdd
 . apps/php/php7.sh
 . apps/php/php71.sh
 . apps/php/php72.sh
