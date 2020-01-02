@@ -1,0 +1,40 @@
+1270.0.0.1:80 {
+    root /var/www/website/public
+    fastcgi / php-fpm:9000 php {
+        index index.php
+    }
+
+    # To handle .html extensions with laravel change ext to
+    # ext / .html
+
+    # phalcon rewrite
+    rewrite {
+        r (.*)
+        to {path} {path}/  /index.php?_url={1}
+        #to {path} {path}/  /index.php?_url={uri} 
+    }
+
+    # laravel rewrite
+    #rewrite {
+    #    to {path} {path}/ /index.php?{query}
+    #}
+
+    gzip {
+        level 1
+        not   /images /videos
+    }
+
+    browse
+    
+    log /var/log/caddy/access.log
+    errors /var/log/caddy/error.log
+    # Uncomment to enable TLS (HTTPS)
+    # Change the first list to listen on port 443 when enabling TLS
+    #tls self_signed
+
+    # To use Lets encrpt tls with a DNS provider uncomment these
+    # lines and change the provider as required
+    #tls {
+    #  dns cloudflare
+    #}
+}
