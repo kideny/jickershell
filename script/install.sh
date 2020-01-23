@@ -11,14 +11,14 @@ install() {
     echo ""
     echo "-------------------------------------------------------------------------"
     echo ""
-    echo "  12: Install  PHP7.1  "
-    echo "  13: Install  PHP7.2  "
-    echo "  14: Install  PHP7.3  "
+    echo "  12: Install  PHP7.2  "
+    echo "  13: Install  PHP7.3  "
+    echo "  14: Install  PHP7.4  "
     echo ""
     echo "-------------------------------------------------------------------------"
     echo ""
-    echo "  7102:  Install  Nginx  +  PHP71  "
-    echo "  7103:  Install  OpenResty  +  PHP71  "
+    echo "  7402:  Install  Nginx  +  PHP74  "
+    echo "  7403:  Install  OpenResty  +  PHP74  "
     echo ""
     echo "-------------------------------------------------------------------------"
     echo ""
@@ -46,29 +46,21 @@ install() {
             install_openresty_proxy
             ;;
         12)
-            install_php71
+            install_php72
             ;;
         13)
-            install_php72
-            ;;
-        14)
             install_php73
             ;;
-        7102)
+        14)
+            install_php74
+            ;;
+        7402)
             install_nginx_product
-            install_php72
+            install_php74
             ;;
-        7103)
+        7403)
             install_openresty_product
-            install_php71
-            ;;
-        7202)
-            install_nginx_product
-            install_php72
-            ;;
-        7203)
-            install_openresty_product
-            install_php72
+            install_php74
             ;;
         7302)
             install_nginx_product
@@ -77,6 +69,14 @@ install() {
         7303)
             install_openresty_product
             install_php73
+            ;;
+        7202)
+            install_nginx_product
+            install_php72
+            ;;
+        7203)
+            install_openresty_product
+            install_php72
             ;;
         * )
             exit 1

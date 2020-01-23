@@ -10,7 +10,7 @@ install__caddy() {
     curl https://getcaddy.com | bash
 
     #检查docker的进程是否存在
-    caddyVersion=$(caddy --version)
+    caddyVersion = $(caddy --version)
 
     if [ "${caddyVersion}" = "" ]; 
         #安装失败的欢迎致辞！

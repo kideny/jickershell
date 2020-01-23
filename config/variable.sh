@@ -11,12 +11,12 @@ current_dir=$(pwd)
 srcDir="/usr/local/src"
 
 # Phalcon Version https://github.com/phalcon/cphalcon/releases
-defualtPhalconVersion="3.4.4"
+defualtPhalconVersion="3.4.5"
 
 # PHP Version http://www.php.net/
-defaultPHP70Version="7.3.11"
-defaultPHP72Version="7.2.24"
-defaultPHP71Version="7.1.33"
+defaultPHP72Version="7.2.26"
+defaultPHP73Version="7.3.13"
+defaultPHP741Version="7.4.1"
 
 # 定义默认的Nginx的版本 http://nginx.org/en/download.html
 defaultNginxVersion="1.16.0"

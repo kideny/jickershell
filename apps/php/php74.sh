@@ -1,9 +1,9 @@
 #!/bin/bash
 
-install_php71() {
+install_php74() {
 
     #定义环境变量
-    PATH=/usr/local/php71/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/bin
+    PATH=/usr/local/php74/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/bin
     export PATH
 
     #安装PHP7.1的依赖库
@@ -30,7 +30,7 @@ install_php71() {
     service nginx stop
 
     #定义默认安装程序的下载路径
-    defaultVersion=${defaultPHP71Version}
+    defaultVersion=${defaultPHP74Version}
 
     #定义进程的名称
     procName="php-fpm7.1"
@@ -48,7 +48,7 @@ install_php71() {
     fi
 
     #定义默认安装的php路径
-    defaultDir="/usr/local/php71"
+    defaultDir="/usr/local/php74"
 
     #输出提示，用户可以自定义自己要安装的路径，覆盖默认定义的安装路径
     echo -e "\033[41;37m Please enter the install dir, the default dir is: $defaultDir  < \033[0m"
